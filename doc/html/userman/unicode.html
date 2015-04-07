@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6. Using Unicode with MySQL++</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.1 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.1 User Manual"><link rel="prev" href="ssqls.html" title="5. Specialized SQL Structures"><link rel="next" href="threads.html" title="7. Using MySQL++ in a Multithreaded Program"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6. Using Unicode with MySQL++</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ssqls.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="threads.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="unicode"></a>6. Using Unicode with MySQL++</h2></div></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="unicode-history"></a>6.1. A Short History of Unicode</h3></div><div><h4 class="subtitle">...with a focus on relevance to MySQL++</h4></div></div></div><p>In the old days, computer operating systems only dealt with
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>6. Using Unicode with MySQL++</title><link rel="stylesheet" type="text/css" href="tangentsoft.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="MySQL++ v3.2.2 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.2 User Manual"><link rel="prev" href="ssqls.html" title="5. Specialized SQL Structures"><link rel="next" href="threads.html" title="7. Using MySQL++ in a Multithreaded Program"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6. Using Unicode with MySQL++</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ssqls.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="threads.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="unicode"></a>6. Using Unicode with MySQL++</h2></div></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="unicode-history"></a>6.1. A Short History of Unicode</h3></div><div><h4 class="subtitle">...with a focus on relevance to MySQL++</h4></div></div></div><p>In the old days, computer operating systems only dealt with
     8-bit character sets. That only allows for 256 possible characters,
     but the modern Western languages have more characters combined than
     that alone. Add in all the other languages of the world plus the
@@ -28,10 +28,10 @@
     so they share the same practical limitations. MySQL++ currently
     doesn't have any code in it for Unicode conversions; it just
     passes data along unchanged from the underlying MySQL C API,
-    so you still need to be aware of these underlying issues.</p><p>During the development of the <a href="http://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs" target="_top">Plan
+    so you still need to be aware of these underlying issues.</p><p>During the development of the <a class="ulink" href="http://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs" target="_top">Plan
     9</a> operating system (a kind of successor to Unix) Ken
-    Thompson <a href="http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt" target="_top">invented</a>
-    the <a href="http://en.wikipedia.org/wiki/UTF-8" target="_top">UTF-8
+    Thompson <a class="ulink" href="http://www.cl.cam.ac.uk/~mgk25/ucs/utf-8-history.txt" target="_top">invented</a>
+    the <a class="ulink" href="http://en.wikipedia.org/wiki/UTF-8" target="_top">UTF-8
     encoding</a>. UTF-8 is a superset of 7-bit ASCII and is
     compatible with C strings, since it doesn&#8217;t use 0 bytes
     anywhere as multi-byte Unicode encodings do. As a result, many
@@ -40,7 +40,7 @@
     to see how the design of UTF-8 allows this.) Thus, when explicit
     support for Unicode was added in MySQL v4.1, they chose to make
     UTF-8 the native encoding, to preserve backward compatibility with
-    programs that had no Unicode support.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="unicode-unix"></a>6.2. Unicode on Unixy Systems</h3></div></div></div><p>Linux and Unix have system-wide UTF-8 support these days. If
+    programs that had no Unicode support.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="unicode-unix"></a>6.2. Unicode on Unixy Systems</h3></div></div></div><p>Linux and Unix have system-wide UTF-8 support these days. If
     your operating system is of 2001 or newer vintage, it probably has
     such support.</p><p>On such a system, the terminal I/O code understands UTF-8
     encoded data, so your program doesn&#8217;t require any special code
@@ -55,17 +55,17 @@
     data to the local 8-bit character set. The standard Unix function
     <code class="function">iconv()</code> can help here. If your system
     doesn&#8217;t have the <code class="function">iconv()</code> facility, there
-    is <a href="http://www.gnu.org/software/libiconv/" target="_top">a free
+    is <a class="ulink" href="http://www.gnu.org/software/libiconv/" target="_top">a free
     implementation</a> available from the GNU Project. Another
-    library you might check out is IBM&#8217;s <a href="http://icu.sourceforge.net/" target="_top">ICU</a>. This is rather
+    library you might check out is IBM&#8217;s <a class="ulink" href="http://icu.sourceforge.net/" target="_top">ICU</a>. This is rather
     heavy-weight, so if you just need basic conversions,
-    <code class="function">iconv()</code> should suffice.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="unicode-windows"></a>6.3. Unicode on Windows</h3></div></div></div><p>Each Windows API function that takes a string actually comes
+    <code class="function">iconv()</code> should suffice.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="unicode-windows"></a>6.3. Unicode on Windows</h3></div></div></div><p>Each Windows API function that takes a string actually comes
     in two versions. One version supports only 1-byte
     &#8220;ANSI&#8221; characters (a superset of ASCII), so they end
     in 'A'. Windows also supports the 2-byte subset of Unicode called
-    <a href="http://en.wikipedia.org/wiki/UCS-2" target="_top">UCS-2</a><sup>[<a name="idp10038160" href="#ftn.idp10038160">17</a>]</sup>. Some call these
+    <a class="ulink" href="http://en.wikipedia.org/wiki/UCS-2" target="_top">UCS-2</a><a href="#ftn.idm47108350625392" class="footnote" name="idm47108350625392"><sup class="footnote">[17]</sup></a>. Some call these
     &#8220;wide&#8221; characters, so the other set of functions end
-    in 'W'. The <code class="function"><a href="http://msdn.microsoft.com/library/en-us/winui/winui/windowsuserinterface/windowing/dialogboxes/dialogboxreference/dialogboxfunctions/messagebox.asp" target="_top">MessageBox</a>()</code>
+    in 'W'. The <code class="function"><a class="ulink" href="http://msdn.microsoft.com/library/en-us/winui/winui/windowsuserinterface/windowing/dialogboxes/dialogboxreference/dialogboxfunctions/messagebox.asp" target="_top">MessageBox</a>()</code>
     API, for instance, is actually a macro, not a real function. If you
     define the <span class="symbol">UNICODE</span> macro when building your
     program, the <code class="function">MessageBox()</code> macro evaluates to
@@ -119,12 +119,12 @@ System::Void ToUTF8(char* pcOut, int nOutLen, String^ sIn)
     Windows 95 and its descendants (98, ME, and CE) do not support
     Unicode. They still have the 'W' APIs for compatibility, but they
     just smash the data down to 8-bit and call the 'A' version for
-    you.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="unicode-refs"></a>6.4. For More Information</h3></div></div></div><p>The <a href="http://www.unicode.org/faq/" target="_top">Unicode
+    you.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="unicode-refs"></a>6.4. For More Information</h3></div></div></div><p>The <a class="ulink" href="http://www.unicode.org/faq/" target="_top">Unicode
       FAQs</a> page has copious information on this complex
-      topic.</p><p>When it comes to Unix and UTF-8 specific items, the <a href="http://www.cl.cam.ac.uk/~mgk25/unicode.html" target="_top">UTF-8 and
+      topic.</p><p>When it comes to Unix and UTF-8 specific items, the <a class="ulink" href="http://www.cl.cam.ac.uk/~mgk25/unicode.html" target="_top">UTF-8 and
       Unicode FAQ for Unix/Linux</a> is a quicker way to find basic
-      information.</p></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.idp10038160" href="#idp10038160">17</a>] </sup>Since
-    Windows XP, Windows actually uses the <a href="http://en.wikipedia.org/wiki/UTF-16" target="_top">UTF-16</a> encoding,
+      information.</p></div><div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.idm47108350625392" class="footnote"><p><a href="#idm47108350625392" class="para"><sup class="para">[17] </sup></a>Since
+    Windows XP, Windows actually uses the <a class="ulink" href="http://en.wikipedia.org/wiki/UTF-16" target="_top">UTF-16</a> encoding,
     not UCS-2.  This means that if you use characters beyond the 16-bit
     &#8220;BMP&#8221; range, they get encoded as 4-byte characters. But
     again, since the most economically valuable subset of Unicode is the

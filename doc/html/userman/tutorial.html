@@ -1,11 +1,11 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3. Tutorial</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.1 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.1 User Manual"><link rel="prev" href="overview.html" title="2. Overview"><link rel="next" href="tquery.html" title="4. Template Queries"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3. Tutorial</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="overview.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="tquery.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tutorial"></a>3. Tutorial</h2></div></div></div><p>The <a href="overview.html" title="2. Overview">previous chapter</a> introduced
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3. Tutorial</title><link rel="stylesheet" type="text/css" href="tangentsoft.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="MySQL++ v3.2.2 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.2 User Manual"><link rel="prev" href="overview.html" title="2. Overview"><link rel="next" href="tquery.html" title="4. Template Queries"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3. Tutorial</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="overview.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="tquery.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tutorial"></a>3. Tutorial</h2></div></div></div><p>The <a class="link" href="overview.html" title="2. Overview">previous chapter</a> introduced
   the major top-level mechanisms in MySQL++. Now we&#8217;ll dig down a
   little deeper and get into real examples. We start off with the basics
   that every MySQL++ program will have to deal with, then work up to
   more complex topics that are still widely interesting. You can stop
   reading the manual after this chapter and still get a lot out of
   MySQL++, ignoring the more advanced parts we present in later
-  chapters.</p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="examples"></a>3.1. Running the Examples</h3></div></div></div><p>All of the examples are complete running programs. If you
+  chapters.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="examples"></a>3.1. Running the Examples</h3></div></div></div><p>All of the examples are complete running programs. If you
     built the library from source, the examples should have been built
     as well. If you use RPMs instead, the example programs&#8217; source
     code and a simplified <code class="filename">Makefile</code> are in the
@@ -31,21 +31,21 @@
     <code class="filename">exrun</code> helper, which sets up the library search
     path so that it will use the as-yet uninstalled version of the
     MySQL++ library in preference to any other on your system:</p><pre class="screen">./exrun resetdb [-s server_addr] [-u user] [-p password]</pre><p>That&#8217;s the typical form for a Unixy system. You leave
-    off the <span><strong class="command">./</strong></span> bit on Windows. You can leave it
+    off the <span class="command"><strong>./</strong></span> bit on Windows. You can leave it
     off on a Unixy system, too, if you have <code class="filename">.</code>
     in your <code class="varname">PATH</code>. (Not a recommendation, just
     an observation.)</p><p>All of the program arguments are optional.</p><p>If you don&#8217;t give <code class="option">-s</code>,
-    the underlying MySQL C API (a.k.a. <a href="https://dev.mysql.com/downloads/connector/c/" target="_top">Connector/C</a>)
+    the underlying MySQL C API (a.k.a. <a class="ulink" href="https://dev.mysql.com/downloads/connector/c/" target="_top">Connector/C</a>)
     assumes the server is on the local machine. It chooses
     one of several different IPC options based on the platform
     configuration. There are many different forms you can give
     as <code class="varname">server_addr</code> with <code class="option">-s</code> to
-    override this default behavior:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="emphasis"><em>localhost</em></span> &#8212; this is the
-        default; it doesn&#8217;t buy you anything</p></li><li><p>On Windows, a simple period tells the underlying MySQL C
-        API to use named pipes, if it&#8217;s available.</p></li><li><p><span class="emphasis"><em>172.20.0.252:12345</em></span> &#8212; this would
+    override this default behavior:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p><span class="emphasis"><em>localhost</em></span> &#8212; this is the
+        default; it doesn&#8217;t buy you anything</p></li><li class="listitem"><p>On Windows, a simple period tells the underlying MySQL C
+        API to use named pipes, if it&#8217;s available.</p></li><li class="listitem"><p><span class="emphasis"><em>172.20.0.252:12345</em></span> &#8212; this would
         connect to IP address
         <code class="computeroutput">172.20.0.252</code> on TCP port
-        <code class="computeroutput">12345</code>.</p></li><li><p><span class="emphasis"><em>my.server.name:svc_name</em></span> &#8212; this
+        <code class="computeroutput">12345</code>.</p></li><li class="listitem"><p><span class="emphasis"><em>my.server.name:svc_name</em></span> &#8212; this
         would first look up TCP service name
         <code class="computeroutput">svc_name</code> in your system&#8217;s
         network services database (<code class="filename">/etc/services</code> on
@@ -70,11 +70,11 @@
     database:</p><pre class="screen">
 CREATE USER mysqlpp_test@'%' IDENTIFIED BY &#8217;nunyabinness';
 GRANT ALL PRIVILEGES ON mysql_cpp_data.* TO mysqlpp_test@'%';</pre><p>You could then create the sample database with the following
-    command:</p><pre class="screen">./exrun resetdb -u mysqlpp_test -p nunyabinness</pre><p>(Again, leave off the <span><strong class="command">./</strong></span> bit on
+    command:</p><pre class="screen">./exrun resetdb -u mysqlpp_test -p nunyabinness</pre><p>(Again, leave off the <span class="command"><strong>./</strong></span> bit on
     Windows.)</p><p>You may have to re-run <code class="filename">resetdb</code> after
     running some of the other examples, as they change the
     database.</p><p>See <code class="filename">README-examples.txt</code> for more
-    details on running the examples.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="simple"></a>3.2. A Simple Example</h3></div></div></div><p>The following example demonstrates how to open a connection,
+    details on running the examples.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="simple"></a>3.2. A Simple Example</h3></div></div></div><p>The following example demonstrates how to open a connection,
     execute a simple query, and display the results. This is
     <code class="filename">examples/simple1.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
 #include "printdata.h"
@@ -136,7 +136,7 @@ main(int argc, char *argv[])
     the examples a consistent interface, not to hide important details.
     You can treat it like a black box: it takes <code class="varname">argc</code>
     and <code class="varname">argv</code> as inputs and sends back database
-    connection parameters.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="simple2"></a>3.3. A More Complicated Example</h3></div></div></div><p>The <code class="filename">simple1</code> example above was pretty
+    connection parameters.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="simple2"></a>3.3. A More Complicated Example</h3></div></div></div><p>The <code class="filename">simple1</code> example above was pretty
     trivial. Let&#8217;s get a little deeper. Here is
     <code class="filename">examples/simple2.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
 #include "printdata.h"
@@ -200,7 +200,7 @@ main(int argc, char *argv[])
 </pre><p>The main point of this example is that we&#8217;re accessing
     fields in the row objects by name, instead of index. This is slower,
     but obviously clearer. We&#8217;re also printing out the entire
-    table, not just one column.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="exceptions"></a>3.4. Exceptions</h3></div></div></div><p>By default, MySQL++ uses exceptions to signal errors.
+    table, not just one column.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="exceptions"></a>3.4. Exceptions</h3></div></div></div><p>By default, MySQL++ uses exceptions to signal errors.
     We&#8217;ve been suppressing this in all the examples so far by
     passing <span class="symbol">false</span> to
     <code class="classname">Connection</code>&#8217;s constructor. This kept
@@ -259,7 +259,7 @@ main(int argc, char *argv[])
     on the wrong object. The exception thrower could be unrelated to
     the object you disabled exceptions on, it could be its parent,
     or it could be a child created before you disabled optional
-    exceptions.</p><p>MySQL++ throws some exceptions unconditionally:</p><div class="itemizedlist"><ul type="disc"><li><p>MySQL++ checks array indices,
+    exceptions.</p><p>MySQL++ throws some exceptions unconditionally:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>MySQL++ checks array indices,
       always.  For instance, if your code said
       &#8220;<code class="varname">row[21]</code>&#8221; on a
       row containing only 5 fields, you&#8217;d get a
@@ -271,23 +271,23 @@ main(int argc, char *argv[])
       to the STL containers underpinning it, so you could get
       <code class="classname">std::range_error</code> instead. As of MySQL++
       v3.0.7, this should no longer happen, but there may be instances
-      where it still does.</p></li><li><p><tt><a href="../refman/classmysqlpp_1_1String.html">String</a></tt> will always
+      where it still does.</p></li><li class="listitem"><p><tt><a href="../refman/classmysqlpp_1_1String.html">String</a></tt> will always
       throw <tt><a href="../refman/classmysqlpp_1_1BadConversion.html">BadConversion</a></tt> when you ask it
       to do an improper type conversion. For example, you&#8217;ll get
       an exception if you try to convert &#8220;1.25&#8221; to
       <span class="type">int</span>, but not when you convert &#8220;1.00&#8221; to
       <span class="type">int</span>. In the latter case, MySQL++ knows that it can
-      safely throw away the fractional part.</p></li><li><p>If you use template queries and don&#8217;t pass
+      safely throw away the fractional part.</p></li><li class="listitem"><p>If you use template queries and don&#8217;t pass
       enough parameters when instantiating the template,
-      <code class="classname">Query</code> will throw a <tt><a href="../refman/classmysqlpp_1_1BadParamCount.html">BadParamCount</a></tt> exception.</p></li><li><p>If you use a C++ data type in a query
+      <code class="classname">Query</code> will throw a <tt><a href="../refman/classmysqlpp_1_1BadParamCount.html">BadParamCount</a></tt> exception.</p></li><li class="listitem"><p>If you use a C++ data type in a query
       that MySQL++ doesn&#8217;t know to convert to SQL, MySQL++
       will throw a <tt><a href="../refman/classmysqlpp_1_1TypeLookupFailed.html">TypeLookupFailed</a></tt>
-      exception. It typically happens with <a href="ssqls.html" title="5. Specialized SQL Structures">Section 5, &#8220;Specialized SQL Structures&#8221;</a>,
+      exception. It typically happens with <a class="xref" href="ssqls.html" title="5. Specialized SQL Structures">Section 5, &#8220;Specialized SQL Structures&#8221;</a>,
       especially when using data types other than the ones defined
       in <code class="filename">lib/sql_types.h</code>.</p></li></ul></div><p>It&#8217;s educational to modify the examples to force
     exceptions. For instance, misspell a field name, use an out-of-range
     index, or change a type to force a <code class="classname">String</code>
-    conversion error.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="qescape"></a>3.5. Quoting and Escaping</h3></div></div></div><p>SQL syntax often requires certain data to be quoted. Consider
+    conversion error.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="qescape"></a>3.5. Quoting and Escaping</h3></div></div></div><p>SQL syntax often requires certain data to be quoted. Consider
     this query:</p><pre class="programlisting">
 SELECT * FROM stock WHERE item = 'Hotdog Buns' </pre><p>Because the string &#8220;Hotdog Buns&#8221; contains a space,
     it must be quoted. With MySQL++, you don&#8217;t have to add these
@@ -297,7 +297,7 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote_only &lt;&lt; 
     example. We used the MySQL++ <span class="type">quote_only</span> manipulator,
     which causes single quotes to be added around the next item inserted
     into the stream. This works for any type of data that can be
-    converted to MySQL++&#8217;s <tt><a href="../refman/classmysqlpp_1_1SQLTypeAdapter.html">SQLTypeAdapter</a></tt> type, plus the <tt><a href="../refman/classmysqlpp_1_1Set.html">Set</a></tt> template. <a href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a> also uses these manipulators
+    converted to MySQL++&#8217;s <tt><a href="../refman/classmysqlpp_1_1SQLTypeAdapter.html">SQLTypeAdapter</a></tt> type, plus the <tt><a href="../refman/classmysqlpp_1_1Set.html">Set</a></tt> template. <a class="link" href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a> also uses these manipulators
     internally.</p><p>Quoting is pretty simple, but SQL syntax also often requires
     that certain characters be &#8220;escaped&#8221;. Imagine if the
     string in the previous example was &#8220;Frank&#8217;s Brand Hotdog
@@ -309,11 +309,11 @@ SELECT * FROM stock WHERE item = 'Frank''s Brand Hotdog Buns' </pre><p>As you mi
     manipulator:</p><pre class="programlisting">
 string s = "Frank&#8217;s Brand Hotdog Buns";
 query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </pre><p>The <span class="type">quote</span> manipulator both quotes strings and
-    escapes any characters that are special in SQL.</p><p>MySQL++ provides other manipulators as well. See the <a href="../refman/manip_8h.html" target="_top">manip.h</a> page in the <a href="../refman/index.html" target="_top">reference manual</a>.</p><p>It&#8217;s important to realize that MySQL++&#8217;s quoting
+    escapes any characters that are special in SQL.</p><p>MySQL++ provides other manipulators as well. See the <a class="ulink" href="../refman/manip_8h.html" target="_top">manip.h</a> page in the <a class="ulink" href="../refman/index.html" target="_top">reference manual</a>.</p><p>It&#8217;s important to realize that MySQL++&#8217;s quoting
     and escaping mechanism is type-aware. Manipulators have no effect
     unless you insert the manipulator into a
     <code class="classname">Query</code> or <tt><a href="../refman/classmysqlpp_1_1SQLQueryParms.html">SQLQueryParms</a></tt> stream.
-    <sup>[<a name="idp10276688" href="#ftn.idp10276688">2</a>]</sup> Also, values are only quoted and/or
+    <a href="#ftn.idm47108348350992" class="footnote" name="idm47108348350992"><sup class="footnote">[2]</sup></a> Also, values are only quoted and/or
     escaped if they are of a data type that may need it. For example,
     <tt><a href="../refman/structmysqlpp_1_1Date.html">Date</a></tt> must be quoted but
     never needs to be escaped, and integer types need neither quoting
@@ -321,35 +321,35 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </
     commands: MySQL++ will ignore these suggestions if it knows it
     won&#8217;t result in syntactically-incorrect SQL.</p><p>It&#8217;s also important to realize that quoting and escaping
     in <code class="classname">Query</code> streams and template queries is
-    never implicit.<sup>[<a name="idp10280096" href="#ftn.idp10280096">3</a>]</sup> You must use
+    never implicit.<a href="#ftn.idm47108348347408" class="footnote" name="idm47108348347408"><sup class="footnote">[3]</sup></a> You must use
     manipulators and template query flags as necessary to tell MySQL++
     where quoting and escaping is necessary. It would be nice if MySQL++
     could do quoting and escaping implicitly based on data type, but
-    this isn&#8217;t possible in all cases.<sup>[<a name="whyexpmanip" href="#ftn.whyexpmanip">4</a>]</sup> Since
+    this isn&#8217;t possible in all cases.<a href="#ftn.whyexpmanip" class="footnote" name="whyexpmanip"><sup class="footnote">[4]</sup></a> Since
     MySQL++ can&#8217;t reliably guess when quoting and escaping is
     appropriate, and the programmer doesn&#8217;t need
-    to<sup>[<a name="idp10285312" href="#ftn.idp10285312">5</a>]</sup>, MySQL++ makes you
-    tell it.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="sql-types"></a>3.6. C++ vs. SQL Data Types</h3></div></div></div><p>The C++ and SQL data type systems have several differences
+    to<a href="#ftn.idm47108348341904" class="footnote" name="idm47108348341904"><sup class="footnote">[5]</sup></a>, MySQL++ makes you
+    tell it.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="sql-types"></a>3.6. C++ vs. SQL Data Types</h3></div></div></div><p>The C++ and SQL data type systems have several differences
     that can cause problems when using MySQL++, or any other SQL
     based system, for that matter.</p><p>Most of the data types you can store in a SQL database are
     either numbers or text strings. If you&#8217;re only looking at
     the data going between the database server and your application,
     there aren&#8217;t even numbers: SQL is a textual language, so
     numbers and everything else gets transferred between the client
-    and the database server in text string form.<sup>[<a name="idp10288544" href="#ftn.idp10288544">6</a>]</sup> Consequently, MySQL++
-    has a lot of <a href="tutorial.html#string-types" title="3.8. MySQL++&#8217;s Special String Types">special support</a>
+    and the database server in text string form.<a href="#ftn.idm47108348338352" class="footnote" name="idm47108348338352"><sup class="footnote">[6]</sup></a> Consequently, MySQL++
+    has a lot of <a class="link" href="tutorial.html#string-types" title="3.8. MySQL++&#8217;s Special String Types">special support</a>
     for text strings, and can translate to several C++ numeric data
     types transparently.</p><p>Some people worry that this translation via an intermediate
     string form will cause data loss. Obviously the text string data
     types are immune from problems in this regard. We&#8217;re also
-    confident that MySQL++ translates <a href="tutorial.html#blob" title="3.9. Dealing with Binary Data">BLOB</a>
+    confident that MySQL++ translates <a class="link" href="tutorial.html#blob" title="3.9. Dealing with Binary Data">BLOB</a>
     and integer data types losslessly.</p><p>The biggest worry is with floating-point numbers. (The FLOAT
     and DOUBLE SQL data types.) We did have a problem with this in
     older versions of MySQL++, but we believe we fixed it completely
     in v3.0.2. No one has since proven data loss via this path. There
     is still a known problem
 
-    <sup>[<a name="idp10292864" href="#ftn.idp10292864">7</a>]</sup>
+    <a href="#ftn.idm47108348333776" class="footnote" name="idm47108348333776"><sup class="footnote">[7]</sup></a>
 
     with the SQL DECIMAL type, which is somewhat related to the
     floating-point issue, but it&#8217;s apparently rarely encountered,
@@ -360,7 +360,7 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </
     end with a lowercase version of the standard SQL type name,
     with spaces replaced by underscores. There are variants
     ending in <span class="type">_null</span> that wrap these base types
-    so they&#8217;re <a href="tutorial.html#sql-null" title="3.7. Handling SQL Nulls">compatible with
+    so they&#8217;re <a class="link" href="tutorial.html#sql-null" title="3.7. Handling SQL Nulls">compatible with
     SQL null</a>. For instance, the SQL type <span class="type">TINYINT
     UNSIGNED NOT NULL</span> is represented in MySQL++ by
     <code class="classname">mysqlpp::sql_tinyint_unsigned</code>. If you drop
@@ -370,14 +370,14 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </
     so you could probably use <span class="type">int</span> anywhere you
     use <code class="classname">mysqlpp::sql_tinyint_unsigned</code>,
     for example. That said, the MySQL++ typedefs give several
-    advantages:</p><div class="itemizedlist"><ul type="disc"><li><p>Space efficiency: the MySQL++ types are no
-      larger than necessary to hold the MySQL data.</p></li><li><p>Portability: if your program has to run on
+    advantages:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>Space efficiency: the MySQL++ types are no
+      larger than necessary to hold the MySQL data.</p></li><li class="listitem"><p>Portability: if your program has to run on
       multiple different system types (even just 32- and 64-bit
       versions of the same operating system and processor type)
       using the MySQL++ typedefs insulates your code from platform
-      changes.</p></li><li><p>Clarity: using C++ types named similarly to the
+      changes.</p></li><li class="listitem"><p>Clarity: using C++ types named similarly to the
       SQL types reduces the risk of confusion when working with code in
-      both languages at the same time.</p></li><li><p>Compatibility: using the MySQL++ types ensures
+      both languages at the same time.</p></li><li class="listitem"><p>Compatibility: using the MySQL++ types ensures
       that data conversions between SQL and C++ forms are compatible.
       Naïve use of plain old C++ types can result in data
       truncation, <tt><a href="../refman/classmysqlpp_1_1TypeLookupFailed.html">TypeLookupFailed</a></tt>
@@ -398,10 +398,10 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </
     typedef alias for <code class="classname">DateTime</code> called
     <code class="classname">mysqlpp::sql_datetime</code>.</p><p>MySQL++ doesn&#8217;t have typedefs for the most exotic data
     types, like those for the geospatial types. Patches to correct
-    this will be thoughtfully considered.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="sql-null"></a>3.7. Handling SQL Nulls</h3></div></div></div><p>Both C++ and SQL have things in them called NULL, but they
+    this will be thoughtfully considered.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="sql-null"></a>3.7. Handling SQL Nulls</h3></div></div></div><p>Both C++ and SQL have things in them called NULL, but they
     differ in several ways. Consequently, MySQL++ has to provide
     special support for this, rather than just wrap native C++
-    facilities as it can with most data type issues.</p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="sql-null-type"></a>SQL NULL is a type modifier</h4></div></div></div><p>The primary distinction is one of type. In SQL,
+    facilities as it can with most data type issues.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="sql-null-type"></a>SQL NULL is a type modifier</h4></div></div></div><p>The primary distinction is one of type. In SQL,
       &#8220;NULL&#8221; is a type modifier, which affects whether
       you can legally store a null value in that column. There&#8217;s
       simply nothing like it in C++.</p><p>To emulate SQL NULL, MySQL++ provides the <tt><a href="../refman/classmysqlpp_1_1null.html">Null</a></tt> template to allow
@@ -415,7 +415,7 @@ mysqlpp::sql_tinyint_unsigned_null myfield;</pre><p>These types are declared in
       <code class="filename">lib/sql_types.h</code>. You might want to scan
       through that to see what all is available.</p><p>Template instantiations are first-class types in the C++
       language, so there&#8217;s no possible confusion between this
-      feature of MySQL++ and C++&#8217;s native NULL concept.</p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="sql-null-value"></a>SQL NULL is a unique value</h4></div></div></div><p>There&#8217;s a secondary distinction between SQL null and
+      feature of MySQL++ and C++&#8217;s native NULL concept.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="sql-null-value"></a>SQL NULL is a unique value</h4></div></div></div><p>There&#8217;s a secondary distinction between SQL null and
       anything available in the standard C++ type system: SQL null
       is a distinct value, equal to nothing else. We can&#8217;t
       use C++&#8217;s <span class="symbol">NULL</span> for this because it
@@ -448,7 +448,7 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       default for the second <code class="classname">Null</code> template
       parameter, the first output statement would have printed
       &#8220;(NULL)&#8221;, and the second wouldn&#8217;t even
-      compile.</p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="string-types"></a>3.8. MySQL++&#8217;s Special String Types</h3></div></div></div><p>MySQL++ has two classes that work like
+      compile.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="string-types"></a>3.8. MySQL++&#8217;s Special String Types</h3></div></div></div><p>MySQL++ has two classes that work like
     <code class="classname">std::string</code> to some degree: <tt><a href="../refman/classmysqlpp_1_1String.html">String</a></tt> and <tt><a href="../refman/classmysqlpp_1_1SQLTypeAdapter.html">SQLTypeAdapter</a></tt>. These classes exist to provide functionality
     that <code class="classname">std::string</code> doesn&#8217;t provide, but
     they are neither derivatives of nor complete supersets of
@@ -459,16 +459,16 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
     <code class="classname">std::string</code> most of the time, too. But, the
     places these specialized stringish types do get used are so
     important to the way MySQL++ works that it&#8217;s well worth taking
-    the time to understand them.</p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SQLTypeAdapter"></a>SQLTypeAdapter</h4></div></div></div><p>The simpler of the two is
+    the time to understand them.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="SQLTypeAdapter"></a>SQLTypeAdapter</h4></div></div></div><p>The simpler of the two is
       <code class="classname">SQLTypeAdapter</code>, or
-      <code class="classname">STA</code> for short.<sup>[<a name="idp10337184" href="#ftn.idp10337184">8</a>]</sup></p><p>As its name suggests, its only purpose is to adapt other
+      <code class="classname">STA</code> for short.<a href="#ftn.idm47108348285248" class="footnote" name="idm47108348285248"><sup class="footnote">[8]</sup></a></p><p>As its name suggests, its only purpose is to adapt other
       data types to be used with SQL. It has a whole bunch of conversion
       constructors, one for all data types we expect to be used with
       MySQL++ for values in queries. SQL queries are strings, so
       constructors that take stringish types just make a copy of that
       string, and all the others &#8220;stringize&#8221; the value in
       the format needed by
-      SQL.<sup>[<a name="idp10339888" href="#ftn.idp10339888">9</a>]</sup> The conversion
+      SQL.<a href="#ftn.idm47108348282480" class="footnote" name="idm47108348282480"><sup class="footnote">[9]</sup></a> The conversion
       constructors preserve type information, so this stringization
       process doesn&#8217;t throw away any essential information.</p><p><code class="classname">STA</code> is used anywhere MySQL++ needs to
       be able to accept any of several data types for use in a SQL
@@ -479,12 +479,12 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       to MySQL++ to be used in building a SQL query, it goes through
       <code class="classname">STA</code>. <code class="classname">STA</code> is one of
       the key pieces in MySQL++ that makes it easy to generate
-      syntactically-correct SQL queries.</p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="String"></a>String</h4></div></div></div><p>If MySQL++ can be said to have its own generic string type,
+      syntactically-correct SQL queries.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="String"></a>String</h4></div></div></div><p>If MySQL++ can be said to have its own generic string type,
       it&#8217;s <code class="classname">String</code>, but it&#8217;s not
       really functional enough for general use. It&#8217;s possible that
       in future versions of MySQL++ we&#8217;ll expand its interface to
       include everything <code class="classname">std::string</code> does, so
-      that&#8217;s why it&#8217;s called that.<sup>[<a name="idp10347264" href="#ftn.idp10347264">10</a>]</sup></p><p>The key thing <code class="classname">String</code> provides over
+      that&#8217;s why it&#8217;s called that.<a href="#ftn.idm47108348274480" class="footnote" name="idm47108348274480"><sup class="footnote">[10]</sup></a></p><p>The key thing <code class="classname">String</code> provides over
       <code class="classname">std::string</code> is conversion of strings in SQL
       value formats to their plain old C++ data types. For example, if you
       initialize it with the string &#8220;2007-11-19&#8221;, you can
@@ -499,7 +499,7 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       inverse of <code class="classname">STA</code>:
       <code class="classname">String</code> converts SQL value strings to C++
       data types, and <code class="classname">STA</code> converts C++ data types
-      to SQL value strings.<sup>[<a name="idp10357552" href="#ftn.idp10357552">11</a>]</sup></p><p><code class="classname">String</code> has two main uses.</p><p>By far the most common use is as the field value type of
+      to SQL value strings.<a href="#ftn.idm47108348262784" class="footnote" name="idm47108348262784"><sup class="footnote">[11]</sup></a></p><p><code class="classname">String</code> has two main uses.</p><p>By far the most common use is as the field value type of
       <code class="classname">Row</code>, as exemplified above. It&#8217;s not
       just the return type of <code class="methodname">Row::operator[]</code>,
       though: it&#8217;s actually the value type used within
@@ -508,7 +508,7 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       <code class="classname">String</code> when converting it from the string
       form used in SQL result sets to the C++ data type you actually
       want the data in. It&#8217;s the core of the structure population
-      mechanism in <a href="ssqls.html" title="5. Specialized SQL Structures">the SSQLS feature</a>, for
+      mechanism in <a class="link" href="ssqls.html" title="5. Specialized SQL Structures">the SSQLS feature</a>, for
       example.</p><p>Because <code class="classname">String</code> is the last pristine
       form of data in a result set before it gets out of MySQL++&#8217;s
       internals where end-user code can see it, MySQL++&#8217;s
@@ -518,7 +518,7 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       server&#8221; thing means most of MySQL++ can be quite inefficient
       and still not affect benchmark results meaningfully, BLOBs tend to
       be big, so making unnecessary copies can really make a difference.
-      Which brings us to...</p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="string-refcount"></a>Reference Counting</h4></div></div></div><p>To avoid unnecessary buffer copies, both
+      Which brings us to...</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="string-refcount"></a>Reference Counting</h4></div></div></div><p>To avoid unnecessary buffer copies, both
       <code class="classname">STA</code> and <code class="classname">String</code>
       are implemented in terms of a reference-counted copy-on-write
       buffer scheme. Both classes share the same underlying mechanism,
@@ -531,7 +531,7 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       the buffer. This has a lot of practical import, such as the
       fact that even though <code class="methodname">Row::operator[]</code>
       returns <code class="classname">String</code>s by value, it&#8217;s
-      still efficient.</p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="blob"></a>3.9. Dealing with Binary Data</h3></div></div></div><p>Historically, there was no way to hold arbitrary-sized blocks
+      still efficient.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="blob"></a>3.9. Dealing with Binary Data</h3></div></div></div><p>Historically, there was no way to hold arbitrary-sized blocks
     of raw binary data in an SQL database. There was resistance to
     adding such a feature to SQL for a long time because it&#8217;s
     better, where possible, to decompose blocks of raw binary data into
@@ -569,15 +569,15 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
     which is really easy to do accidentally. C strings treat zero bytes
     as special end-of-string characters, but they&#8217;re not special
     at all in binary data. We&#8217;ve made a lot of improvements
-    to the way MySQL++ handles <a href="tutorial.html#string-types" title="3.8. MySQL++&#8217;s Special String Types">string
+    to the way MySQL++ handles <a class="link" href="tutorial.html#string-types" title="3.8. MySQL++&#8217;s Special String Types">string
     data</a> to avoid this problem, but it&#8217;s still possible
     to bypass these features, wrecking your BLOBs. These examples
-    demonstrate correct techniques.</p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="blob-save"></a>Loading a binary file into a BLOB column</h4></div></div></div><p>Above, I opined that it&#8217;s usually incorrect to
+    demonstrate correct techniques.</p><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="blob-save"></a>Loading a binary file into a BLOB column</h4></div></div></div><p>Above, I opined that it&#8217;s usually incorrect to
       store image data in a database, particularly with web apps,
       of which CGI is a primitive form. Still, it makes a nice,
       simple example.</p><p>Instead of a single example program, we have here a
       matched pair. The first example takes the name of a JPEG
-      file on the command line along with all the other <a href="tutorial.html#examples" title="3.1. Running the Examples">common example program parameters</a>,
+      file on the command line along with all the other <a class="link" href="tutorial.html#examples" title="3.1. Running the Examples">common example program parameters</a>,
       loads that file into memory, and stores it in a BLOB column in
       the database.</p><p>This example also demonstrates how to retrieve the
       value assigned to an auto-increment column in the previous
@@ -721,12 +721,12 @@ main(int argc, char *argv[])
 </pre><p>Notice that we used the <span class="type">escape</span> manipulator
       when building the INSERT query above. This is because
       <span class="type">mysqlpp::sql_blob</span> is just an alias for one of the
-      special MySQL++ <a href="tutorial.html#string-types" title="3.8. MySQL++&#8217;s Special String Types">string types</a>,
-      which don&#8217;t do automatic <a href="tutorial.html#qescape" title="3.5. Quoting and Escaping">quoting
+      special MySQL++ <a class="link" href="tutorial.html#string-types" title="3.8. MySQL++&#8217;s Special String Types">string types</a>,
+      which don&#8217;t do automatic <a class="link" href="tutorial.html#qescape" title="3.5. Quoting and Escaping">quoting
       and escaping</a>. They can&#8217;t, because MySQL++ also
       uses these data types to hold raw SQL query strings, which
       would break due to doubled quoting and/or escaping if it were
-      automatic.</p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="blob-retreive"></a>Serving images from BLOB column via CGI</h4></div></div></div><p>The other example in this pair is rather short,
+      automatic.</p></div><div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="blob-retreive"></a>Serving images from BLOB column via CGI</h4></div></div></div><p>The other example in this pair is rather short,
       considering how much it does. It parses a CGI query string
       giving the image ID, uses that to retreive data loaded into
       the database by <code class="filename">load_jpeg</code>, and writes
@@ -828,7 +828,7 @@ main(int argc, char* argv[])
       returns it to the web server, which will send it on to the
       browser.</p><p>We&#8217;ve included an image with MySQL++
       that you can use with this example pair,
-      <code class="filename">examples/logo.jpg</code>.</p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="Transaction"></a>3.10. Using Transactions</h3></div></div></div><p>The <tt><a href="../refman/classmysqlpp_1_1Transaction.html">Transaction</a></tt> class makes it
+      <code class="filename">examples/logo.jpg</code>.</p></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="Transaction"></a>3.10. Using Transactions</h3></div></div></div><p>The <tt><a href="../refman/classmysqlpp_1_1Transaction.html">Transaction</a></tt> class makes it
     easier to use SQL transactions in an exception-safe manner. Normally
     you create the <code class="classname">Transaction</code> object on the
     stack before you issue the queries in your transaction set. Then,
@@ -956,7 +956,7 @@ main(int argc, char *argv[])
     <code class="classname">Transaction</code> object to get automatic
     roll-backs in the face of exceptions. In this case, the roll-back
     happens before your exception handler is called by issuing a
-    <span><strong class="command">ROLLBACK</strong></span> query to the database server. Thus,
+    <span class="command"><strong>ROLLBACK</strong></span> query to the database server. Thus,
     <code class="methodname">Query::errnum()</code> returns the error code
     associated with this roll-back query, not the deadlocked transaction
     that caused the exception.</p><p>To avoid this problem, a few of the exception objects as of
@@ -1054,18 +1054,18 @@ main(int argc, char *argv[])
 }
 </pre><p>This example works a little differently than the others.  You
     run one copy of the example, then when it pauses waiting for you to
-    press <span><strong class="keycap">Enter</strong></span>, you run another copy.  Then, depending
-    on which one you press <span><strong class="keycap">Enter</strong></span> in, one of the two
+    press <span class="keycap"><strong>Enter</strong></span>, you run another copy.  Then, depending
+    on which one you press <span class="keycap"><strong>Enter</strong></span> in, one of the two
     will abort with the deadlock exception. You can see from the error
     message you get that it matters which method you call to get the
     error number. What you do about it is up to you as it depends on
-    your program&#8217;s design and system architecture.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="querytypes"></a>3.11. Which Query Type to Use?</h3></div></div></div><p>There are three major ways to execute a query in MySQL++:
+    your program&#8217;s design and system architecture.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="querytypes"></a>3.11. Which Query Type to Use?</h3></div></div></div><p>There are three major ways to execute a query in MySQL++:
     <code class="methodname">Query::execute()</code>,
     <code class="methodname">Query::store()</code>, and
     <code class="methodname">Query::use()</code>. Which should you use, and
     why?</p><p><code class="methodname">execute()</code> is for queries that do not
     return data <span class="emphasis"><em>per se</em></span>. For instance,
-    <span><strong class="command">CREATE INDEX</strong></span>. You do get back some information
+    <span class="command"><strong>CREATE INDEX</strong></span>. You do get back some information
     from the MySQL server, which <code class="methodname">execute()</code>
     returns to its caller in a <tt><a href="../refman/classmysqlpp_1_1SimpleResult.html">SimpleResult</a></tt> object. In addition to the obvious &#8212; a
     flag stating whether the query succeeded or not &#8212; this object
@@ -1183,18 +1183,18 @@ main(int argc, char *argv[])
     should not be the first resort in solving problems of excessive
     memory use. It&#8217;s better if you can find a way to simply not
     pull as much data from the database in the first place. Maybe
-    you&#8217;re saying <span><strong class="command">SELECT *</strong></span> even though you
+    you&#8217;re saying <span class="command"><strong>SELECT *</strong></span> even though you
     don&#8217;t immedidately need all the columns from the table. Or,
     maybe you&#8217;re filtering the result set with C++ code after you
     get it from the database server. If you can do that filtering with a
-    more restrictive <span><strong class="command">WHERE</strong></span> clause on the
-    <span><strong class="command">SELECT</strong></span>, it&#8217;ll not only save memory,
+    more restrictive <span class="command"><strong>WHERE</strong></span> clause on the
+    <span class="command"><strong>SELECT</strong></span>, it&#8217;ll not only save memory,
     it&#8217;ll save bandwidth between the database server and client,
     and can even save CPU time. If the filtering criteria can&#8217;t be
-    expressed in a <span><strong class="command">WHERE</strong></span> clause, however, read on to
-    the next section.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="store_if"></a>3.12. Conditional Result Row Handling</h3></div></div></div><p>Sometimes you must pull more data from the database server
+    expressed in a <span class="command"><strong>WHERE</strong></span> clause, however, read on to
+    the next section.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="store_if"></a>3.12. Conditional Result Row Handling</h3></div></div></div><p>Sometimes you must pull more data from the database server
     than you actually need and filter it in memory. SQL&#8217;s
-    <span><strong class="command">WHERE</strong></span> clause is powerful, but not as powerful as
+    <span class="command"><strong>WHERE</strong></span> clause is powerful, but not as powerful as
     C++. Instead of storing the full result set and then picking over it
     to find the rows you want to keep, use
     <code class="methodname">Query::store_if()</code>. This is
@@ -1286,7 +1286,7 @@ main(int argc, char *argv[])
     SSQLS examplar, there are two overloads that let you use your own
     query string. One overload takes the query string directly, and the
     other uses the query string built with
-    <code class="classname">Query</code>&#8217;s stream interface.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="for_each"></a>3.13. Executing Code for Each Row In a Result Set</h3></div></div></div><p>SQL is more than just a database query language. Modern
+    <code class="classname">Query</code>&#8217;s stream interface.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="for_each"></a>3.13. Executing Code for Each Row In a Result Set</h3></div></div></div><p>SQL is more than just a database query language. Modern
     database engines can actually do some calculations on the data on
     the server side. But, this isn&#8217;t always the best way to get
     something done. When you need to mix code and a query,
@@ -1387,7 +1387,7 @@ main(int argc, char *argv[])
     the code from getting in the way of the demonstration here.</p><p>Just as with <code class="methodname">store_if()</code>, described
     above, there are two other overloads for
     <code class="methodname">for_each()</code> that let you use your own query
-    string.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="connopts"></a>3.14. Connection Options</h3></div></div></div><p>MySQL has a large number of options that control how it makes
+    string.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="connopts"></a>3.14. Connection Options</h3></div></div></div><p>MySQL has a large number of options that control how it makes
     the connection to the database server, and how that connection
     behaves. The defaults are sufficient for most programs, so only one
     of the MySQL++ example programs make any connection option changes.
@@ -1396,6 +1396,7 @@ main(int argc, char *argv[])
 
 #include &lt;mysql++.h&gt;
 
+#include &lt;algorithm&gt;
 #include &lt;iostream&gt;
 #include &lt;iomanip&gt;
 #include &lt;vector&gt;
@@ -1593,7 +1594,7 @@ main(int argc, char *argv[])
     for setting options that control the connection. The flexibility of
     the C++ type system allows us to wrap all of these up into a single
     high-level mechanism while actually getting greater type safety than
-    the C API allows.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="conn-timeout"></a>3.15. Dealing with Connection Timeouts</h3></div></div></div><p>By default, current MySQL servers have an 8 hour idle
+    the C API allows.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="conn-timeout"></a>3.15. Dealing with Connection Timeouts</h3></div></div></div><p>By default, current MySQL servers have an 8 hour idle
     timeout on connections. This is not a problem if your program
     never has to run for more than 8 hours or reliably queries the
     database more often than that. And, it&#8217;s a good thing for
@@ -1616,7 +1617,7 @@ main(int argc, char *argv[])
     haven&#8217;t observed the connection to be down since then.
     When the database server closes an idle connection, you won&#8217;t
     know it until after you try to issue a query. This is simply due
-    to the nature of network programming.</p><p>One way around this problem is to <a href="http://dev.mysql.com/doc/refman/5.0/en/gone-away.html" target="_top">configure
+    to the nature of network programming.</p><p>One way around this problem is to <a class="ulink" href="http://dev.mysql.com/doc/refman/5.0/en/gone-away.html" target="_top">configure
     MySQL</a> to have a longer idle timeout. This timeout is
     in seconds, so the default of 8 hours is 28,800 seconds. You
     would want to figure out the longest possible time that your
@@ -1626,7 +1627,7 @@ main(int argc, char *argv[])
     seconds &#8212; which you could round up to 350,000 or 400,000
     to allow for a little bit of additional idle time on either end
     of that period.</p><p>Another way around this, on a per-connection basis from
-    the client side, would be to set the <tt><a href="../refman/classmysqlpp_1_1ReconnectOption.html">ReconnectOption</a></tt> <a href="tutorial.html#connopts" title="3.14. Connection Options">connection
+    the client side, would be to set the <tt><a href="../refman/classmysqlpp_1_1ReconnectOption.html">ReconnectOption</a></tt> <a class="link" href="tutorial.html#connopts" title="3.14. Connection Options">connection
     option</a>. This will cause MySQL++ to reconnect to the server
     automatically if it drops the connection. Beware that unless
     you&#8217;re using MySQL 5.1.6 or higher, you have to set this
@@ -1640,7 +1641,7 @@ main(int argc, char *argv[])
     doesn&#8217;t block forever waiting on I/O while idle, is to
     periodically call <code class="methodname">Connection::ping()</code>.
 
-    <sup>[<a name="idp10491216" href="#ftn.idp10491216">12</a>]</sup>
+    <a href="#ftn.idm47108345309712" class="footnote" name="idm47108345309712"><sup class="footnote">[12]</sup></a>
 
     This sends the smallest possible amount of data to the
     database server, which will reset its idle timer and cause
@@ -1648,7 +1649,7 @@ main(int argc, char *argv[])
     <span class="symbol">true</span>. If it returns <span class="symbol">false</span>
     instead, you know you need to reconnect to the server. Periodic
     pinging is easiest to do if your program uses asynchronous I/O,
-    <a href="threads.html" title="7. Using MySQL++ in a Multithreaded Program">threads</a>, or some kind of event
+    <a class="link" href="threads.html" title="7. Using MySQL++ in a Multithreaded Program">threads</a>, or some kind of event
     loop to ensure that you can call something periodically even
     while the rest of the program has nothing to do.</p><p>An interesting variant on this strategy is to ping the server
     before each query, or, better, before each group of queries within
@@ -1664,7 +1665,7 @@ main(int argc, char *argv[])
     reissue the query. This adds some complexity, but it makes your
     program more robust without taking up unnecessary resources. If you
     did this, you could even change the server to drop idle connections
-    more often, thus tying up fewer TCP/IP stack resources.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="concurrentqueries"></a>3.16. Concurrent Queries on a Connection</h3></div></div></div><p>An important limitation of the MySQL C API library &#8212;
+    more often, thus tying up fewer TCP/IP stack resources.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="concurrentqueries"></a>3.16. Concurrent Queries on a Connection</h3></div></div></div><p>An important limitation of the MySQL C API library &#8212;
     which MySQL++ is built atop, so it shares this limitation &#8212;
     is that you can only have one query in progress on each connection
     to the database server. If you try to issue a second query while
@@ -1673,26 +1674,26 @@ main(int argc, char *argv[])
     library. (You normally get this message in a MySQL++ exception
     unless you have exceptions disabled, in which case you get a
     failure code and <code class="methodname">Connection::error()</code>
-    returns this message.)</p><p>There are lots of ways to run into this limitation:</p><div class="itemizedlist"><ul type="disc"><li><p>The easiest way is to try to use a single <tt><a href="../refman/classmysqlpp_1_1Connection.html">Connection</a></tt> object in a multithreaded
+    returns this message.)</p><p>There are lots of ways to run into this limitation:</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>The easiest way is to try to use a single <tt><a href="../refman/classmysqlpp_1_1Connection.html">Connection</a></tt> object in a multithreaded
         program, with more than one thread attempting to use it to
         issue queries.  Unless you put in a lot of work to synchronize
         access, this is almost guaranteed to fail at some point, giving
-        the dread &#8220;Commands out of sync&#8221; error.</p></li><li><p>You might then think to give each thread that issues
+        the dread &#8220;Commands out of sync&#8221; error.</p></li><li class="listitem"><p>You might then think to give each thread that issues
         queries its own <code class="classname">Connection</code> object.
         You can still run into trouble if you pass the data you get
         from queries around to other threads. What can happen is
         that one of these child objects indirectly calls back to the
         <code class="classname">Connection</code> at a time where it&#8217;s
         involved with another query. This is properly covered
-        elsewhere, in <a href="threads.html#thread-data-sharing" title="7.4. Sharing MySQL++ Data Structures">Section 7.4, &#8220;Sharing MySQL++ Data Structures&#8221;</a>.)</p></li><li><p>One way to run into this problem without using
-        threads is with &#8220;use&#8221; queries, discussed <a href="tutorial.html#querytypes" title="3.11. Which Query Type to Use?">above</a>. If you don&#8217;t
+        elsewhere, in <a class="xref" href="threads.html#thread-data-sharing" title="7.4. Sharing MySQL++ Data Structures">Section 7.4, &#8220;Sharing MySQL++ Data Structures&#8221;</a>.)</p></li><li class="listitem"><p>One way to run into this problem without using
+        threads is with &#8220;use&#8221; queries, discussed <a class="link" href="tutorial.html#querytypes" title="3.11. Which Query Type to Use?">above</a>. If you don&#8217;t
         consume all rows from a query before you issue another on
         that connection, you are effectively trying to have multiple
         concurrent queries on a single connection. Here&#8217;s a
         recipie for this particular disaster:</p><pre class="programlisting">
 UseQueryResult r1 = query.use("select garbage from plink where foobie='tamagotchi'");
 UseQueryResult r2 = query.use("select blah from bonk where bletch='smurf'");</pre><p>The second <code class="methodname">use()</code> call fails because
-        the first result set hasn&#8217;t been consumed yet.</p></li><li><p>Still another way to run into this limitation
+        the first result set hasn&#8217;t been consumed yet.</p></li><li class="listitem"><p>Still another way to run into this limitation
         is if you use MySQL&#8217;s multi-query feature. This
         lets you give multiple queries in a single call,
         separated by semicolons, and get back the results for
@@ -1705,7 +1706,7 @@ UseQueryResult r2 = query.use("select blah from bonk where bletch='smurf'");</pr
         you know whether you&#8217;re done, or need to call
         <code class="methodname">store_next()</code> again.  Until you reach
         the last result set, you can&#8217;t issue another query on
-        that connection.</p></li><li><p>Finally, there&#8217;s a way to run into this
+        that connection.</p></li><li class="listitem"><p>Finally, there&#8217;s a way to run into this
         that surprises almost everyone sooner or later: stored
         procedures. MySQL normally returns <span class="emphasis"><em>at least
         two</em></span> result sets for a stored procedure call. The
@@ -1719,7 +1720,7 @@ UseQueryResult r2 = query.use("select blah from bonk where bletch='smurf'");</pr
         a loop calling <code class="methodname">more_results()</code>
         and <code class="methodname">store_next()</code> to work your
         way through all of the result sets produced by the stored
-        procedure call.</p></li></ul></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="fieldinf"></a>3.17. Getting Field Meta-Information</h3></div></div></div><p>The following example demonstrates how to get information
+        procedure call.</p></li></ul></div></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="fieldinf"></a>3.17. Getting Field Meta-Information</h3></div></div></div><p>The following example demonstrates how to get information
     about the fields in a result set, such as the name of the field and
     the SQL type. This is
     <code class="filename">examples/fieldinf.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
@@ -1810,14 +1811,14 @@ main(int argc, char *argv[])
 
     return 0;
 }
-</pre></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.idp10276688" href="#idp10276688">2</a>] </sup><code class="classname">SQLQueryParms</code> is used as a
+</pre></div><div class="footnotes"><br><hr style="width:100; text-align:left;margin-left: 0"><div id="ftn.idm47108348350992" class="footnote"><p><a href="#idm47108348350992" class="para"><sup class="para">[2] </sup></a><code class="classname">SQLQueryParms</code> is used as a
     stream only as an implementation detail within the library. End user
     code simply sees it as a <code class="classname">std::vector</code>
-    derivative.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10280096" href="#idp10280096">3</a>] </sup>By contrast, the
-    <code class="classname">Query</code> methods that take an <a href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a> <span class="emphasis"><em>do</em></span> add quotes and
+    derivative.</p></div><div id="ftn.idm47108348347408" class="footnote"><p><a href="#idm47108348347408" class="para"><sup class="para">[3] </sup></a>By contrast, the
+    <code class="classname">Query</code> methods that take an <a class="link" href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a> <span class="emphasis"><em>do</em></span> add quotes and
     escape strings implicitly. It can do this because SSQLS knows all
     the SQL code and data types, so it never has to guess whether
-    quoting or escaping is appropriate.</p></div><div class="footnote"><p><sup>[<a name="ftn.whyexpmanip" href="#whyexpmanip">4</a>] </sup>Unless you&#8217;re smarter than I am, you
+    quoting or escaping is appropriate.</p></div><div id="ftn.whyexpmanip" class="footnote"><p><a href="#whyexpmanip" class="para"><sup class="para">[4] </sup></a>Unless you&#8217;re smarter than I am, you
     don&#8217;t immediately see why explicit manipulators are necessary.
     We can tell when quoting and escaping is <span class="emphasis"><em>not</em></span>
     appropriate based on type, so doesn&#8217;t that mean we know when
@@ -1828,15 +1829,15 @@ main(int argc, char *argv[])
     code, or it can be a value used in a query. Since there&#8217;s no
     easy way to know and it would damage the library&#8217;s usability
     to mandate that C strings only be used for one purpose or the other,
-    the library requires you to be explicit.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10285312" href="#idp10285312">5</a>] </sup>One hopes the programmer
-    <span class="emphasis"><em>knows</em></span>.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10288544" href="#idp10288544">6</a>] </sup>Yes,
+    the library requires you to be explicit.</p></div><div id="ftn.idm47108348341904" class="footnote"><p><a href="#idm47108348341904" class="para"><sup class="para">[5] </sup></a>One hopes the programmer
+    <span class="emphasis"><em>knows</em></span>.</p></div><div id="ftn.idm47108348338352" class="footnote"><p><a href="#idm47108348338352" class="para"><sup class="para">[6] </sup></a>Yes,
     we&#8217;re aware that there is a feature in MySQL that lets you
     transfer row data in a binary form, but we don&#8217;t support
-    this yet. We may, someday, probably as an extension to <a href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a>. The only real reason to do so
+    this yet. We may, someday, probably as an extension to <a class="link" href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a>. The only real reason to do so
     is to shave off some of the data translation overhead, which
     is typically neglibible in practice, swamped by the far greater
     disk and network I/O overheads inherent in use of a client-server
-    database system like MySQL.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10292864" href="#idp10292864">7</a>] </sup>SQL&#8217;s DECIMAL data type is a configurable-precision
+    database system like MySQL.</p></div><div id="ftn.idm47108348333776" class="footnote"><p><a href="#idm47108348333776" class="para"><sup class="para">[7] </sup></a>SQL&#8217;s DECIMAL data type is a configurable-precision
       fixed-point number format. MySQL++ currently translates these to
       <span class="type">double</span>, a floating-point data format, the closest
       thing available in the C++ type system. Since the main reason
@@ -1849,7 +1850,7 @@ main(int argc, char *argv[])
       they get as a result. Until this wheel squeaks, it&#8217;s not
       likely to be greased. To fix this, we&#8217;ll have to create
       a new custom data type to hold such column values, which will
-      be a lot of work for apparently little return.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10337184" href="#idp10337184">8</a>] </sup>In version 2
+      be a lot of work for apparently little return.</p></div><div id="ftn.idm47108348285248" class="footnote"><p><a href="#idm47108348285248" class="para"><sup class="para">[8] </sup></a>In version 2
       of MySQL++ and earlier, <code class="classname">SQLTypeAdapter</code> was
       called <code class="classname">SQLString</code>, but it was confusing
       because its name and the fact that it derived from
@@ -1857,10 +1858,10 @@ main(int argc, char *argv[])
       general-purpose string type. MySQL++ even used it this way in a
       few places internally. In v3, we made it a simple base class and
       renamed it to reflect its proper limited
-      function.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10339888" href="#idp10339888">9</a>] </sup><code class="classname">SQLTypeAdapter</code>
-      doesn&#8217;t do <a href="tutorial.html#qescape">quoting and escaping</a> itself. That happens
+      function.</p></div><div id="ftn.idm47108348282480" class="footnote"><p><a href="#idm47108348282480" class="para"><sup class="para">[9] </sup></a><code class="classname">SQLTypeAdapter</code>
+      doesn&#8217;t do <a class="xref" href="tutorial.html#qescape" title="3.5. Quoting and Escaping">quoting and escaping</a> itself. That happens
       elsewhere, right at the point that the <code class="classname">STA</code>
-      gets used to build a query.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10347264" href="#idp10347264">10</a>] </sup>If you
+      gets used to build a query.</p></div><div id="ftn.idm47108348274480" class="footnote"><p><a href="#idm47108348274480" class="para"><sup class="para">[10] </sup></a>If you
       used MySQL++ before v3, <code class="classname">String</code> used to be
       called <code class="classname">ColData</code>. It was renamed because
       starting in v2.3, we began using it for holding more than just
@@ -1868,7 +1869,7 @@ main(int argc, char *argv[])
       <code class="classname">SQLString</code> instead, but that would have
       confused old MySQL++ users to no end. Instead, I followed the
       example of <code class="classname">Set</code>, MySQL++&#8217;s specialized
-      <code class="classname">std::set</code> variant.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10357552" href="#idp10357552">11</a>] </sup>During the development of
+      <code class="classname">std::set</code> variant.</p></div><div id="ftn.idm47108348262784" class="footnote"><p><a href="#idm47108348262784" class="para"><sup class="para">[11] </sup></a>During the development of
       MySQL++ v3.0, I tried merging
       <code class="classname">SQLTypeAdapter</code> and
       <code class="classname">String</code> into a single class to take
@@ -1876,7 +1877,7 @@ main(int argc, char *argv[])
       freedom to tie itself up in knots, because it was then allowed to
       convert almost any data type to almost any other. You&#8217;d get
       a tangle of ambiguous data type conversion errors from the most
-      innocent code.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10491216" href="#idp10491216">12</a>] </sup>Don&#8217;t ping the server too often! It takes a tiny
+      innocent code.</p></div><div id="ftn.idm47108345309712" class="footnote"><p><a href="#idm47108345309712" class="para"><sup class="para">[12] </sup></a>Don&#8217;t ping the server too often! It takes a tiny
       amount of processing capability to handle a ping, which can add
       up to a significant amount if done often enough by a client, or
       even just rarely by enough clients. Also, a lower ping frequency

@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4. Template Queries</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.1 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.1 User Manual"><link rel="prev" href="tutorial.html" title="3. Tutorial"><link rel="next" href="ssqls.html" title="5. Specialized SQL Structures"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4. Template Queries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tutorial.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ssqls.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tquery"></a>4. Template Queries</h2></div></div></div><p>Another powerful feature of MySQL++ is being able to set up
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>4. Template Queries</title><link rel="stylesheet" type="text/css" href="tangentsoft.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="MySQL++ v3.2.2 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.2 User Manual"><link rel="prev" href="tutorial.html" title="3. Tutorial"><link rel="next" href="ssqls.html" title="5. Specialized SQL Structures"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">4. Template Queries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tutorial.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="ssqls.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tquery"></a>4. Template Queries</h2></div></div></div><p>Another powerful feature of MySQL++ is being able to set up
   template queries. These are kind of like C&#8217;s
   <code class="function">printf()</code> facility: you give MySQL++ a string
   containing the fixed parts of the query and placeholders for the
@@ -75,7 +75,7 @@ main(int argc, char *argv[])
   parse call puts it into effect. From that point on, you can re-use
   this query by calling any of several Query member functions that
   accept query template parameters. In this example, we&#8217;re using
-  <code class="methodname">Query::execute()</code>.</p><p>Let&#8217;s dig into this feature a little deeper.</p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tquery-setup"></a>4.1. Setting up Template Queries</h3></div></div></div><p>To set up a template query, you simply insert it into the
+  <code class="methodname">Query::execute()</code>.</p><p>Let&#8217;s dig into this feature a little deeper.</p><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tquery-setup"></a>4.1. Setting up Template Queries</h3></div></div></div><p>To set up a template query, you simply insert it into the
     Query object, using numbered placeholders wherever you want to be
     able to change the query. Then, you call the parse() function to
     tell the Query object that the query string is a template query,
@@ -93,7 +93,7 @@ query.parse();</pre><p>The format of the placeholder is:</p><pre class="programl
     or the underscore. You can have a trailing colon, which will be
     ignored. If you need to represent an actual colon after the name,
     follow the name with two colons. The first one will end the name and
-    the second one won&#8217;t be processed.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tquery-parms"></a>4.2. Setting the Parameters at Execution Time</h3></div></div></div><p>To specify the parameters when you want to execute a query
+    the second one won&#8217;t be processed.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tquery-parms"></a>4.2. Setting the Parameters at Execution Time</h3></div></div></div><p>To specify the parameters when you want to execute a query
     simply use <code class="methodname">Query::store(const SQLString &amp;parm0,
     [..., const SQLString &amp;parm11])</code>. This type of
     multiple overload also exists for
@@ -105,7 +105,7 @@ query.parse();</pre><p>The format of the placeholder is:</p><pre class="programl
 StoreQueryResult res = query.store("Dinner Rolls", "item", "item", "price")</pre><p>with the template query provided above would produce:</p><pre class="programlisting">
 select (item, price) from stock where item = "Dinner Rolls"</pre><p>The reason we didn&#8217;t put the template parameters in
     numeric order...</p><pre class="programlisting">
-select (%0:field1, %1:field2) from stock where %2:wheref = %3q:what</pre><p>...will become apparent shortly.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tquery-defaults"></a>4.3. Default Parameters</h3></div></div></div><p>The template query mechanism allows you to set default
+select (%0:field1, %1:field2) from stock where %2:wheref = %3q:what</pre><p>...will become apparent shortly.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tquery-defaults"></a>4.3. Default Parameters</h3></div></div></div><p>The template query mechanism allows you to set default
     parameter values. You simply assign a value for the parameter to the
     appropriate position in the
     <code class="varname">Query::template_defaults</code> array. You can refer to
@@ -144,7 +144,7 @@ StoreQueryResult res1 = query.store();</pre><p>This can work, but it is <span cl
     will not get sympathy if you complain on the mailing list about it
     not working. If your code doesn&#8217;t actively reuse at least one
     of the parameters in subsequent queries, you&#8217;re abusing
-    MySQL++, and it is likely to take its revenge on you.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="tquery-errors"></a>4.4. Error Handling</h3></div></div></div><p>If for some reason you did not specify all the parameters when
+    MySQL++, and it is likely to take its revenge on you.</p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="tquery-errors"></a>4.4. Error Handling</h3></div></div></div><p>If for some reason you did not specify all the parameters when
     executing the query and the remaining parameters do not have their
     values set via <code class="varname">Query::template_defaults</code>, the
     query object will throw a <tt><a href="../refman/classmysqlpp_1_1BadParamCount.html">BadParamCount</a></tt> object. If this happens, you can get an

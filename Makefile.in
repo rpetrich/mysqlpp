@@ -219,9 +219,9 @@ TRANSACTION_OBJECTS =  \
 @COND_USE_SOVERSION_0@__mysqlpp___targetsuf2 = .$(SO_SUFFIX)
 @COND_PLATFORM_MACOSX_0_USE_SOVERCYGWIN_0_USE_SOVERSION_1@__mysqlpp___targetsuf3 \
 @COND_PLATFORM_MACOSX_0_USE_SOVERCYGWIN_0_USE_SOVERSION_1@	= \
-@COND_PLATFORM_MACOSX_0_USE_SOVERCYGWIN_0_USE_SOVERSION_1@	.$(SO_SUFFIX).3.2.1
+@COND_PLATFORM_MACOSX_0_USE_SOVERCYGWIN_0_USE_SOVERSION_1@	.$(SO_SUFFIX).3.2.2
 @COND_PLATFORM_MACOSX_1_USE_SOVERSION_1@__mysqlpp___targetsuf3 \
-@COND_PLATFORM_MACOSX_1_USE_SOVERSION_1@	= .3.2.1.$(SO_SUFFIX)
+@COND_PLATFORM_MACOSX_1_USE_SOVERSION_1@	= .3.2.2.$(SO_SUFFIX)
 @COND_USE_SOVERSION_1_USE_SOVERSOLARIS_1@__mysqlpp___targetsuf3 \
 @COND_USE_SOVERSION_1_USE_SOVERSOLARIS_1@	= .$(SO_SUFFIX).3
 @COND_USE_SOVERCYGWIN_1_USE_SOVERSION_1@__mysqlpp___targetsuf3 \
@@ -726,9 +726,10 @@ doc: doc/html/refman/index.html doc/html/refman/ssx/index.html doc/html/userman/
 	do \
 	mkdir -p @PACKAGE_NAME@-@PACKAGE_VERSION@/$$d ; \
 	done
-	cp -RL *.bat *.in *.txt Bakefiles.bkgen bootstrap ChangeLog \
-	cleanmf config.guess config.sub configure* dtest exrun \
-	install* Makefile.* mysql++.* osver Wishlist @PACKAGE_NAME@-@PACKAGE_VERSION@
+	cp -RL *.bat *.in *.txt abi.xml aclocal.m4 Bakefiles.bkgen \
+	bootstrap ChangeLog cleanmf config.guess config.h config.sub \
+	configure* dtest exrun install* Makefile.* mysql++.* osver \
+	Wishlist @PACKAGE_NAME@-@PACKAGE_VERSION@
 	for d in vc200? ; do \
 	mkdir -p @PACKAGE_NAME@-@PACKAGE_VERSION@/$$d ; \
 	cp $$d/*.sln $$d/*.vcproj @PACKAGE_NAME@-@PACKAGE_VERSION@/$$d ; \
@@ -762,10 +763,15 @@ dist: doc @PACKAGE_NAME@-@PACKAGE_VERSION@
 	tar czf @PACKAGE_NAME@-@PACKAGE_VERSION@.tar.gz @PACKAGE_NAME@-@PACKAGE_VERSION@
 	rm -rf @PACKAGE_NAME@-@PACKAGE_VERSION@
 
-rpm: dist
+rpm-prep: dist
 	cp @PACKAGE_NAME@-@PACKAGE_VERSION@.tar.gz ~/rpmbuild/SOURCES
 	cd ~/rpmbuild/SPECS
+
+rpm: rpm-prep
 	rpmbuild -ba mysql++.spec
+
+srpm: rpm-prep
+	rpmbuild -bs mysql++.spec
 
 ebuild: dist
 	cp @PACKAGE_NAME@-@PACKAGE_VERSION@.tar.gz /usr/portage/distfiles
