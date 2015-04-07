@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5. Specialized SQL Structures</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="prev" href="tquery.html" title="4. Template Queries"><link rel="next" href="unicode.html" title="6. Using Unicode with MySQL++"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5. Specialized SQL Structures</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ssqls"></a>5. Specialized SQL Structures</h2></div></div></div><p>The Specialized SQL Structure (SSQLS) feature lets you easily
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5. Specialized SQL Structures</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="prev" href="tquery.html" title="4. Template Queries"><link rel="next" href="unicode.html" title="6. Using Unicode with MySQL++"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5. Specialized SQL Structures</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ssqls"></a>5. Specialized SQL Structures</h2></div></div></div><p>The Specialized SQL Structure (SSQLS) feature lets you easily
   define C++ structures that match the form of your SQL tables. At the
   most superficial level, an SSQLS has a member variable corresponding
   to each field in the SQL table. But, an SSQLS also has several
@@ -115,14 +115,15 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {                       
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Retrieve a subset of the stock table's columns, and store
         // the data in a vector of 'stock' SSQLS structures.  See the
@@ -172,7 +173,7 @@ main(int argc, char *argv[])
 //
 //   sql_char item;
 //   ...
-//   Null&lt;sql_mediumtext&gt; description;
+//   sql_mediumtext_null description;
 //
 // plus methods to help populate the class from a MySQL row.  See the
 // SSQLS sections in the user manual for further details.
@@ -181,9 +182,9 @@ sql_create_6(stock,
     mysqlpp::sql_char, item,
     mysqlpp::sql_bigint, num,
     mysqlpp::sql_double, weight,
-    mysqlpp::sql_double, price,
-    mysqlpp::sql_date, sdate,
-    mysqlpp::Null&lt;mysqlpp::sql_mediumtext&gt;, description)
+    mysqlpp::sql_double_null, price,
+    mysqlpp::sql_date, sDate,           // SSQLS isn't case-sensitive!
+    mysqlpp::sql_mediumtext_null, description)
 
 </pre><p>This example produces the same output as
     <code class="filename">simple1.cpp</code> (see <a href="tutorial.html#simple" title="3.2. A Simple Example">Section 3.2, &#8220;A Simple Example&#8221;</a>),
@@ -205,7 +206,7 @@ sql_create_1(stock_subset,
 vector&lt;stock_subset&gt; res;
 query.storein(res);
 // ...etc...</pre><p>MySQL++ is flexible about populating
-    SSQLSes.<sup>[<a name="id2739112" href="#ftn.id2739112">12</a>]</sup> It works much like the Web, a design
+    SSQLSes.<sup>[<a name="idp5472800" href="#ftn.idp5472800">13</a>]</sup> It works much like the Web, a design
     that&#8217;s enabled the development of the largest distributed
     system in the world. Just as a browser ignores tags and attributes
     it doesn&#8217;t understand, you can populate an SSQLS from a query
@@ -241,6 +242,7 @@ query.storein(res);
 #include "stock.h"
 
 #include &lt;iostream&gt;
+#include &lt;limits&gt;
 
 using namespace std;
 
@@ -248,19 +250,21 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Create and populate a stock object.  We could also have used
         // the set() member, which takes the same parameters as this
         // constructor.
-        stock row("Hot Dogs", 100, 1.5, 1.75,
+        stock row("Hot Dogs", 100, 1.5,
+                numeric_limits&lt;double&gt;::infinity(), // "priceless," ha!
                 mysqlpp::sql_date("1998-09-25"), mysqlpp::null);
 
         // Form the query to insert the row into the stock table.
@@ -565,19 +569,20 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Build a query to retrieve the stock item that has Unicode
         // characters encoded in UTF-8 form.
-        mysqlpp::Query query = con.query(
-                "select * from stock where item = \"Nürnberger Brats\"");
+        mysqlpp::Query query = con.query("select * from stock ");
+        query &lt;&lt; "where item = " &lt;&lt; mysqlpp::quote &lt;&lt; "Nürnberger Brats";
 
         // Retrieve the row, throwing an exception if it fails.
         mysqlpp::StoreQueryResult res = query.store();
@@ -652,14 +657,15 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Retrieve all rows from the stock table and put them in an
         // STL set.  Notice that this works just as well as storing them
@@ -677,7 +683,7 @@ main(int argc, char *argv[])
         cout.precision(3);
         for (it = res.begin(); it != res.end(); ++it) {
             print_stock_row(it-&gt;item.c_str(), it-&gt;num, it-&gt;weight,
-                    it-&gt;price, it-&gt;sdate);
+                    it-&gt;price, it-&gt;sDate);
         }
 
         // Use set's find method to look up a stock item by item name.
@@ -845,14 +851,15 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Get all the rows in the stock table.
         mysqlpp::Query query = con.query("select * from stock");
@@ -1037,13 +1044,13 @@ sql_create_2(
 class Derived : public Base
 {
 public:
-  // default constructor<sup>[<a name="id2780149" href="#ftn.id2780149">13</a>]</sup>
+  // default constructor<sup>[<a name="idp9914848" href="#ftn.idp9914848">14</a>]</sup>
   Derived() :
   Base()
   {
   }
 
-  // for-comparison constructor<sup>[<a name="id2780160" href="#ftn.id2780160">14</a>]</sup>
+  // for-comparison constructor<sup>[<a name="idp9916016" href="#ftn.idp9916016">15</a>]</sup>
   Derived(const mysqlpp::sql_varchar&amp; _a) :
   Base(_a)
   {
@@ -1055,7 +1062,7 @@ public:
   {
   }
 
-  // population constructor<sup>[<a name="id2780187" href="#ftn.id2780187">15</a>]</sup>
+  // population constructor<sup>[<a name="idp9919168" href="#ftn.idp9919168">16</a>]</sup>
   Derived(const mysqlpp::Row&amp; row) :
   Base(row)
   {
@@ -1099,21 +1106,24 @@ public:
     mechanism within MySQL++. The only reason the layering is so thin
     here is because it&#8217;s the only way to prevent BLOB data from
     being corrupted while avoiding that looming redesign effort.</p><p>You can see this technique in action in the
-    <code class="filename">cgi_jpeg</code> example:</p><pre class="programlisting">#include &lt;mysql++.h&gt;
-#include &lt;ssqls.h&gt;
+    <code class="filename">cgi_jpeg</code> example:</p><pre class="programlisting">#include "cmdline.h"
+#include "images.h"
 
-#define IMG_DATABASE    "mysql_cpp_data"
-#define IMG_HOST        "localhost"
-#define IMG_USER        "root"
-#define IMG_PASSWORD    "nunyabinness"
+#define CRLF            "\r\n"
+#define CRLF2           "\r\n\r\n"
 
-sql_create_2(images,
-    1, 2,
-    mysqlpp::sql_int_unsigned, id,
-    mysqlpp::sql_blob, data)
-
-int main()
+int
+main(int argc, char* argv[])
 {
+    // Get database access parameters from command line if present, else
+    // use hard-coded values for true CGI case.
+    mysqlpp::examples::CommandLine cmdline(argc, argv, "root",
+            "nunyabinness");
+    if (!cmdline) {
+        return 1;
+    }
+
+    // Parse CGI query string environment variable to get image ID
     unsigned int img_id = 0;
     char* cgi_query = getenv("QUERY_STRING");
     if (cgi_query) {
@@ -1143,33 +1153,42 @@ int main()
         return 1;
     }
 
+    // Retrieve image from DB by ID
     try {
-        mysqlpp::Connection con(IMG_DATABASE, IMG_HOST, IMG_USER,
-                IMG_PASSWORD);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
         mysqlpp::Query query = con.query();
         query &lt;&lt; "SELECT * FROM images WHERE id = " &lt;&lt; img_id;
-        mysqlpp::UseQueryResult res = query.use();
-        if (res) {
-            images img = res.fetch_row();
-            std::cout &lt;&lt; "Content-type: image/jpeg" &lt;&lt; std::endl;
-            std::cout &lt;&lt; "Content-length: " &lt;&lt; img.data.length() &lt;&lt; "\n\n";
-            std::cout &lt;&lt; img.data;
+        mysqlpp::StoreQueryResult res = query.store();
+        if (res &amp;&amp; res.num_rows()) {
+            images img = res[0];
+            if (img.data.is_null) {
+                std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; CRLF2;
+                std::cout &lt;&lt; "No image content!" &lt;&lt; CRLF;
+            }
+            else {
+                std::cout &lt;&lt; "X-Image-Id: " &lt;&lt; img_id &lt;&lt; CRLF; // for debugging
+                std::cout &lt;&lt; "Content-type: image/jpeg" &lt;&lt; CRLF;
+                std::cout &lt;&lt; "Content-length: " &lt;&lt;
+                        img.data.data.length() &lt;&lt; CRLF2;
+                std::cout &lt;&lt; img.data;
+            }
         }
         else {
-            std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; std::endl &lt;&lt; std::endl;
-            std::cout &lt;&lt; "ERROR: No such image with ID " &lt;&lt; img_id &lt;&lt; std::endl;
+            std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; CRLF2;
+            std::cout &lt;&lt; "ERROR: No image with ID " &lt;&lt; img_id &lt;&lt; CRLF;
         }
     }
     catch (const mysqlpp::BadQuery&amp; er) {
         // Handle any query errors
-        std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; std::endl &lt;&lt; std::endl;
-        std::cout &lt;&lt; "QUERY ERROR: " &lt;&lt; er.what() &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; CRLF2;
+        std::cout &lt;&lt; "QUERY ERROR: " &lt;&lt; er.what() &lt;&lt; CRLF;
         return 1;
     }
     catch (const mysqlpp::Exception&amp; er) {
         // Catch-all for any other MySQL++ exceptions
-        std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; std::endl &lt;&lt; std::endl;
-        std::cout &lt;&lt; "GENERAL ERROR: " &lt;&lt; er.what() &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; CRLF2;
+        std::cout &lt;&lt; "GENERAL ERROR: " &lt;&lt; er.what() &lt;&lt; CRLF;
         return 1;
     }
 
@@ -1205,9 +1224,9 @@ int main()
       code that Visual C++ 2003 doesn&#8217;t support. This may happen
       without you doing anything, but if there&#8217;s someone on
       the team who cares about this, that will naturally increase
-      the chances that it does happen.</p></li></ol></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.id2739112" href="#id2739112">12</a>] </sup>Programs built against versions of MySQL++
+      the chances that it does happen.</p></li></ol></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.idp5472800" href="#idp5472800">13</a>] </sup>Programs built against versions of MySQL++
     prior to 3.0 would crash at almost any mismatch between the database
     schema and the SSQLS definition. It&#8217;s no longer necessary to
     keep the data design in lock-step between the client and database
     server. A mismatch can result in data loss, but not a
-    crash.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2780149" href="#id2780149">13</a>] </sup>needed by mechanisms like <code class="methodname">Query::storein()</code>; anything using an STL container, which usually require default ctors for contained data structures</p></div><div class="footnote"><p><sup>[<a name="ftn.id2780160" href="#id2780160">14</a>] </sup>takes the <em class="parameter"><code>COMPCOUNT</code></em> subset of the SSQLS&#8217;s data members, used for making comparison exemplars, used with <code class="methodname">Query::update()</code> and similar mechanisms; see <a href="ssqls.html#sql_create" title="5.1. sql_create">Section 5.1, &#8220;sql_create&#8221;</a> for more on <em class="parameter"><code>COMPCOUNT</code></em></p></div><div class="footnote"><p><sup>[<a name="ftn.id2780187" href="#id2780187">15</a>] </sup>used in taking raw row data from a SQL result set and converting it to SSQLS form</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4. Template Queries </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 6. Using Unicode with MySQL++</td></tr></table></div></body></html>
+    crash.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp9914848" href="#idp9914848">14</a>] </sup>needed by mechanisms like <code class="methodname">Query::storein()</code>; anything using an STL container, which usually require default ctors for contained data structures</p></div><div class="footnote"><p><sup>[<a name="ftn.idp9916016" href="#idp9916016">15</a>] </sup>takes the <em class="parameter"><code>COMPCOUNT</code></em> subset of the SSQLS&#8217;s data members, used for making comparison exemplars, used with <code class="methodname">Query::update()</code> and similar mechanisms; see <a href="ssqls.html#sql_create" title="5.1. sql_create">Section 5.1, &#8220;sql_create&#8221;</a> for more on <em class="parameter"><code>COMPCOUNT</code></em></p></div><div class="footnote"><p><sup>[<a name="ftn.idp9919168" href="#idp9919168">16</a>] </sup>used in taking raw row data from a SQL result set and converting it to SSQLS form</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4. Template Queries </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 6. Using Unicode with MySQL++</td></tr></table></div></body></html>

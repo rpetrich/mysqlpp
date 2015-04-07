@@ -30,14 +30,14 @@
 <p>
 Inheritance diagram for mysqlpp::Query:<p><center><img src="classmysqlpp_1_1Query__inherit__graph.png" border="0" usemap="#mysqlpp_1_1Query__inherit__map" alt="Inheritance graph"></center>
 <map name="mysqlpp_1_1Query__inherit__map">
-<area href="classmysqlpp_1_1OptionalExceptions.html" shape="rect" coords="5,7,219,31" alt="">
+<area href="classmysqlpp_1_1OptionalExceptions.html" shape="rect" coords="5,5,219,32" alt="">
 </map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for mysqlpp::Query:<p><center><img src="classmysqlpp_1_1Query__coll__graph.png" border="0" usemap="#mysqlpp_1_1Query__coll__map" alt="Collaboration graph"></center>
 <map name="mysqlpp_1_1Query__coll__map">
-<area href="classmysqlpp_1_1SQLQueryParms.html" shape="rect" coords="84,369,276,393" alt="">
-<area href="classmysqlpp_1_1OptionalExceptions.html" shape="rect" coords="6,97,219,121" alt="">
-<area href="classmysqlpp_1_1Connection.html" shape="rect" coords="178,188,338,212" alt="">
-<area href="classmysqlpp_1_1DBDriver.html" shape="rect" coords="395,97,542,121" alt="">
+<area href="classmysqlpp_1_1SQLQueryParms.html" shape="rect" coords="84,368,276,395" alt="">
+<area href="classmysqlpp_1_1OptionalExceptions.html" shape="rect" coords="5,96,219,123" alt="">
+<area href="classmysqlpp_1_1Connection.html" shape="rect" coords="177,187,337,213" alt="">
+<area href="classmysqlpp_1_1DBDriver.html" shape="rect" coords="395,96,541,123" alt="">
 </map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classmysqlpp_1_1Query-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
@@ -86,6 +86,9 @@ std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#f12740e420c1d61b1d9c2995459a3ce0">reset</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Reset the query object so that it can be reused.  <a href="#f12740e420c1d61b1d9c2995459a3ce0"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#b02c4ab2f46159d9d45bfd2bbe57e2b4">result_empty</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if the most recent result set was empty.  <a href="#b02c4ab2f46159d9d45bfd2bbe57e2b4"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="17036cdcf4dd7a747b1ba6ee664da048"></a><!-- doxytag: member="mysqlpp::Query::str" ref="17036cdcf4dd7a747b1ba6ee664da048" args="()" -->
 std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#17036cdcf4dd7a747b1ba6ee664da048">str</a> ()</td></tr>
 
@@ -241,6 +244,10 @@ template&lt;class T&gt; </td></tr>
 <tr><td class="memTemplItemLeft" nowrap align="right" valign="top"><a class="el" href="classmysqlpp_1_1Query.html">Query</a> &amp;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#6ddedfe4fd7f0a0007b0f0d85ae032d4">insertfrom</a> (Iter first, Iter last, InsertPolicy &amp;policy)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Insert multiple new rows using an insert policy to control how the INSERT statements are created using items from an STL container.  <a href="#6ddedfe4fd7f0a0007b0f0d85ae032d4"></a><br></td></tr>
+<tr><td class="memTemplParams" nowrap colspan="2">template&lt;class Iter, class InsertPolicy&gt; </td></tr>
+<tr><td class="memTemplItemLeft" nowrap align="right" valign="top"><a class="el" href="classmysqlpp_1_1Query.html">Query</a> &amp;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#0d0f803e18848b39d1c008272de69942">replacefrom</a> (Iter first, Iter last, InsertPolicy &amp;policy)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Replace multiple new rows using an insert policy to control how the REPLACE statements are created using items from an STL container.  <a href="#0d0f803e18848b39d1c008272de69942"></a><br></td></tr>
 <tr><td class="memTemplParams" nowrap colspan="2">template&lt;class T&gt; </td></tr>
 <tr><td class="memTemplItemLeft" nowrap align="right" valign="top"><a class="el" href="classmysqlpp_1_1Query.html">Query</a> &amp;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#dbbce16ae80783fd00eef9c2319f1aff">replace</a> (const T &amp;v)</td></tr>
 
@@ -1099,6 +1106,53 @@ This function builds a REPLACE SQL query. One uses it with MySQL++'s Specialized
 
 </div>
 </div><p>
+<a class="anchor" name="0d0f803e18848b39d1c008272de69942"></a><!-- doxytag: member="mysqlpp::Query::replacefrom" ref="0d0f803e18848b39d1c008272de69942" args="(Iter first, Iter last, InsertPolicy &amp;policy)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Iter, class InsertPolicy&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmysqlpp_1_1Query.html">Query</a>&amp; mysqlpp::Query::replacefrom           </td>
+          <td>(</td>
+          <td class="paramtype">Iter&nbsp;</td>
+          <td class="paramname"> <em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iter&nbsp;</td>
+          <td class="paramname"> <em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InsertPolicy &amp;&nbsp;</td>
+          <td class="paramname"> <em>policy</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Replace multiple new rows using an insert policy to control how the REPLACE statements are created using items from an STL container. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>first</em>&nbsp;</td><td>iterator pointing to first element in range to replace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>last</em>&nbsp;</td><td>iterator pointing to one past the last element to replace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>policy</em>&nbsp;</td><td>insert policy object, see <a class="el" href="insertpolicy_8h.html">insertpolicy.h</a> for details</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classmysqlpp_1_1Query.html#d38e23f66474ced0d153004ae07cea0c">insert()</a> </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="f12740e420c1d61b1d9c2995459a3ce0"></a><!-- doxytag: member="mysqlpp::Query::reset" ref="f12740e420c1d61b1d9c2995459a3ce0" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -1118,6 +1172,27 @@ This function builds a REPLACE SQL query. One uses it with MySQL++'s Specialized
 Reset the query object so that it can be reused. 
 <p>
 As of v3.0, <a class="el" href="classmysqlpp_1_1Query.html">Query</a> objects auto-reset upon query execution unless you've set it up for making template queries. (It can't auto-reset in that situation, because it would forget the template info.) Therefore, the only time you must call this is if you have a <a class="el" href="classmysqlpp_1_1Query.html">Query</a> object set up for making template queries, then want to build queries using one of the other methods. (Static strings, SSQLS, or the stream interface.) 
+</div>
+</div><p>
+<a class="anchor" name="b02c4ab2f46159d9d45bfd2bbe57e2b4"></a><!-- doxytag: member="mysqlpp::Query::result_empty" ref="b02c4ab2f46159d9d45bfd2bbe57e2b4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mysqlpp::Query::result_empty           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns true if the most recent result set was empty. 
+<p>
+Wraps <a class="el" href="classmysqlpp_1_1DBDriver.html#f56834aa1357f86141b9cdcccf4ff4ce">DBDriver::result_empty()</a> 
 </div>
 </div><p>
 <a class="anchor" name="15f991f68505f9a35aed0a03932a1900"></a><!-- doxytag: member="mysqlpp::Query::store" ref="15f991f68505f9a35aed0a03932a1900" args="(const char *str, size_t len)" -->
@@ -1904,7 +1979,7 @@ Used for filling in parameterized queries.
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="query_8h-source.html">query.h</a><li>query.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on 20 Jun 2013 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

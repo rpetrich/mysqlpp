@@ -1,0 +1,58 @@
+#include "cmdline.h"
+#include "printdata.h"
+#include "stock.h"
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int
+main(int argc, char *argv[])
+{
+    // Get database access parameters from command line
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
+        return 1;
+    }
+
+    try {
+        // Establish the connection to the database server.
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
+
+        // Get all the rows in the stock table.
+        mysqlpp::Query query = con.query("select * from stock");
+        vector<stock> res;
+        query.storein(res);
+
+        if (res.size() > 0) {
+            // Build a select query using the data from the first row
+            // returned by our previous query.
+            query << "select * from stock where " <<
+                    res[0].equal_list(" and ", stock_weight, stock_price);
+
+            // Display the finished query.
+            cout << "Custom query:\n" << query << endl;
+        }
+    }
+    catch (const mysqlpp::BadQuery& er) {
+        // Handle any query errors
+        cerr << "Query error: " << er.what() << endl;
+        return -1;
+    }
+    catch (const mysqlpp::BadConversion& er) {
+        // Handle bad conversions
+        cerr << "Conversion error: " << er.what() << endl <<
+                "\tretrieved data size: " << er.retrieved <<
+                ", actual size: " << er.actual_size << endl;
+        return -1;
+    }
+    catch (const mysqlpp::Exception& er) {
+        // Catch-all for any other MySQL++ exceptions
+        cerr << "Error: " << er.what() << endl;
+        return -1;
+    }
+
+    return 0;
+}

@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>10. Incompatible Library Changes</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="prev" href="incorporating.html" title="9. Using MySQL++ in Your Own Project"><link rel="next" href="licenses.html" title="11. Licensing"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">10. Incompatible Library Changes</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="incorporating.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="licenses.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="breakages"></a>10. Incompatible Library Changes</h2></div></div></div><p>This chapter documents those library changes since the epochal
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>10. Incompatible Library Changes</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="prev" href="incorporating.html" title="9. Using MySQL++ in Your Own Project"><link rel="next" href="licenses.html" title="11. Licensing"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">10. Incompatible Library Changes</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="incorporating.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="licenses.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="breakages"></a>10. Incompatible Library Changes</h2></div></div></div><p>This chapter documents those library changes since the epochal
   1.7.9 release that break end-user programs. You can dig this stuff out
   of the ChangeLog, but the ChangeLog focuses more on explaining and
   justifying the facets of each change, while this section focuses on
@@ -493,7 +493,7 @@ std::string(s.data(), s.length()); // raw_string() equivalent</pre><p><code clas
         use <code class="function">sql_create_complete_*</code> instead.</p><p>In v2, it was possible to have different SQL column
         names than SSQLS data member names while still using
         <code class="function">sql_create_*</code> if you only used SSQLS
-        for data retrieval.<sup>[<a name="id2785860" href="#ftn.id2785860">21</a>]</sup> In
+        for data retrieval.<sup>[<a name="idp11314128" href="#ftn.idp11314128">25</a>]</sup> In
         v3, you must use <code class="function">sql_create_complete_*</code>
         for absolutely all uses of SSQLS when you want the C++ field
         names to differ from the SQL column names.</p><p>The new <code class="classname">Null&lt;T&gt;</code> support in
@@ -504,7 +504,7 @@ std::string(s.data(), s.length()); // raw_string() equivalent</pre><p><code clas
         and all the examples that use it when built with VC++ 2003.  If
         this affects you, see <a href="ssqls.html#ssqls-vc2003" title="5.15. SSQLS and Visual C++ 2003">Section 5.15, &#8220;SSQLS and Visual C++ 2003&#8221;</a> for
         suggestions on ways to cope.</p><p>If you are using types other than MySQL++&#8217;s
-        <span class="type">sql_*</span> ones <sup>[<a name="id2785930" href="#ftn.id2785930">22</a>]</sup>
+        <span class="type">sql_*</span> ones <sup>[<a name="idp11320960" href="#ftn.idp11320960">26</a>]</sup>
         in your SSQLSes, code that previously worked may now see
         <code class="classname">TypeLookupFailed</code> exceptions. (This
         can be thrown even if exceptions are otherwise disabled in
@@ -567,8 +567,9 @@ my_ssqls_type::table("MyTableName");</pre></div><div class="sect4" lang="en"><di
       exception when you pass an out-of-range index. These
       methods variously either did not check their indices,
       or threw <code class="classname">std::out_of_range</code> when
-      passed a bad index. The one exception that comes to mind is
-      <code class="classname">Fields</code>, which is just a typedef for a
+      passed a bad index.</p><p>I say &#8220;most&#8221; because there is at
+      least one MySQL++ class that doesn&#8217;t follow this
+      rule. <code class="classname">Fields</code> is just a typedef for a
       specialization of <code class="classname">std::vector</code>, and the
       Standard has its own rules for index checking.</p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="abi-changes"></a>10.2. ABI Changes</h3></div></div></div><p>This section documents those library changes that require you
     to rebuild your program so that it will link with the new library.
@@ -649,7 +650,18 @@ my_ssqls_type::table("MyTableName");</pre></div><div class="sect4" lang="en"><di
       <span class="type">bool</span> context, as was intended for v3.0.0. Had to
       change the &#8220;safe bool&#8221; method signature to make it
       happen, so technically it&#8217;s an API change, but it&#8217;s
-      still used the same way.</p></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.id2785860" href="#id2785860">21</a>] </sup>In MySQL++ v2, data
+      still used the same way.</p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="abi-3.1.0"></a>v3.1.0</h4></div></div></div><p>The addition of a few new virtual methods to
+      <code class="classname">ConnectionPool</code> inadvertently changed
+      the library ABI. I knew adding fields changed the ABI, but
+      erroneously assumed that the inverse of that truth &#8212; that
+      adding <span class="emphasis"><em>methods</em></span> was always safe &#8212;
+      was also true. Adding normal methods <span class="emphasis"><em>is</em></span>
+      safe, but adding <span class="emphasis"><em>virtual</em></span> methods breaks
+      the ABI because it changes the class&#8217;s vtable size.</p><p>That left us with two bad choices: either we could come
+      out with a 3.1.1 that removed these methods to restore the prior
+      ABI, or we could just declare this the &#8220;new ABI&#8221;
+      and move on, resolving not to fall into this trap again.
+      We&#8217;ve chosen the latter path.</p></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.idp11314128" href="#idp11314128">25</a>] </sup>In MySQL++ v2, data
         retreival (<code class="methodname">Query::storein()</code>,
         <code class="methodname">SSQLS(const Row&amp; other)</code>,
         etc.) worked fine regardless of whether your SSQLS field names
@@ -663,5 +675,5 @@ my_ssqls_type::table("MyTableName");</pre></div><div class="sect4" lang="en"><di
         on being able to map names from C++ to SQL and back. You
         needed to use <code class="function">sql_create_c_names_*</code>
         to make these features work in v2 in the face of a naming
-        scheme difference between C++ and SQL.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2785930" href="#id2785930">22</a>] </sup>These typedefs
+        scheme difference between C++ and SQL.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp11320960" href="#idp11320960">26</a>] </sup>These typedefs
         have been available since MySQL++ v2.1.</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="incorporating.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="licenses.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">9. Using MySQL++ in Your Own Project </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 11. Licensing</td></tr></table></div></body></html>

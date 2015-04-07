@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3. Tutorial</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="prev" href="overview.html" title="2. Overview"><link rel="next" href="tquery.html" title="4. Template Queries"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3. Tutorial</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="overview.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="tquery.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tutorial"></a>3. Tutorial</h2></div></div></div><p>The <a href="overview.html" title="2. Overview">previous chapter</a> introduced
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>3. Tutorial</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="prev" href="overview.html" title="2. Overview"><link rel="next" href="tquery.html" title="4. Template Queries"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3. Tutorial</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="overview.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="tquery.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="tutorial"></a>3. Tutorial</h2></div></div></div><p>The <a href="overview.html" title="2. Overview">previous chapter</a> introduced
   the major top-level mechanisms in MySQL++. Now we&#8217;ll dig down a
   little deeper and get into real examples. We start off with the basics
   that every MySQL++ program will have to deal with, then work up to
@@ -34,12 +34,13 @@
     off the <span><strong class="command">./</strong></span> bit on Windows. You can leave it
     off on a Unixy system, too, if you have <code class="filename">.</code>
     in your <code class="varname">PATH</code>. (Not a recommendation, just
-    an observation.)</p><p>All of the program arguments are optional.</p><p>If you don&#8217;t give <code class="option">-s</code>, the underlying
-    MySQL C API assumes the server is on the local machine. It chooses
+    an observation.)</p><p>All of the program arguments are optional.</p><p>If you don&#8217;t give <code class="option">-s</code>,
+    the underlying MySQL C API (a.k.a. <a href="https://dev.mysql.com/downloads/connector/c/" target="_top">Connector/C</a>)
+    assumes the server is on the local machine. It chooses
     one of several different IPC options based on the platform
-    configuration. There are many different forms you can give as
-    <code class="varname">server_addr</code> with <code class="option">-s</code> to override
-    this default behavior:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="emphasis"><em>localhost</em></span> &#8212; this is the
+    configuration. There are many different forms you can give
+    as <code class="varname">server_addr</code> with <code class="option">-s</code> to
+    override this default behavior:</p><div class="itemizedlist"><ul type="disc"><li><p><span class="emphasis"><em>localhost</em></span> &#8212; this is the
         default; it doesn&#8217;t buy you anything</p></li><li><p>On Windows, a simple period tells the underlying MySQL C
         API to use named pipes, if it&#8217;s available.</p></li><li><p><span class="emphasis"><em>172.20.0.252:12345</em></span> &#8212; this would
         connect to IP address
@@ -89,21 +90,24 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     // Connect to the sample database.
     mysqlpp::Connection conn(false);
-    if (conn.connect(db, server, user, pass)) {
+    if (conn.connect(mysqlpp::examples::db_name, cmdline.server(),
+            cmdline.user(), cmdline.pass())) {
         // Retrieve a subset of the sample stock table set up by resetdb
         // and display it.
         mysqlpp::Query query = conn.query("select item from stock");
         if (mysqlpp::StoreQueryResult res = query.store()) {
             cout &lt;&lt; "We have:" &lt;&lt; endl;
-            for (size_t i = 0; i &lt; res.num_rows(); ++i) {
-                cout &lt;&lt; '\t' &lt;&lt; res[i][0] &lt;&lt; endl;
+            mysqlpp::StoreQueryResult::const_iterator it;
+            for (it = res.begin(); it != res.end(); ++it) {
+                mysqlpp::Row row = *it;
+                cout &lt;&lt; '\t' &lt;&lt; row[0] &lt;&lt; endl;
             }
         }
         else {
@@ -148,14 +152,15 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     // Connect to the sample database.
     mysqlpp::Connection conn(false);
-    if (conn.connect(db, server, user, pass)) {
+    if (conn.connect(mysqlpp::examples::db_name, cmdline.server(),
+            cmdline.user(), cmdline.pass())) {
         // Retrieve the sample stock table set up by resetdb
         mysqlpp::Query query = conn.query("select * from stock");
         mysqlpp::StoreQueryResult res = query.store();
@@ -308,7 +313,7 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </
     and escaping mechanism is type-aware. Manipulators have no effect
     unless you insert the manipulator into a
     <code class="classname">Query</code> or <tt><a href="../refman/classmysqlpp_1_1SQLQueryParms.html">SQLQueryParms</a></tt> stream.
-    <sup>[<a name="id2776170" href="#ftn.id2776170">1</a>]</sup> Also, values are only quoted and/or
+    <sup>[<a name="idp10279568" href="#ftn.idp10279568">2</a>]</sup> Also, values are only quoted and/or
     escaped if they are of a data type that may need it. For example,
     <tt><a href="../refman/structmysqlpp_1_1Date.html">Date</a></tt> must be quoted but
     never needs to be escaped, and integer types need neither quoting
@@ -316,14 +321,14 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </
     commands: MySQL++ will ignore these suggestions if it knows it
     won&#8217;t result in syntactically-incorrect SQL.</p><p>It&#8217;s also important to realize that quoting and escaping
     in <code class="classname">Query</code> streams and template queries is
-    never implicit.<sup>[<a name="id2776204" href="#ftn.id2776204">2</a>]</sup> You must use
+    never implicit.<sup>[<a name="idp10282976" href="#ftn.idp10282976">3</a>]</sup> You must use
     manipulators and template query flags as necessary to tell MySQL++
     where quoting and escaping is necessary. It would be nice if MySQL++
     could do quoting and escaping implicitly based on data type, but
-    this isn&#8217;t possible in all cases.<sup>[<a name="whyexpmanip" href="#ftn.whyexpmanip">3</a>]</sup> Since
+    this isn&#8217;t possible in all cases.<sup>[<a name="whyexpmanip" href="#ftn.whyexpmanip">4</a>]</sup> Since
     MySQL++ can&#8217;t reliably guess when quoting and escaping is
     appropriate, and the programmer doesn&#8217;t need
-    to<sup>[<a name="id2776258" href="#ftn.id2776258">4</a>]</sup>, MySQL++ makes you
+    to<sup>[<a name="idp10288192" href="#ftn.idp10288192">5</a>]</sup>, MySQL++ makes you
     tell it.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="sql-types"></a>3.6. C++ vs. SQL Data Types</h3></div></div></div><p>The C++ and SQL data type systems have several differences
     that can cause problems when using MySQL++, or any other SQL
     based system, for that matter.</p><p>Most of the data types you can store in a SQL database are
@@ -331,7 +336,7 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </
     the data going between the database server and your application,
     there aren&#8217;t even numbers: SQL is a textual language, so
     numbers and everything else gets transferred between the client
-    and the database server in text string form.<sup>[<a name="id2776290" href="#ftn.id2776290">5</a>]</sup> Consequently, MySQL++
+    and the database server in text string form.<sup>[<a name="idp10291424" href="#ftn.idp10291424">6</a>]</sup> Consequently, MySQL++
     has a lot of <a href="tutorial.html#string-types" title="3.8. MySQL++&#8217;s Special String Types">special support</a>
     for text strings, and can translate to several C++ numeric data
     types transparently.</p><p>Some people worry that this translation via an intermediate
@@ -344,7 +349,7 @@ query &lt;&lt; "SELECT * FROM stock WHERE item = " &lt;&lt; quote &lt;&lt; s; </
     in v3.0.2. No one has since proven data loss via this path. There
     is still a known problem
 
-    <sup>[<a name="id2776335" href="#ftn.id2776335">6</a>]</sup>
+    <sup>[<a name="idp10295744" href="#ftn.idp10295744">7</a>]</sup>
 
     with the SQL DECIMAL type, which is somewhat related to the
     floating-point issue, but it&#8217;s apparently rarely encountered,
@@ -456,14 +461,14 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
     important to the way MySQL++ works that it&#8217;s well worth taking
     the time to understand them.</p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SQLTypeAdapter"></a>SQLTypeAdapter</h4></div></div></div><p>The simpler of the two is
       <code class="classname">SQLTypeAdapter</code>, or
-      <code class="classname">STA</code> for short.<sup>[<a name="id2776765" href="#ftn.id2776765">7</a>]</sup></p><p>As its name suggests, its only purpose is to adapt other
+      <code class="classname">STA</code> for short.<sup>[<a name="idp10340064" href="#ftn.idp10340064">8</a>]</sup></p><p>As its name suggests, its only purpose is to adapt other
       data types to be used with SQL. It has a whole bunch of conversion
       constructors, one for all data types we expect to be used with
       MySQL++ for values in queries. SQL queries are strings, so
       constructors that take stringish types just make a copy of that
       string, and all the others &#8220;stringize&#8221; the value in
       the format needed by
-      SQL.<sup>[<a name="id2776794" href="#ftn.id2776794">8</a>]</sup> The conversion
+      SQL.<sup>[<a name="idp10342768" href="#ftn.idp10342768">9</a>]</sup> The conversion
       constructors preserve type information, so this stringization
       process doesn&#8217;t throw away any essential information.</p><p><code class="classname">STA</code> is used anywhere MySQL++ needs to
       be able to accept any of several data types for use in a SQL
@@ -479,7 +484,7 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       really functional enough for general use. It&#8217;s possible that
       in future versions of MySQL++ we&#8217;ll expand its interface to
       include everything <code class="classname">std::string</code> does, so
-      that&#8217;s why it&#8217;s called that.<sup>[<a name="id2776866" href="#ftn.id2776866">9</a>]</sup></p><p>The key thing <code class="classname">String</code> provides over
+      that&#8217;s why it&#8217;s called that.<sup>[<a name="idp10350144" href="#ftn.idp10350144">10</a>]</sup></p><p>The key thing <code class="classname">String</code> provides over
       <code class="classname">std::string</code> is conversion of strings in SQL
       value formats to their plain old C++ data types. For example, if you
       initialize it with the string &#8220;2007-11-19&#8221;, you can
@@ -494,7 +499,7 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       inverse of <code class="classname">STA</code>:
       <code class="classname">String</code> converts SQL value strings to C++
       data types, and <code class="classname">STA</code> converts C++ data types
-      to SQL value strings.<sup>[<a name="id2776961" href="#ftn.id2776961">10</a>]</sup></p><p><code class="classname">String</code> has two main uses.</p><p>By far the most common use is as the field value type of
+      to SQL value strings.<sup>[<a name="idp10360432" href="#ftn.idp10360432">11</a>]</sup></p><p><code class="classname">String</code> has two main uses.</p><p>By far the most common use is as the field value type of
       <code class="classname">Row</code>, as exemplified above. It&#8217;s not
       just the return type of <code class="methodname">Row::operator[]</code>,
       though: it&#8217;s actually the value type used within
@@ -578,9 +583,8 @@ cout &lt;&lt; int(myfield) &lt;&lt; endl;</pre><p>This will print &#8220;0&#8221
       value assigned to an auto-increment column in the previous
       insertion. This example uses that feature in the typical way,
       to create unique IDs for rows as they&#8217;re inserted.</p><p>Here is <code class="filename">examples/load_jpeg.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
+#include "images.h"
 #include "printdata.h"
-
-#include &lt;mysql++.h&gt;
 
 #include &lt;fstream&gt;
 
@@ -588,18 +592,73 @@ using namespace std;
 using namespace mysqlpp;
 
 
-// Pull in a state variable used by att_getopt() implementation so we
-// can pick up where standard command line processing leaves off.  Feel
-// free to ignore this implementation detail.
-extern int ag_optind;
-
-
+// This is just an implementation detail for the example.  Skip down to
+// main() for the concept this example is trying to demonstrate.  You
+// can simply assume that, given a BLOB containing a valid JPEG, it
+// returns true.
 static bool
-is_jpeg(const unsigned char* img_data)
+is_jpeg(const mysqlpp::sql_blob&amp; img, const char** whynot)
 {
-    return (img_data[0] == 0xFF) &amp;&amp; (img_data[1] == 0xD8) &amp;&amp;
-            ((memcmp(img_data + 6, "JFIF", 4) == 0) ||
-             (memcmp(img_data + 6, "Exif", 4) == 0));
+    // See http://stackoverflow.com/questions/2253404/ for
+    // justification for the various tests.
+    const unsigned char* idp =
+            reinterpret_cast&lt;const unsigned char*&gt;(img.data());
+    if (img.size() &lt; 125) {
+        *whynot = "a valid JPEG must be at least 125 bytes";
+    }
+    else if ((idp[0] != 0xFF) || (idp[1] != 0xD8)) {
+        *whynot = "file does not begin with JPEG sigil bytes";
+    }
+    else if ((memcmp(idp + 6, "JFIF", 4) != 0) &amp;&amp;
+             (memcmp(idp + 6, "Exif", 4) != 0)) {
+        *whynot = "file does not contain JPEG type word";
+    }
+    else {
+        *whynot = 0;
+        return true;
+    }
+
+    return false;
+}
+
+
+// Skip to main() before studying this.  This is a little too
+// low-level to bother with on your first pass thru the code.
+static bool
+load_jpeg_file(const mysqlpp::examples::CommandLine&amp; cmdline,
+        images&amp; img, string&amp; img_name)
+{
+    if (cmdline.extra_args().size() == 0) {
+        // Nothing for us to do here.  Caller will insert NULL BLOB.
+        return true;
+    }
+
+    // Got a file's name on the command line, so open it.
+    img_name = cmdline.extra_args()[0];
+    ifstream img_file(img_name.c_str(), ios::binary);
+    if (img_file) {
+        // Slurp file contents into RAM with minimum copying.  (Idiom
+        // explained here: http://stackoverflow.com/questions/116038/)
+        //
+        // By loading the file into a C++ string (stringstream::str())
+        // and assigning that directly to a mysqlpp::sql_blob, we avoid
+        // truncating the binary data at the first null character.
+        img.data.data = static_cast&lt;const stringstream*&gt;(
+                &amp;(stringstream() &lt;&lt; img_file.rdbuf()))-&gt;str();
+
+        // Check JPEG data for sanity.
+        const char* error;
+        if (is_jpeg(img.data.data, &amp;error)) {
+            return true;
+        }
+        else {
+            cerr &lt;&lt; '"' &lt;&lt; img_name &lt;&lt; "\" isn't a JPEG: " &lt;&lt;
+                    error &lt;&lt; '!' &lt;&lt; endl;
+        }
+    }
+
+    cmdline.print_usage("[jpeg_file]");
+    return false;
 }
 
 
@@ -607,65 +666,37 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass,
-            "[jpeg_file]")) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
-        // Assume that the last command line argument is a file.  Try
-        // to read that file's data into img_data, and check it to see
-        // if it appears to be a JPEG file.  Bail otherwise.
-        string img_name, img_data;
-        if (argc - ag_optind &gt;= 1) {
-            img_name = argv[ag_optind];
-            ifstream img_file(img_name.c_str(), ios::ate);
-            if (img_file) {
-                size_t img_size = img_file.tellg();
-                if (img_size &gt; 10) {
-                    img_file.seekg(0, ios::beg);
-                    unsigned char* img_buffer = new unsigned char[img_size];
-                    img_file.read(reinterpret_cast&lt;char*&gt;(img_buffer),
-                            img_size);
-                    if (is_jpeg(img_buffer)) {
-                        img_data.assign(
-                                reinterpret_cast&lt;char*&gt;(img_buffer),
-                                img_size);
-                    }
-                    else {
-                        cerr &lt;&lt; '"' &lt;&lt; img_file &lt;&lt;
-                                "\" isn't a JPEG!" &lt;&lt; endl;
-                    }
-                    delete[] img_buffer;
-                }
-                else {
-                    cerr &lt;&lt; "File is too short to be a JPEG!" &lt;&lt; endl;
-                }
-            }
+        // Load the file named on the command line
+        images img(mysqlpp::null, mysqlpp::null);
+        string img_name("NULL");
+        if (load_jpeg_file(cmdline, img, img_name)) {
+            // Insert image data or SQL NULL into the images.data BLOB
+            // column.  The key here is that we're holding the raw
+            // binary data in a mysqlpp::sql_blob, which avoids data
+            // conversion problems that can lead to treating BLOB data
+            // as C strings, thus causing null-truncation.  The fact
+            // that we're using SSQLS here is a side issue, simply
+            // demonstrating that mysqlpp::Null&lt;mysqlpp::sql_blob&gt; is
+            // now legal in SSQLS, as of MySQL++ 3.0.7.
+            Query query = con.query();
+            query.insert(img);
+            SimpleResult res = query.execute();
+
+            // Report successful insertion
+            cout &lt;&lt; "Inserted \"" &lt;&lt; img_name &lt;&lt;
+                    "\" into images table, " &lt;&lt; img.data.data.size() &lt;&lt;
+                    " bytes, ID " &lt;&lt; res.insert_id() &lt;&lt; endl;
         }
-        if (img_data.empty()) {
-            print_usage(argv[0], "[jpeg_file]");
-            return 1;
-        }
-
-        // Insert image data into the BLOB column in the images table.
-        // We're inserting it as an std::string instead of using the raw
-        // data buffer allocated above because we don't want the data
-        // treated as a C string, which would truncate the data at the
-        // first null character.
-        Query query = con.query();
-        query &lt;&lt; "INSERT INTO images (data) VALUES(\"" &lt;&lt;
-                mysqlpp::escape &lt;&lt; img_data &lt;&lt; "\")";
-        SimpleResult res = query.execute();
-
-        // If we get here, insertion succeeded
-        cout &lt;&lt; "Inserted \"" &lt;&lt; img_name &lt;&lt;
-                "\" into images table, " &lt;&lt; img_data.size() &lt;&lt;
-                " bytes, ID " &lt;&lt; res.insert_id() &lt;&lt; endl;
     }
     catch (const BadQuery&amp; er) {
         // Handle any query errors
@@ -701,21 +732,24 @@ main(int argc, char *argv[])
       the database by <code class="filename">load_jpeg</code>, and writes
       it out in the form a web server wants when processing a CGI
       call, all with adequate real-world error handling. This is
-      <code class="filename">examples/cgi_jpeg.cpp</code>:</p><pre class="programlisting">#include &lt;mysql++.h&gt;
-#include &lt;ssqls.h&gt;
+      <code class="filename">examples/cgi_jpeg.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
+#include "images.h"
 
-#define IMG_DATABASE    "mysql_cpp_data"
-#define IMG_HOST        "localhost"
-#define IMG_USER        "root"
-#define IMG_PASSWORD    "nunyabinness"
+#define CRLF            "\r\n"
+#define CRLF2           "\r\n\r\n"
 
-sql_create_2(images,
-    1, 2,
-    mysqlpp::sql_int_unsigned, id,
-    mysqlpp::sql_blob, data)
-
-int main()
+int
+main(int argc, char* argv[])
 {
+    // Get database access parameters from command line if present, else
+    // use hard-coded values for true CGI case.
+    mysqlpp::examples::CommandLine cmdline(argc, argv, "root",
+            "nunyabinness");
+    if (!cmdline) {
+        return 1;
+    }
+
+    // Parse CGI query string environment variable to get image ID
     unsigned int img_id = 0;
     char* cgi_query = getenv("QUERY_STRING");
     if (cgi_query) {
@@ -745,33 +779,42 @@ int main()
         return 1;
     }
 
+    // Retrieve image from DB by ID
     try {
-        mysqlpp::Connection con(IMG_DATABASE, IMG_HOST, IMG_USER,
-                IMG_PASSWORD);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
         mysqlpp::Query query = con.query();
         query &lt;&lt; "SELECT * FROM images WHERE id = " &lt;&lt; img_id;
-        mysqlpp::UseQueryResult res = query.use();
-        if (res) {
-            images img = res.fetch_row();
-            std::cout &lt;&lt; "Content-type: image/jpeg" &lt;&lt; std::endl;
-            std::cout &lt;&lt; "Content-length: " &lt;&lt; img.data.length() &lt;&lt; "\n\n";
-            std::cout &lt;&lt; img.data;
+        mysqlpp::StoreQueryResult res = query.store();
+        if (res &amp;&amp; res.num_rows()) {
+            images img = res[0];
+            if (img.data.is_null) {
+                std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; CRLF2;
+                std::cout &lt;&lt; "No image content!" &lt;&lt; CRLF;
+            }
+            else {
+                std::cout &lt;&lt; "X-Image-Id: " &lt;&lt; img_id &lt;&lt; CRLF; // for debugging
+                std::cout &lt;&lt; "Content-type: image/jpeg" &lt;&lt; CRLF;
+                std::cout &lt;&lt; "Content-length: " &lt;&lt;
+                        img.data.data.length() &lt;&lt; CRLF2;
+                std::cout &lt;&lt; img.data;
+            }
         }
         else {
-            std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; std::endl &lt;&lt; std::endl;
-            std::cout &lt;&lt; "ERROR: No such image with ID " &lt;&lt; img_id &lt;&lt; std::endl;
+            std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; CRLF2;
+            std::cout &lt;&lt; "ERROR: No image with ID " &lt;&lt; img_id &lt;&lt; CRLF;
         }
     }
     catch (const mysqlpp::BadQuery&amp; er) {
         // Handle any query errors
-        std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; std::endl &lt;&lt; std::endl;
-        std::cout &lt;&lt; "QUERY ERROR: " &lt;&lt; er.what() &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; CRLF2;
+        std::cout &lt;&lt; "QUERY ERROR: " &lt;&lt; er.what() &lt;&lt; CRLF;
         return 1;
     }
     catch (const mysqlpp::Exception&amp; er) {
         // Catch-all for any other MySQL++ exceptions
-        std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; std::endl &lt;&lt; std::endl;
-        std::cout &lt;&lt; "GENERAL ERROR: " &lt;&lt; er.what() &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Content-type: text/plain" &lt;&lt; CRLF2;
+        std::cout &lt;&lt; "GENERAL ERROR: " &lt;&lt; er.what() &lt;&lt; CRLF;
         return 1;
     }
 
@@ -801,6 +844,7 @@ int main()
 #include "stock.h"
 
 #include &lt;iostream&gt;
+#include &lt;cstdio&gt;
 
 using namespace std;
 
@@ -808,14 +852,15 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Show initial state
         mysqlpp::Query query = con.query();
@@ -824,7 +869,15 @@ main(int argc, char *argv[])
 
         // Insert a few rows in a single transaction set
         {
-            mysqlpp::Transaction trans(con);
+            // Use a higher level of transaction isolation than MySQL
+            // offers by default.  This trades some speed for more
+            // predictable behavior.  We've set it to affect all
+            // transactions started through this DB server connection,
+            // so it affects the next block, too, even if we don't
+            // commit this one.
+            mysqlpp::Transaction trans(con,
+                    mysqlpp::Transaction::serializable,
+                    mysqlpp::Transaction::session);
 
             stock row("Sauerkraut", 42, 1.2, 0.75,
                     mysqlpp::sql_date("2006-03-06"), mysqlpp::null);
@@ -843,6 +896,8 @@ main(int argc, char *argv[])
             
         // Now let's test auto-rollback
         {
+            // Start a new transaction, keeping the same isolation level
+            // we set above, since it was set to affect the session.
             mysqlpp::Transaction trans(con);
             cout &lt;&lt; "\nNow adding catsup to the database..." &lt;&lt; endl;
 
@@ -927,12 +982,13 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     // Check that the mode parameter was also given and it makes sense
+    const int run_mode = cmdline.run_mode();
     if ((run_mode != 1) &amp;&amp; (run_mode != 2)) {
         cerr &lt;&lt; argv[0] &lt;&lt; " must be run with -m1 or -m2 as one of "
                 "its command-line arguments." &lt;&lt; endl;
@@ -942,7 +998,8 @@ main(int argc, char *argv[])
     mysqlpp::Connection con;
     try {
         // Establish the connection to the database server
-        con.connect(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Start a transaction set.  Transactions create mutex locks on
         // modified rows, so if two programs both touch the same pair of
@@ -1068,14 +1125,15 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     // Connect to the sample database.
     mysqlpp::Connection conn(false);
-    if (conn.connect(db, server, user, pass)) {
+    if (conn.connect(mysqlpp::examples::db_name, cmdline.server(),
+            cmdline.user(), cmdline.pass())) {
         // Ask for all rows from the sample stock table and display
         // them.  Unlike simple2 example, we retreive each row one at
         // a time instead of storing the entire result set in memory
@@ -1180,14 +1238,15 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Collect the stock items with prime quantities
         std::vector&lt;stock&gt; results;
@@ -1199,7 +1258,7 @@ main(int argc, char *argv[])
         std::vector&lt;stock&gt;::const_iterator it;
         for (it = results.begin(); it != results.end(); ++it) {
             print_stock_row(it-&gt;item.c_str(), it-&gt;num, it-&gt;weight,
-                    it-&gt;price, it-&gt;sdate);
+                    it-&gt;price, it-&gt;sDate);
         }
     }
     catch (const mysqlpp::BadQuery&amp; e) {
@@ -1259,7 +1318,7 @@ public:
     {
         items_  += s.num;
         weight_ += (s.num * s.weight);
-        cost_   += (s.num * s.price);
+        cost_   += (s.num * s.price.data);
     }
     
 private:
@@ -1287,14 +1346,15 @@ int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Gather and display the stats for the entire stock table
         mysqlpp::Query query = con.query();
@@ -1344,7 +1404,7 @@ using namespace std;
 using namespace mysqlpp;
 
 
-typedef vector&lt;int&gt; IntVectorType;
+typedef vector&lt;size_t&gt; IntVectorType;
 
 
 static void
@@ -1352,7 +1412,7 @@ print_header(IntVectorType&amp; widths, StoreQueryResult&amp; res)
 {
     cout &lt;&lt; "  |" &lt;&lt; setfill(' ');
     for (size_t i = 0; i &lt; res.field_names()-&gt;size(); i++) {
-        cout &lt;&lt; " " &lt;&lt; setw(widths.at(i)) &lt;&lt; res.field_name(i) &lt;&lt; " |";
+        cout &lt;&lt; " " &lt;&lt; setw(widths.at(i)) &lt;&lt; res.field_name(int(i)) &lt;&lt; " |";
     }
     cout &lt;&lt; endl;
 }
@@ -1363,7 +1423,7 @@ print_row(IntVectorType&amp; widths, Row&amp; row)
 {
     cout &lt;&lt; "  |" &lt;&lt; setfill(' ');
     for (size_t i = 0; i &lt; row.size(); ++i) {
-        cout &lt;&lt; " " &lt;&lt; setw(widths.at(i)) &lt;&lt; row[i] &lt;&lt; " |";
+        cout &lt;&lt; " " &lt;&lt; setw(widths.at(i)) &lt;&lt; row[int(i)] &lt;&lt; " |";
     }
     cout &lt;&lt; endl;
 }
@@ -1396,8 +1456,8 @@ print_result(StoreQueryResult&amp; res, int index)
 
     // Figure out the widths of the result set's columns
     IntVectorType widths;
-    int size = res.num_fields();
-    for (int i = 0; i &lt; size; i++) {
+    size_t size = res.num_fields();
+    for (size_t i = 0; i &lt; size; i++) {
         widths.push_back(max(
                 res.field(i).max_length(),
                 res.field_name(i).size()));
@@ -1435,8 +1495,8 @@ int
 main(int argc, char *argv[])
 {
     // Get connection parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
@@ -1451,7 +1511,8 @@ main(int argc, char *argv[])
         con.set_option(new MultiStatementsOption(true));
 
         // Connect to the database
-        if (!con.connect(db, server, user, pass)) {
+        if (!con.connect(mysqlpp::examples::db_name, cmdline.server(),
+                cmdline.user(), cmdline.pass())) {
             return 1;
         }
 
@@ -1564,12 +1625,22 @@ main(int argc, char *argv[])
     reasonable idle time is a long 4-day weekend &#8212; 345,600
     seconds &#8212; which you could round up to 350,000 or 400,000
     to allow for a little bit of additional idle time on either end
-    of that period.</p><p>Alternately, you can change this parameter on a
-    per-connection basis by using MySQL++&#8217;s <tt><a href="../refman/classmysqlpp_1_1ConnectTimeoutOption.html">ConnectTimeoutOption</a></tt> <a href="tutorial.html#connopts" title="3.14. Connection Options">connection option</a>.</p><p>A completely different way to tackle this, if your program
+    of that period.</p><p>Another way around this, on a per-connection basis from
+    the client side, would be to set the <tt><a href="../refman/classmysqlpp_1_1ReconnectOption.html">ReconnectOption</a></tt> <a href="tutorial.html#connopts" title="3.14. Connection Options">connection
+    option</a>. This will cause MySQL++ to reconnect to the server
+    automatically if it drops the connection. Beware that unless
+    you&#8217;re using MySQL 5.1.6 or higher, you have to set this
+    only after the connection is established, or it won&#8217;t take
+    effect. This means there&#8217;s a potential race condition:
+    it&#8217;s possible the connection could drop shortly enough
+    after being established that you don&#8217;t have time to apply
+    the option, so it won&#8217;t come back up automatically. MySQL
+    5.1.6+ fixes this by allowing this option to be set before the
+    connection is established.</p><p>A completely different way to tackle this, if your program
     doesn&#8217;t block forever waiting on I/O while idle, is to
     periodically call <code class="methodname">Connection::ping()</code>.
 
-    <sup>[<a name="id2778425" href="#ftn.id2778425">11</a>]</sup>
+    <sup>[<a name="idp10494096" href="#ftn.idp10494096">12</a>]</sup>
 
     This sends the smallest possible amount of data to the
     database server, which will reset its idle timer and cause
@@ -1660,23 +1731,19 @@ UseQueryResult r2 = query.use("select blah from bonk where bletch='smurf'");</pr
 using namespace std;
 
 
-// Access the flag that's set when running under the dtest framework, so
-// we modify our output to be testable.
-extern bool dtest_mode;
-
-
 int
 main(int argc, char *argv[])
 {
     // Get database access parameters from command line
-    const char* db = 0, *server = 0, *user = 0, *pass = "";
-    if (!parse_command_line(argc, argv, &amp;db, &amp;server, &amp;user, &amp;pass)) {
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
         return 1;
     }
 
     try {
         // Establish the connection to the database server.
-        mysqlpp::Connection con(db, server, user, pass);
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
 
         // Get contents of main example table
         mysqlpp::Query query = con.query("select * from stock");
@@ -1697,11 +1764,11 @@ main(int argc, char *argv[])
         for (size_t i = 0; i &lt; res.field_names()-&gt;size(); i++) {
             // Suppress C++ type name outputs when run under dtest,
             // as they're system-specific.
-            const char* cname = dtest_mode ? "n/a" : res.field_type(i).name();
-            mysqlpp::FieldTypes::value_type ft = res.field_type(i);
+            const char* cname = res.field_type(int(i)).name();
+            mysqlpp::FieldTypes::value_type ft = res.field_type(int(i));
             ostringstream os;
             os &lt;&lt; ft.sql_name() &lt;&lt; " (" &lt;&lt; ft.id() &lt;&lt; ')';
-            cout &lt;&lt; setw(widths[0]) &lt;&lt; res.field_name(i).c_str() &lt;&lt;
+            cout &lt;&lt; setw(widths[0]) &lt;&lt; res.field_name(int(i)).c_str() &lt;&lt;
                     setw(widths[1]) &lt;&lt; os.str() &lt;&lt;
                     setw(widths[2]) &lt;&lt; cname &lt;&lt;
                     endl;
@@ -1720,7 +1787,7 @@ main(int argc, char *argv[])
         if (res.field_type(5) == typeid(string)) {
             cout &lt;&lt; "Should not happen! Type check failure." &lt;&lt; endl;
         }
-        else if (res.field_type(5) == typeid(mysqlpp::Null&lt;mysqlpp::String&gt;)) {
+        else if (res.field_type(5) == typeid(mysqlpp::sql_blob_null)) {
             cout &lt;&lt; "SQL type of 'description' field resembles "
                     "a nullable variant of the C++ string type." &lt;&lt; endl;
         }
@@ -1743,14 +1810,14 @@ main(int argc, char *argv[])
 
     return 0;
 }
-</pre></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.id2776170" href="#id2776170">1</a>] </sup><code class="classname">SQLQueryParms</code> is used as a
+</pre></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.idp10279568" href="#idp10279568">2</a>] </sup><code class="classname">SQLQueryParms</code> is used as a
     stream only as an implementation detail within the library. End user
     code simply sees it as a <code class="classname">std::vector</code>
-    derivative.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2776204" href="#id2776204">2</a>] </sup>By contrast, the
+    derivative.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10282976" href="#idp10282976">3</a>] </sup>By contrast, the
     <code class="classname">Query</code> methods that take an <a href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a> <span class="emphasis"><em>do</em></span> add quotes and
     escape strings implicitly. It can do this because SSQLS knows all
     the SQL code and data types, so it never has to guess whether
-    quoting or escaping is appropriate.</p></div><div class="footnote"><p><sup>[<a name="ftn.whyexpmanip" href="#whyexpmanip">3</a>] </sup>Unless you&#8217;re smarter than I am, you
+    quoting or escaping is appropriate.</p></div><div class="footnote"><p><sup>[<a name="ftn.whyexpmanip" href="#whyexpmanip">4</a>] </sup>Unless you&#8217;re smarter than I am, you
     don&#8217;t immediately see why explicit manipulators are necessary.
     We can tell when quoting and escaping is <span class="emphasis"><em>not</em></span>
     appropriate based on type, so doesn&#8217;t that mean we know when
@@ -1761,15 +1828,15 @@ main(int argc, char *argv[])
     code, or it can be a value used in a query. Since there&#8217;s no
     easy way to know and it would damage the library&#8217;s usability
     to mandate that C strings only be used for one purpose or the other,
-    the library requires you to be explicit.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2776258" href="#id2776258">4</a>] </sup>One hopes the programmer
-    <span class="emphasis"><em>knows</em></span>.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2776290" href="#id2776290">5</a>] </sup>Yes,
+    the library requires you to be explicit.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10288192" href="#idp10288192">5</a>] </sup>One hopes the programmer
+    <span class="emphasis"><em>knows</em></span>.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10291424" href="#idp10291424">6</a>] </sup>Yes,
     we&#8217;re aware that there is a feature in MySQL that lets you
     transfer row data in a binary form, but we don&#8217;t support
     this yet. We may, someday, probably as an extension to <a href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a>. The only real reason to do so
     is to shave off some of the data translation overhead, which
     is typically neglibible in practice, swamped by the far greater
     disk and network I/O overheads inherent in use of a client-server
-    database system like MySQL.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2776335" href="#id2776335">6</a>] </sup>SQL&#8217;s DECIMAL data type is a configurable-precision
+    database system like MySQL.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10295744" href="#idp10295744">7</a>] </sup>SQL&#8217;s DECIMAL data type is a configurable-precision
       fixed-point number format. MySQL++ currently translates these to
       <span class="type">double</span>, a floating-point data format, the closest
       thing available in the C++ type system. Since the main reason
@@ -1782,7 +1849,7 @@ main(int argc, char *argv[])
       they get as a result. Until this wheel squeaks, it&#8217;s not
       likely to be greased. To fix this, we&#8217;ll have to create
       a new custom data type to hold such column values, which will
-      be a lot of work for apparently little return.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2776765" href="#id2776765">7</a>] </sup>In version 2
+      be a lot of work for apparently little return.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10340064" href="#idp10340064">8</a>] </sup>In version 2
       of MySQL++ and earlier, <code class="classname">SQLTypeAdapter</code> was
       called <code class="classname">SQLString</code>, but it was confusing
       because its name and the fact that it derived from
@@ -1790,10 +1857,10 @@ main(int argc, char *argv[])
       general-purpose string type. MySQL++ even used it this way in a
       few places internally. In v3, we made it a simple base class and
       renamed it to reflect its proper limited
-      function.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2776794" href="#id2776794">8</a>] </sup><code class="classname">SQLTypeAdapter</code>
+      function.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10342768" href="#idp10342768">9</a>] </sup><code class="classname">SQLTypeAdapter</code>
       doesn&#8217;t do <a href="tutorial.html#qescape">quoting and escaping</a> itself. That happens
       elsewhere, right at the point that the <code class="classname">STA</code>
-      gets used to build a query.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2776866" href="#id2776866">9</a>] </sup>If you
+      gets used to build a query.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10350144" href="#idp10350144">10</a>] </sup>If you
       used MySQL++ before v3, <code class="classname">String</code> used to be
       called <code class="classname">ColData</code>. It was renamed because
       starting in v2.3, we began using it for holding more than just
@@ -1801,7 +1868,7 @@ main(int argc, char *argv[])
       <code class="classname">SQLString</code> instead, but that would have
       confused old MySQL++ users to no end. Instead, I followed the
       example of <code class="classname">Set</code>, MySQL++&#8217;s specialized
-      <code class="classname">std::set</code> variant.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2776961" href="#id2776961">10</a>] </sup>During the development of
+      <code class="classname">std::set</code> variant.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10360432" href="#idp10360432">11</a>] </sup>During the development of
       MySQL++ v3.0, I tried merging
       <code class="classname">SQLTypeAdapter</code> and
       <code class="classname">String</code> into a single class to take
@@ -1809,7 +1876,7 @@ main(int argc, char *argv[])
       freedom to tie itself up in knots, because it was then allowed to
       convert almost any data type to almost any other. You&#8217;d get
       a tangle of ambiguous data type conversion errors from the most
-      innocent code.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2778425" href="#id2778425">11</a>] </sup>Don&#8217;t ping the server too often! It takes a tiny
+      innocent code.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10494096" href="#idp10494096">12</a>] </sup>Don&#8217;t ping the server too often! It takes a tiny
       amount of processing capability to handle a ping, which can add
       up to a significant amount if done often enough by a client, or
       even just rarely by enough clients. Also, a lower ping frequency

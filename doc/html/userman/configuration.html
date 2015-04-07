@@ -1,23 +1,25 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>8. Configuring MySQL++</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="prev" href="threads.html" title="7. Using MySQL++ in a Multithreaded Program"><link rel="next" href="incorporating.html" title="9. Using MySQL++ in Your Own Project"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8. Configuring MySQL++</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="threads.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="incorporating.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="configuration"></a>8. Configuring MySQL++</h2></div></div></div><p>The default configuration of MySQL++ is suitable for most
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>8. Configuring MySQL++</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="prev" href="threads.html" title="7. Using MySQL++ in a Multithreaded Program"><link rel="next" href="incorporating.html" title="9. Using MySQL++ in Your Own Project"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">8. Configuring MySQL++</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="threads.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="incorporating.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="configuration"></a>8. Configuring MySQL++</h2></div></div></div><p>The default configuration of MySQL++ is suitable for most
   purposes, but there are a few things you can change to make it meet
-  special needs.</p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="mysql-loc"></a>8.1. The Location of the MySQL Development Files</h3></div></div></div><p>MySQL++ is built on top of the MySQL C API. It relies on
-    this low-level library for all communication with the database
-    server. Consequently, the build process for MySQL++ may fail if
-    it can&#8217;t find the C API headers and library.</p><p>On platforms that use Autoconf<sup>[<a name="id2772924" href="#ftn.id2772924">17</a>]</sup>, the <code class="filename">configure</code>
+  special needs.</p><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="mysql-loc"></a>8.1. The Location of the MySQL Development Files</h3></div></div></div><p>MySQL++ is built on top
+    of the MySQL C API. (Now called <a href="https://dev.mysql.com/downloads/connector/c/" target="_top">Connector/C</a>.)
+    MySQL++ relies on this low-level library for all communication
+    with the database server. Consequently, the build process for
+    MySQL++ may fail if it can&#8217;t find the C API headers and
+    library.</p><p>On platforms that use Autoconf<sup>[<a name="idp7709616" href="#ftn.idp7709616">19</a>]</sup>, the <code class="filename">configure</code>
     script can usually figure out the location of the C API
-    development files by itself. It simply tries a bunch of common
-    installation locations until it finds one that works. If
-    your MySQL server was installed in a nonstandard location,
-    you will have to tell the <code class="filename">configure</code>
+    development files by itself<sup>[<a name="idp5421088" href="#ftn.idp5421088">20</a>]</sup> It simply
+    tries a bunch of common installation locations until it finds one
+    that works. If your MySQL server was installed in a nonstandard
+    location, you will have to tell the <code class="filename">configure</code>
     script where these files are with some combination
     of the <code class="computeroutput">--with-mysql</code>,
     <code class="computeroutput">--with-mysql-include</code>, and
     <code class="computeroutput">--with-mysql-lib</code> flags. See
-    <code class="filename">README-Unix.txt</code> for details.</p><p>No other platform allows this sort of auto-discovery,
-    so the build files for these platforms simply hard-code the
-    default installation location for whatever version of MySQL is
-    in GA state at the time that version of MySQL++ was released. For
-    example, the Visual C++ project files currently assume MySQL is in
+    <code class="filename">README-Unix.txt</code> for details.</p><p>No other platform allows this sort of auto-discovery, so
+    the build files for these platforms simply hard-code the default
+    installation location for the current GA version of Connector/C
+    at the time that version of MySQL++ was released. For example,
+    the Visual C++ project files currently assume MySQL is in
     <code class="filename">c:\Program Files\MySQL\MySQL Server 5.1</code>. If
     you&#8217;re using some other release of MySQL or you installed it
     somewhere else, you will have to modify the build files.  How you
@@ -27,7 +29,7 @@
     <code class="filename">README-Mac-OS-X.txt</code>, as appropriate.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="max-fields"></a>8.2. The Maximum Number of Fields Allowed</h3></div></div></div><p>MySQL++ offers two ways to automatically build SQL
     queries at run time: <a href="tquery.html">Template Queries</a> and <a href="ssqls.html" title="5. Specialized SQL Structures">SSQLS</a>. There&#8217;s a limit on the number
     of fields these mechanisms support, defaulting to 25 fields in the
-    official MySQL++ packages.<sup>[<a name="id2729924" href="#ftn.id2729924">18</a>]</sup> The files
+    official MySQL++ packages.<sup>[<a name="idp8529296" href="#ftn.idp8529296">21</a>]</sup> The files
     embodying these limits are <code class="filename">lib/querydef.h</code> and
     <code class="filename">lib/ssqls.h</code>, each generated by Perl scripts of
     the same name but with a <code class="filename">.pl</code> extension.</p><p>The default <code class="filename">querydef.h</code> is small and
@@ -37,7 +39,7 @@
     makes <code class="filename">ssqls.pl</code> generate an
     <code class="filename">ssqls.h</code> over 1 MB. Worse,
     the field limit to file size relation is
-    <span class="emphasis"><em>quadratic</em></span>.<sup>[<a name="id2735996" href="#ftn.id2735996">19</a>]</sup>
+    <span class="emphasis"><em>quadratic</em></span>.<sup>[<a name="idp5208400" href="#ftn.idp5208400">22</a>]</sup>
     This has a number of bad effects:</p><div class="itemizedlist"><ul type="disc"><li><p>Generating header files to support more fields than
         you actually require is a waste of space and bandwidth.</p></li><li><p>Some compilers have arbitrary limits on the size of
         macros they&#8217;re able to parse. Exceeding these limits
@@ -99,15 +101,20 @@ perl querydef.pl -f 50</pre><p>Note the need to run these commands within the
     where this is known not to be available, but if you get errors in
     <code class="filename">common.h</code> about this type, you can define the
     macro <code class="varname">MYSQLPP_NO_LONG_LONGS</code> to make MySQL++
-    fall back to portable constructs.</p></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.id2772924" href="#id2772924">17</a>] </sup>Linux,
+    fall back to portable constructs.</p></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.idp7709616" href="#idp7709616">19</a>] </sup>Linux,
     Solaris, the BSDs, Mac OS X command line (as opposed to the
     Xcode IDE), Cygwin... Basically, Unix or anything that works
-    like it.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2729924" href="#id2729924">18</a>] </sup>If you&#8217;re using
+    like it.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp5421088" href="#idp5421088">20</a>] </sup>I don&#8217;t say
+    &#8220;Connector/C&#8221; here because the name change generally
+    hasn&#8217;t percolated out to Unixy systems. It&#8217;s more
+    commonly used on Windows systems, since the separate Connector/C
+    download lets them avoid installing a MySQL server just to get
+    development headers and libraries.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp8529296" href="#idp8529296">21</a>] </sup>If you&#8217;re using
     a third-party MySQL++ package, its maintainer may have increased
     these field counts so the resulting headers more closely approach
     the size limit of the compiler the package was built with. In that
     case, you can look at the top of each generated header file to
-    find out how many fields each supports.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2735996" href="#id2735996">19</a>] </sup>The file
+    find out how many fields each supports.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp5208400" href="#idp5208400">22</a>] </sup>The file
     size equation, for you amateur mathematicians out there,
     is <em class="phrase">N<sub>lines</sub> =
     18.5f<sup>2</sup> + 454.5f + 196.4</em>,

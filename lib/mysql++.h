@@ -46,10 +46,10 @@
 ///
 /// MySQL++ Version number that the mysql++.h header file comes from,
 /// encoded by MYSQLPP_VERSION macro.  Compare this value to what
-/// mysqlpp_lib_version() returns in order to ensure that your program
+/// get_library_version() returns in order to ensure that your program
 /// is using header files from the same version of MySQL++ as the
 /// actual library you're linking to.
-#define MYSQLPP_HEADER_VERSION MYSQLPP_VERSION(3, 1, 0)
+#define MYSQLPP_HEADER_VERSION MYSQLPP_VERSION(3, 2, 0)
 
 // This #include order gives the fewest redundancies in the #include
 // dependency chain.
