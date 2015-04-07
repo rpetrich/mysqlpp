@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5. Specialized SQL Structures</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.0.9 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.0.9 User Manual"><link rel="prev" href="tquery.html" title="4. Template Queries"><link rel="next" href="unicode.html" title="6. Using Unicode with MySQL++"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5. Specialized SQL Structures</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ssqls"></a>5. Specialized SQL Structures</h2></div></div></div><p>The Specialized SQL Structure (SSQLS) feature lets you easily
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5. Specialized SQL Structures</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.1.0 User Manual"><link rel="prev" href="tquery.html" title="4. Template Queries"><link rel="next" href="unicode.html" title="6. Using Unicode with MySQL++"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5. Specialized SQL Structures</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ssqls"></a>5. Specialized SQL Structures</h2></div></div></div><p>The Specialized SQL Structure (SSQLS) feature lets you easily
   define C++ structures that match the form of your SQL tables. At the
   most superficial level, an SSQLS has a member variable corresponding
   to each field in the SQL table. But, an SSQLS also has several
@@ -27,23 +27,21 @@ sql_create_6(stock, 1, 6,
     hidden data members, but we won&#8217;t go into that just
     now.</p><p>The parameter before each field name in the
     <code class="function">sql_create_#</code> call is the C++ data type that
-    will be used to hold that value in the SSQLS. MySQL++ defines C++
-    types for almost every data type MySQL understands, of the form
-    <span class="type">sql_*</span>. We&#8217;re using them for all of the columns
-    above for reasons given in <a href="tutorial.html#sql-types" title="3.6. C++ Equivalents of SQL Column Types">Section 3.6, &#8220;C++ Equivalents of SQL Column Types&#8221;</a>. While you
-    could use plain old C++ data types for most of these columns
-    (<span class="type">long int</span> instead of <span class="type">mysqlpp::sql_bigint</span>,
-    for example) the MySQL++ equivalents have <a href="tutorial.html#sql-types" title="3.6. C++ Equivalents of SQL Column Types">several advantages</a>.</p><p>Consider the <code class="varname">description</code> field definition
-    above. It uses two MySQL++ features in combination to express a data
-    type that has no exact C++ type equivalent. The difference between
-    SQL&#8217;s <span class="type">MEDIUMTEXT</span> and C++&#8217;s
-    <span class="type">std::string</span> type is small, so MySQL++&#8217;s typedef
-    just aliases the two. However, there&#8217;s no equivalent of
-    SQL&#8217;s &#8220;null&#8221; in the C++ type system.  MySQL++
-    offers the <tt><a href="../refman/classmysqlpp_1_1Null.html">Null</a></tt> template, which
-    bridges this difference between the two type systems.  For more on
-    this topic, see <a href="tutorial.html#sql-null" title="3.7. Handling SQL Nulls">Section 3.7, &#8220;Handling SQL Nulls&#8221;</a>.</p><p>The general format of this set of macros is:</p><pre class="programlisting">
-sql_create_#(NAME, COMPCOUNT, SETCOUNT, TYPE1, ITEM1, ... TYPE#, ITEM#)</pre><p>Where # is the number of member variables,
+    will be used to hold that value in the SSQLS. While you could use
+    plain old C++ data types for most of these columns (<span class="type">long
+    int</span> instead of <span class="type">mysqlpp::sql_bigint</span>, for
+    example) it&#8217;s <a href="tutorial.html#sql-types" title="3.6. C++ vs. SQL Data Types">best to use the
+    MySQL++ typedefs</a>.</p><p>Sometimes you have no choice but to use special MySQL++
+    data types to fully express the database schema. Consider
+    the <code class="varname">description</code> field. MySQL++&#8217;s
+    <span class="type">sql_mediumtext</span> type is just an alias for
+    <span class="type">std::string</span>, since we don&#8217;t need anything
+    fancier to hold a SQL <span class="type">MEDIUMTEXT</span> value.
+    It&#8217;s the SQL NULL attribute that causes trouble:
+    it <a href="tutorial.html#sql-null" title="3.7. Handling SQL Nulls">has no equivalent in the C++
+    type system</a>. MySQL++ offers the <tt><a href="../refman/classmysqlpp_1_1Null.html">Null</a></tt> template, which bridges this difference between the
+    two type systems.</p><p>The general format of this macro is:</p><pre class="programlisting">
+sql_create_#(NAME, COMPCOUNT, SETCOUNT, TYPE1, ITEM1, ... TYPE#, ITEM#)</pre><p>where # is the number of member variables,
     <em class="parameter"><code>NAME</code></em> is the name of the structure you wish to
     create, <em class="parameter"><code>TYPEx</code></em> is the type of a member
     variable, and <em class="parameter"><code>ITEMx</code></em> is that variable&#8217;s
@@ -207,7 +205,7 @@ sql_create_1(stock_subset,
 vector&lt;stock_subset&gt; res;
 query.storein(res);
 // ...etc...</pre><p>MySQL++ is flexible about populating
-    SSQLSes.<sup>[<a name="id2674991" href="#ftn.id2674991">9</a>]</sup> It works much like the Web, a design
+    SSQLSes.<sup>[<a name="id2739112" href="#ftn.id2739112">12</a>]</sup> It works much like the Web, a design
     that&#8217;s enabled the development of the largest distributed
     system in the world. Just as a browser ignores tags and attributes
     it doesn&#8217;t understand, you can populate an SSQLS from a query
@@ -236,8 +234,9 @@ query.storein(res);
     may mask problems, but considering that the previous behavior
     was for the program to crash when the database schema got out
     of synch with the SSQLS definition, it&#8217;s likely to be
-    taken as an improvement.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-adding"></a>5.4. Adding data</h3></div></div></div><p>SSQLS can also be used to add data to a table. This is
-    <code class="filename">examples/ssqls2.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
+    taken as an improvement.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-adding"></a>5.4. Adding data</h3></div></div></div><p>MySQL++ offers several ways to insert data in SSQLS form
+    into a database table.</p><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ssqls-add-one"></a>Inserting a Single Row</h4></div></div></div><p>The simplest option is to insert a single row at a
+      time. This is <code class="filename">examples/ssqls2.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
 #include "printdata.h"
 #include "stock.h"
 
@@ -298,12 +297,262 @@ main(int argc, char *argv[])
 
     return 0;
 }
-</pre><p>That&#8217;s all there is to it!</p><p>There is one subtlety: MySQL++ automatically <a href="tutorial.html#qescape" title="3.5. Quoting and Escaping">quotes and escapes</a> the data when building
-    SQL queries using SSQLS structures.  It&#8217;s efficient, too:
-    MySQL++ is smart enough to quote and escape data only for those data
-    types that actually require it.</p><p>Because this example modifies the sample database, you may
-    want to run <code class="filename">resetdb</code> after running this
-    program.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-modifying"></a>5.5. Modifying data</h3></div></div></div><p>It almost as easy to modify data with SSQLS as to add it. This
+</pre><p>That&#8217;s all there is to it! MySQL++ even takes care
+      of <a href="tutorial.html#qescape" title="3.5. Quoting and Escaping">quoting and escaping</a> the
+      data when building queries from SSQLS structures. It&#8217;s
+      efficient, too: MySQL++ is smart enough to quote and escape
+      data only for those data types that actually require it.</p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ssqls-add-range"></a>Inserting Many Rows</h4></div></div></div><p>Inserting a single row is useful, to be sure,
+      but you might want to be able to insert many SSQLSes or
+      <code class="classname">Row</code> objects at once. MySQL++ knows
+      how to do that, too, sparing you the necessity of writing
+      the loop. Plus, MySQL++ uses an optimized implementation of
+      this algorithm, packing everything into a single SQL query,
+      eliminating the overhead of multiple calls between the
+      client and server. It&#8217;s just a different overload of
+      <code class="methodname">insert()</code>, which accepts a pair of
+      iterators into an STL container, inserting every row in that
+      range:</p><pre class="programlisting">vector&lt;stock&gt; lots_of_stuff;
+...populate the vector somehow...
+query.insert(lots_of_stuff.begin(), lots_of_stuff.end()).execute();</pre><p>By the way, notice that you can chain
+      <code class="classname">Query</code> operations like in the last line
+      above, because its methods return <span class="symbol">*this</span> where
+      that makes sense.</p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ssqls-insertfrom"></a>Working Around MySQL&#8217;s Packet Size Limit</h4></div></div></div><p>The two-iterator form of <code class="methodname">insert()</code>
+      has an associated risk: MySQL has a limit on the size of the
+      SQL query it will process. The default limit is 1 MB. You
+      can raise the limit, but the reason the limit is configurable
+      is not to allow huge numbers of inserts in a single query. They
+      made the limit configurable because a single row might be bigger
+      than 1 MB, so the default would prevent you from inserting
+      anything at all. If you raise the limit simply to be able to
+      insert more rows at once, you&#8217;re courting disaster with
+      no compensating benefit: the more data you send at a time, the
+      greater the chance and cost of something going wrong.  Worse,
+      this is pure risk, because by the time you hit 1 MB,
+      the per-packet overhead is such a small fraction of the data
+      being transferred that increasing the packet size buys you
+      essentially nothing.</p><p>Let&#8217;s say you have a <code class="classname">vector</code>
+      containing several megabytes of data; it will get even bigger
+      when expressed in SQL form, so there&#8217;s no way you can
+      insert it all in a single query without raising the MySQL packet
+      limit. One way to cope would be to write your own naïve
+      loop, inserting just one row at a time. This is slow, because
+      you&#8217;re paying the per-query cost for every row in the
+      container. Then you might realize that you could use the two
+      iterator form of <code class="methodname">insert()</code>, passing
+      iterators expressing sub-ranges of the container instead of
+      trying to insert the whole container in one go. Now you&#8217;ve
+      just got to figure out how to calculate those sub-ranges to
+      get efficient operation without exceeding the packet size
+      limit.</p><p>MySQL++ already knows how to do that, too, with
+      <code class="methodname">Query::insertfrom()</code>.  We gave
+      it a different name instead of adding yet another
+      <code class="methodname">insert()</code> overload because it
+      doesn&#8217;t merely build the <span><strong class="command">INSERT</strong></span> query,
+      which you then <code class="methodname">execute()</code>. It&#8217;s
+      more like <code class="methodname">storein()</code>, in that it wraps
+      the entire operation up in a single call. This feature is
+      demonstrated in <code class="filename">examples/ssqls6.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
+#include "printdata.h"
+#include "stock.h"
+
+#include &lt;fstream&gt;
+
+using namespace std;
+
+
+// Breaks a given text line of tab-separated fields up into a list of
+// strings.
+static size_t
+tokenize_line(const string&amp; line, vector&lt;mysqlpp::String&gt;&amp; strings)
+{
+    string field;
+    strings.clear();
+
+    istringstream iss(line);
+    while (getline(iss, field, '\t')) {
+        strings.push_back(mysqlpp::String(field));
+    }
+
+    return strings.size();
+}
+
+
+// Reads a tab-delimited text file, returning the data found therein
+// as a vector of stock SSQLS objects.
+static bool
+read_stock_items(const char* filename, vector&lt;stock&gt;&amp; stock_vector)
+{
+    ifstream input(filename);
+    if (!input) {
+        cerr &lt;&lt; "Error opening input file '" &lt;&lt; filename &lt;&lt; "'" &lt;&lt; endl;
+        return false;
+    }
+
+    string line;
+    vector&lt;mysqlpp::String&gt; strings;
+    while (getline(input, line)) {
+        if (tokenize_line(line, strings) == 6) {
+            stock_vector.push_back(stock(string(strings[0]), strings[1],
+                    strings[2], strings[3], strings[4], strings[5]));
+        }
+        else {
+            cerr &lt;&lt; "Error parsing input line (doesn't have 6 fields) " &lt;&lt; 
+                    "in file '" &lt;&lt; filename &lt;&lt; "'" &lt;&lt; endl;
+            cerr &lt;&lt; "invalid line: '" &lt;&lt; line &lt;&lt; "'" &lt;&lt; endl;
+        }
+    }
+
+    return true;
+}
+
+
+int
+main(int argc, char *argv[])
+{
+    // Get database access parameters from command line
+    mysqlpp::examples::CommandLine cmdline(argc, argv);
+    if (!cmdline) {
+        return 1;
+    }
+
+    // Read in a tab-delimited file of stock data
+    vector&lt;stock&gt; stock_vector;
+    if (!read_stock_items("examples/stock.txt", stock_vector)) {
+        return 1;
+    }
+
+    try {
+        // Establish the connection to the database server.
+        mysqlpp::Connection con(mysqlpp::examples::db_name,
+                cmdline.server(), cmdline.user(), cmdline.pass());
+
+        // Clear all existing rows from stock table, as we're about to
+        // insert a bunch of new ones, and we want a clean slate.
+        mysqlpp::Query query = con.query();
+        query.exec("DELETE FROM stock");
+
+        // Insert data read from the CSV file, allowing up to 1000
+        // characters per packet.  We're using a small size in this
+        // example just to force multiple inserts.  In a real program,
+        // you'd want to use larger packets, for greater efficiency.
+        mysqlpp::Query::MaxPacketInsertPolicy&lt;&gt; insert_policy(1000);
+        query.insertfrom(stock_vector.begin(), stock_vector.end(),
+                insert_policy);
+
+        // Retrieve and print out the new table contents.
+        print_stock_table(query);
+    }
+    catch (const mysqlpp::BadQuery&amp; er) {
+        // Handle any query errors
+        cerr &lt;&lt; "Query error: " &lt;&lt; er.what() &lt;&lt; endl;
+        return -1;
+    }
+    catch (const mysqlpp::BadConversion&amp; er) {
+        // Handle bad conversions
+        cerr &lt;&lt; "Conversion error: " &lt;&lt; er.what() &lt;&lt; endl &lt;&lt;
+                "\tretrieved data size: " &lt;&lt; er.retrieved &lt;&lt;
+                ", actual size: " &lt;&lt; er.actual_size &lt;&lt; endl;
+        return -1;
+    }
+    catch (const mysqlpp::BadInsertPolicy&amp; er) {
+        // Handle bad conversions
+        cerr &lt;&lt; "InsertPolicy error: " &lt;&lt; er.what() &lt;&lt; endl;
+        return -1;
+    }
+    catch (const mysqlpp::Exception&amp; er) {
+        // Catch-all for any other MySQL++ exceptions
+        cerr &lt;&lt; "Error: " &lt;&lt; er.what() &lt;&lt; endl;
+        return -1;
+    }
+
+    return 0;
+}
+
+</pre><p>Most of the complexity in this example goes to
+      just reading in the data from a file; we have to get
+      our test data from somewhere. There are only two key
+      lines of code: create an insertion policy object, and
+      pass it along with an STL container full of row data to
+      <code class="methodname">Query::insertfrom()</code>.</p><p>This policy object is the main thing that differentiates
+      <code class="methodname">insertfrom()</code> from the two-iterator
+      form of <code class="methodname">insert()</code>. It controls
+      how <code class="methodname">insertfrom()</code> builds the query
+      strings, primarily controlling how large each query gets before
+      <code class="methodname">insertfrom()</code> executes it and starts
+      building a new query. We designed it to use policy objects
+      because there is no single &#8220;right&#8221; choice for the
+      decisions it makes.</p><p>MySQL++ ships with three different insertion policy
+      classes, which should cover most situations.</p><p><code class="classname">MaxPacketInsertPolicy</code>, demonstrated
+      in the example above, does things the most obvious way: when
+      you create it, you pass the maximum packet size, which it uses
+      to prevent queries from going over the size limit. It builds
+      up a query string row by row, checking each time through the
+      loop whether adding another insert statement to the query string
+      would make the packet size go over the limit. When that happens,
+      or it gets to the end of the iteration range, it executes the
+      query and starts over if it&#8217;s not yet at the end. This
+      is robust, but it has a downside: it has to build each insert
+      query in advance of knowing that it can append it to the larger
+      query. Any time an insert query would push the packet over the
+      limit, it has to throw it away, causing the library to do more
+      work than is strictly necessary.</p><p>Imagine you&#8217;ve done some benchmarking and have found
+      that the point of diminishing returns is at about 20 KB per
+      query in your environment; beyond that point, the per-query
+      overhead ceases to be an issue. Let&#8217;s also say you
+      know for a fact that your largest row will always be less than
+      1 MB &#8212; less 20 KB &#8212; when expressed as a SQL
+      insert statement. In that case, you can use the more efficient
+      <code class="classname">SizeThresholdInsertPolicy</code>. It differs from
+      <code class="classname">MaxPacketInsertPolicy</code> in that it allows
+      <code class="methodname">insertfrom()</code> to insert rows blindly into
+      the query string until the built query exceeds the threshold,
+      20 KB in this example. Then it ships the packet off, and if
+      successful, starts a new query. Thus, each query (except possibly
+      the last) will be at least 20 KB, exceeding that only by as
+      much as one row&#8217;s worth of data, minus one byte. This is
+      quite appropriate behavior when your rows are relatively small,
+      as is typical for tables not containing BLOB data. It is more
+      efficient than <code class="classname">MaxPacketInsertPolicy</code>
+      because it never has to throw away any SQL fragments.</p><p>The simplest policy object type is
+      <code class="classname">RowCountInsertPolicy</code>. This lets you simply
+      say how many rows at a time to insert into the database. This
+      works well when you have a good handle on how big each row
+      will be, so you can calculate in advance how many rows you
+      can insert at once without exceeding some given limit. Say
+      you know your rows can&#8217;t be any bigger than about
+      1 KB. If we stick with that 20 KB target, passing
+      <code class="classname">RowCountInsertPolicy&lt;&gt;(20)</code>
+      for the policy object would ensure we never exceed
+      the size threshold. Or, say that maximum size
+      value above is still true, but we also know the
+      average row size is only 200 bytes. You could pass
+      <code class="classname">RowCountInsertPolicy&lt;&gt;(100)</code> for
+      the policy, knowing that the average packet size will be around
+      20 KB, and the worst case packet size 100 KB, still
+      nowhere near the default 1 MB packet size limit. The code
+      for this policy is very simple, so it makes your program a little
+      smaller than if you used either of the above policies. Obviously
+      it&#8217;s a bad choice if you aren&#8217;t able to predict
+      the size of your rows accurately.</p><p>If one of the provided insert policy classes
+      doesn&#8217;t suit your needs, you can easily create
+      a custom one. Just study the implementation in
+      <code class="filename">lib/insertpolicy.*</code>.</p></div><div class="sect3" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ssqls-insertfrom-transactions"></a>Interaction with Transactions</h4></div></div></div><p>These policy classes are all templates, taking a parameter
+      that defaults to <tt><a href="../refman/classmysqlpp_1_1Transaction.html">Transaction</a></tt>. This
+      means that, by default, <code class="methodname">insertfrom()</code>
+      wraps the entire operation in a SQL transaction, so that if
+      any of the insertions fail, the database server rolls them all
+      back. This prevents an error in the middle of the operation
+      from leaving just part of the container&#8217;s data inserted
+      in the database, which you usually don&#8217;t want any more
+      than you&#8217;d want half a single row to be inserted.</p><p>There are good reasons why you might
+      not want this. Perhaps the best reason is if the
+      <code class="methodname">insertfrom()</code> call is to be part
+      of a larger transaction. MySQL doesn&#8217;t support nested
+      transactions, so the <code class="methodname">insertfrom()</code>
+      call will fail if it tries to start one of its own. You can
+      pass <code class="classname">NoTransactions</code> for the insert
+      policy&#8217;s template parameter to make it suppress the
+      transaction code.</p></div></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-modifying"></a>5.5. Modifying data</h3></div></div></div><p>It almost as easy to modify data with SSQLS as to add it. This
     is <code class="filename">examples/ssqls3.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
 #include "printdata.h"
 #include "stock.h"
@@ -386,8 +635,11 @@ main(int argc, char *argv[])
     return 0;
 }
 </pre><p>Don&#8217;t forget to run <code class="filename">resetdb</code> after
-    running the example.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-comparing"></a>5.6. Less-than-comparable</h3></div></div></div><p>SSQLS structures can be sorted and stored in STL associative
-    containers as demonstrated in the next example. This is
+    running the example.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-comparing"></a>5.6. Storing SSQLSes in Associative Containers</h3></div></div></div><p>One of the requirements of STL&#8217;s associative
+    containers on data stored in them is that the data type
+    has to be less-than comparable. That is, it has to have
+    an <code class="function">operator &lt;</code> defined.
+    SSQLS does optionally give you this, as demonstrated in
     <code class="filename">examples/ssqls4.cpp</code>:</p><pre class="programlisting">#include "cmdline.h"
 #include "printdata.h"
 #include "stock.h"
@@ -459,27 +711,15 @@ main(int argc, char *argv[])
 
     return 0;
 }
-</pre><p>The <code class="methodname">find()</code> call works because
-    of the way the SSQLS was declared. It&#8217;s properly covered
-    elsewhere, but suffice it to say, the "1" in the declaration
-    of <code class="classname">stock</code> above tells it that only the
+</pre><p>The <code class="methodname">find()</code> call works because of
+    the way the SSQLS was declared. It&#8217;s properly covered
+    <a href="ssqls.html#ssqls-compare-init" title="5.2. SSQLS Comparison and Initialization">elsewhere</a>,
+    but suffice it to say, the &#8220;1&#8221; in the
+    declaration of <code class="classname">stock</code> <a href="ssqls.html#ssqls-retrieving" title="5.3. Retrieving data">above</a> tells it that only the
     first field needs to be checked in comparing two SSQLSes. In
     database terms, this makes it the primary key. Therefore, when
     searching for a match, our exemplar only had to have its first
-    field populated.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-extra-features"></a>5.7. Additional Features of Specialized SQL
-    Structures</h3></div></div></div><p>Up to this point, we haven&#8217;t been using all of the
-    features in the SSQLS structures we&#8217;ve been generating.  What
-    else can we do with SSQLSes? Consider this:</p><pre class="programlisting">
-query.insert(s);</pre><p>This does exactly what you think it does: it builds
-    an <span><strong class="command">INSERT</strong></span> query to insert the contents
-    of <code class="varname">s</code> into the database. You have only to
-    call <code class="methodname">query::execute()</code> to actually
-    insert it. This is possible because SSQLSes have functions that
-    <code class="classname">Query</code> can call to get the list of fields
-    and such, which it uses to build the <span><strong class="command">INSERT</strong></span>
-    query. <code class="methodname">query::update()</code> and
-    <code class="methodname">query::replace()</code> also rely on these
-    features.</p><p>Another feature you might find a use for is changing the
+    field populated.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-table-name"></a>5.7. Changing the Table Name</h3></div></div></div><p>Another feature you might find a use for is changing the
     table name MySQL++ uses to build queries involving SSQLSes. By
     default, the database server table is assumed to have the same name
     as the SSQLS structure type. But if this is inconvenient, you can
@@ -488,9 +728,8 @@ stock::table("MyStockData");</pre><p>It&#8217;s also possible to change the name
     a per-instance basis:</p><pre class="programlisting">
 stock s;
 s.instance_table("AlternateTable");</pre><p>This is useful when you have an SSQLS definition that is
-    compatible with multiple tables, so the table name to use for each
-    instance is different. The simplest way this can happen is if the
-    tables all have identical definitions; it saves you from having
+    compatible with multiple tables, so the table name to use for
+    each instance is different. This feature saves you from having
     to define a separate SSQLS for each table. It is also useful for
     mapping a class hierarchy onto a set of table definitions. The
     common SSQLS definition is the &#8220;superclass&#8221; for a
@@ -518,7 +757,7 @@ s.instance_table("AlternateTable");</pre><p>This is useful when you have an SSQL
     <code class="filename">my_ssqls.cpp</code> uses the SSQLS more heavily, so
     we&#8217;ve called it the owner of the SSQLS. If there aren&#8217;t
     very many modules, this works nicely:</p><pre class="programlisting">
-// File foo.cpp, which just uses the SSQLS, but doesn't "own" it:
+// File foo.cpp, which just uses the SSQLS, but doesn&#8217;t "own" it:
 #define MYSQLPP_SSQLS_NO_STATICS
 #include "my_ssqls.h"</pre><pre class="programlisting">
 // File my_ssqls.cpp, which owns the SSQLS, so we just #include it directly
@@ -577,9 +816,9 @@ stock s("Dinner Rolls", 75, 0.95, 0.97, sql_date("1998-05-25"));
 cout &lt;&lt; "Value list: " &lt;&lt; s.value_list() &lt;&lt; endl;  
 cout &lt;&lt; "Field list: " &lt;&lt; s.field_list() &lt;&lt; endl;  
 cout &lt;&lt; "Equal list: " &lt;&lt; s.equal_list() &lt;&lt; endl;</pre><p>That would produce something like:</p><pre class="programlisting">
-Value list: 'Dinner Rolls',75,0.95,0.97,'1998-05-25'   
+Value list: 'Dinner Rolls&#8217;,75,0.95,0.97,'1998-05-25'   
 Field list: item,num,weight,price,sdate  
-Equal list: item = 'Dinner Rolls',num = 75,weight = 0.95, price = 0.97,sdate = '1998-05-25'</pre><p>That is, a &#8220;value list&#8221; is a list of data member
+Equal list: item = 'Dinner Rolls&#8217;,num = 75,weight = 0.95, price = 0.97,sdate = '1998-05-25'</pre><p>That is, a &#8220;value list&#8221; is a list of data member
     values within a particular SSQLS instance, a &#8220;field
     list&#8221; is a list of the fields (columns) within that SSQLS, and
     an &#8220;equal list&#8221; is a list in the form of an SQL equals
@@ -685,7 +924,12 @@ sql_create_complete_5(stock, 1, 5,
     mysqlpp::sql_bigint, m_nNum, "num",
     mysqlpp::sql_double, m_fWeight, "weight",
     mysqlpp::sql_decimal, m_fPrice, "price",
-    mysqlpp::sql_date, m_Date, "sdate")</pre></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-pretty"></a>5.11. Expanding SSQLS Macros</h3></div></div></div><p>If you ever need to see the code that a given
+    mysqlpp::sql_date, m_Date, "sdate")</pre><p>Note that you don&#8217;t have to use this mechanism if the
+    only difference in your SQL and C++ field names is case. SSQLS
+    field name lookups are case-insensitive as of MySQL++ 3.1. You can
+    see this in the examples: some parts of the code deliberately refer
+    to the <code class="classname">stock.sdate</code> sample table field as
+    <code class="classname">stock.sDate</code> to exercise this feature.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-pretty"></a>5.11. Expanding SSQLS Macros</h3></div></div></div><p>If you ever need to see the code that a given
     SSQLS declaration expands out to, use the utility
     <code class="filename">doc/ssqls-pretty</code>, like so:</p><pre class="programlisting">
 doc/ssqls-pretty &lt; myprog.cpp |less</pre><p>This Perl script locates the first SSQLS declaration in that
@@ -707,15 +951,9 @@ doc/ssqls-pretty &lt; myprog.cpp |less</pre><p>This Perl script locates the firs
     the generated SSQLS to add functionality to it. (See the <a href="ssqls.html#ssqls-derivation" title="5.13. Deriving from an SSQLS">next section</a> to see how to do
     this correctly.)</p><p>That said, <code class="filename">ssqls.pl</code> does have a few
     configurables you might want to tweak.</p><p>The first configurable value sets the maximum number of
-    data members allowed in an SSQLS. It&#8217;s 25 out of the box,
-    set by the <code class="varname">$max_data_members</code> variable at
-    the top of <code class="filename">ssqls.pl</code>. Beware, making this
-    value larger increases the size of <code class="filename">ssqls.h</code>
-    exponentially; this will increase compile time, and can even make
-    the file uncompilable due to compiler limits. Before you increase
-    this value, take a good, hard look at your database schema and ask
-    if it&#8217;s really the best design.  Almost always, having so
-    many columns is a sign that you need to refactor the table.</p><p>The second configurable is the default floating point
+    data members allowed in an SSQLS. This is discussed elsewhere,
+    in <a href="configuration.html#max-fields" title="8.2. The Maximum Number of Fields Allowed">Section 8.2, &#8220;The Maximum Number of Fields Allowed&#8221;</a>. Beware the warnings there about
+    increasing this value too much.</p><p>The second configurable is the default floating point
     precision used for comparison. As described above (<a href="ssqls.html#ssqls-compare-init" title="5.2. SSQLS Comparison and Initialization">Section 5.2, &#8220;SSQLS Comparison and Initialization&#8221;</a>) SSQLSes can be compared for
     equality. The only place this is tricky is with floating-point
     numbers, since rounding errors can make two &#8220;equal&#8221;
@@ -799,13 +1037,13 @@ sql_create_2(
 class Derived : public Base
 {
 public:
-  // default constructor<sup>[<a name="id2726106" href="#ftn.id2726106">10</a>]</sup>
+  // default constructor<sup>[<a name="id2780149" href="#ftn.id2780149">13</a>]</sup>
   Derived() :
   Base()
   {
   }
 
-  // for-comparison constructor<sup>[<a name="id2726117" href="#ftn.id2726117">11</a>]</sup>
+  // for-comparison constructor<sup>[<a name="id2780160" href="#ftn.id2780160">14</a>]</sup>
   Derived(const mysqlpp::sql_varchar&amp; _a) :
   Base(_a)
   {
@@ -817,7 +1055,7 @@ public:
   {
   }
 
-  // population constructor<sup>[<a name="id2726143" href="#ftn.id2726143">12</a>]</sup>
+  // population constructor<sup>[<a name="id2780187" href="#ftn.id2780187">15</a>]</sup>
   Derived(const mysqlpp::Row&amp; row) :
   Base(row)
   {
@@ -967,9 +1205,9 @@ int main()
       code that Visual C++ 2003 doesn&#8217;t support. This may happen
       without you doing anything, but if there&#8217;s someone on
       the team who cares about this, that will naturally increase
-      the chances that it does happen.</p></li></ol></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.id2674991" href="#id2674991">9</a>] </sup>Programs built against versions of MySQL++
+      the chances that it does happen.</p></li></ol></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.id2739112" href="#id2739112">12</a>] </sup>Programs built against versions of MySQL++
     prior to 3.0 would crash at almost any mismatch between the database
     schema and the SSQLS definition. It&#8217;s no longer necessary to
     keep the data design in lock-step between the client and database
     server. A mismatch can result in data loss, but not a
-    crash.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2726106" href="#id2726106">10</a>] </sup>needed by mechanisms like <code class="methodname">Query::storein()</code>; anything using an STL container, which usually require default ctors for contained data structures</p></div><div class="footnote"><p><sup>[<a name="ftn.id2726117" href="#id2726117">11</a>] </sup>takes the <em class="parameter"><code>COMPCOUNT</code></em> subset of the SSQLS&#8217;s data members, used for making comparison exemplars, used with <code class="methodname">Query::update()</code> and similar mechanisms; see <a href="ssqls.html#sql_create" title="5.1. sql_create">Section 5.1, &#8220;sql_create&#8221;</a> for more on <em class="parameter"><code>COMPCOUNT</code></em></p></div><div class="footnote"><p><sup>[<a name="ftn.id2726143" href="#id2726143">12</a>] </sup>used in taking raw row data from a SQL result set and converting it to SSQLS form</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4. Template Queries </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 6. Using Unicode with MySQL++</td></tr></table></div></body></html>
+    crash.</p></div><div class="footnote"><p><sup>[<a name="ftn.id2780149" href="#id2780149">13</a>] </sup>needed by mechanisms like <code class="methodname">Query::storein()</code>; anything using an STL container, which usually require default ctors for contained data structures</p></div><div class="footnote"><p><sup>[<a name="ftn.id2780160" href="#id2780160">14</a>] </sup>takes the <em class="parameter"><code>COMPCOUNT</code></em> subset of the SSQLS&#8217;s data members, used for making comparison exemplars, used with <code class="methodname">Query::update()</code> and similar mechanisms; see <a href="ssqls.html#sql_create" title="5.1. sql_create">Section 5.1, &#8220;sql_create&#8221;</a> for more on <em class="parameter"><code>COMPCOUNT</code></em></p></div><div class="footnote"><p><sup>[<a name="ftn.id2780187" href="#id2780187">15</a>] </sup>used in taking raw row data from a SQL result set and converting it to SSQLS form</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4. Template Queries </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 6. Using Unicode with MySQL++</td></tr></table></div></body></html>

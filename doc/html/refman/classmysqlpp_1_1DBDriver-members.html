@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li id="current"><a href="annotated.html"><span>Classes</span></a></li>
     <li><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -25,6 +26,7 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#c7423c586e0b8ab4eba61635327d5d38">client_version</a>() const </td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#dbd9ba43e74fca9c46dbe85ea8657c0f">connect</a>(const MYSQL &amp;mysql)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#0ccac7c3ea27374601af7ce537d1f36f">connect</a>(const char *host, const char *socket_name, unsigned int port, const char *db, const char *user, const char *password)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#527ffc220d550bbf59a1496e7dcb745c">connect_prepare</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#e786a8e63a91e5af6a686ed97dd08487">connected</a>() const </td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#3eb75725a72627f5a51667323c555ff5">copy</a>(const DBDriver &amp;other)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#84e2441ce58c77875d77f3283a2f9720">create_db</a>(const char *db) const </td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td></td></tr>
@@ -37,7 +39,9 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#a840c50ecd1c823a8ff7f33545ea6ddb">errnum</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#649df7e2b57192734dcd7ba05b80af20">error</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#69881b0fab7f7d10c1d1adc7aacbbd6a">escape_string</a>(char *to, const char *from, size_t length)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#64b30d25d02719ffc22f9b3ba92cdd89">escape_string</a>(std::string *ps, const char *original, size_t length)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#2a404051fc2cc55b9e1f41cfe47190f3">escape_string_no_conn</a>(char *to, const char *from, size_t length)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#8eff95a3ac80a6719e15036f3bf2273f">escape_string_no_conn</a>(std::string *ps, const char *original=0, size_t length=0)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#a5ce8af647f93839757a8398a9e106db">execute</a>(const char *qstr, size_t length)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#a02d40535cebdb162f6f77840fecf25a">fetch_field</a>(MYSQL_RES *res, size_t i=UINT_MAX) const </td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#b76dba046cce552662c89d33c0aacebc">fetch_lengths</a>(MYSQL_RES *res) const </td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
@@ -65,10 +69,11 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#9b04fc35e69c50a11fed637f94474918">select_db</a>(const char *db)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#f101492dc6fccbd2d14b0113fb288d33">server_status</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#2a9a4cb1c28f7f865370673b6eb580b6">server_version</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#49bd2530ec74f4670e64186da01759f6">set_option</a>(Option *o)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#7e904fea92e008b62dc029a4edc64b14">set_option</a>(Option *o)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#abf4611f79504ff607855f478cdda42c">set_option</a>(mysql_option moption, const void *arg=0)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#7d1fc0bbcde9be05152eea9d41ce3cbd">set_option</a>(unsigned int option, bool arg)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#d97d0ac26c6f4569a2de97f9395de6af">set_option_default</a>(Option *o)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#afe09837335dc46b7865c88074a1b614">set_option_default</a>(Option *o)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#8b8c5db0d41c25917e23ba58ef153c00">set_option_impl</a>(Option *o)</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [protected]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#dead80da9db0351a439f175ecfc79513">shutdown</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#2a5e5817177c96b4cd3fd80a74f8ae80">store_result</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#d186d2b986ab0f1495daf63c3f0a40a0">thread_aware</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [static]</code></td></tr>
@@ -77,7 +82,7 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#ffae19fda3fc1a8b25e9725e9aa41fe7">thread_start</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline, static]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#deb6b2f834cccc051d3b39c8017c1166">use_result</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1DBDriver.html#0af585eeaa3ab0483449525caa6c2eb3">~DBDriver</a>()</td><td><a class="el" href="classmysqlpp_1_1DBDriver.html">mysqlpp::DBDriver</a></td><td><code> [virtual]</code></td></tr>
-</table><hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:43:02 2009 for MySQL++ by&nbsp;
+</table><hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

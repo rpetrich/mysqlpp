@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li id="current"><a href="annotated.html"><span>Classes</span></a></li>
     <li><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -33,10 +34,10 @@ Inheritance diagram for mysqlpp::Query:<p><center><img src="classmysqlpp_1_1Quer
 </map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center>Collaboration diagram for mysqlpp::Query:<p><center><img src="classmysqlpp_1_1Query__coll__graph.png" border="0" usemap="#mysqlpp_1_1Query__coll__map" alt="Collaboration graph"></center>
 <map name="mysqlpp_1_1Query__coll__map">
-<area href="classmysqlpp_1_1SQLQueryParms.html" shape="rect" coords="81,279,273,303" alt="">
-<area href="classmysqlpp_1_1OptionalExceptions.html" shape="rect" coords="5,7,219,31" alt="">
-<area href="classmysqlpp_1_1Connection.html" shape="rect" coords="177,97,337,121" alt="">
-<area href="classmysqlpp_1_1DBDriver.html" shape="rect" coords="329,7,476,31" alt="">
+<area href="classmysqlpp_1_1SQLQueryParms.html" shape="rect" coords="84,369,276,393" alt="">
+<area href="classmysqlpp_1_1OptionalExceptions.html" shape="rect" coords="6,97,219,121" alt="">
+<area href="classmysqlpp_1_1Connection.html" shape="rect" coords="178,188,338,212" alt="">
+<area href="classmysqlpp_1_1DBDriver.html" shape="rect" coords="395,97,542,121" alt="">
 </map>
 <center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classmysqlpp_1_1Query-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
@@ -76,6 +77,9 @@ std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#9c2ff95a7cd013758cb1ad9984a7b74e">operator void *</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Test whether the object has experienced an error condition.  <a href="#9c2ff95a7cd013758cb1ad9984a7b74e"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#dc5e3d5604dbe48cda5d8d2e64d896f4">operator!</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if the query object is not in a bad state.  <a href="#dc5e3d5604dbe48cda5d8d2e64d896f4"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#5bfc86346581917cb833ed55ccd4d5b8">parse</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Treat the contents of the query string as a template query.  <a href="#5bfc86346581917cb833ed55ccd4d5b8"></a><br></td></tr>
@@ -233,10 +237,18 @@ template&lt;class T&gt; </td></tr>
 <tr><td class="memTemplItemLeft" nowrap align="right" valign="top"><a class="el" href="classmysqlpp_1_1Query.html">Query</a> &amp;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#394d3991e65ba58badafeb88cd220e7b">insert</a> (Iter first, Iter last)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Insert multiple new rows.  <a href="#394d3991e65ba58badafeb88cd220e7b"></a><br></td></tr>
+<tr><td class="memTemplParams" nowrap colspan="2">template&lt;class Iter, class InsertPolicy&gt; </td></tr>
+<tr><td class="memTemplItemLeft" nowrap align="right" valign="top"><a class="el" href="classmysqlpp_1_1Query.html">Query</a> &amp;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#6ddedfe4fd7f0a0007b0f0d85ae032d4">insertfrom</a> (Iter first, Iter last, InsertPolicy &amp;policy)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Insert multiple new rows using an insert policy to control how the INSERT statements are created using items from an STL container.  <a href="#6ddedfe4fd7f0a0007b0f0d85ae032d4"></a><br></td></tr>
 <tr><td class="memTemplParams" nowrap colspan="2">template&lt;class T&gt; </td></tr>
 <tr><td class="memTemplItemLeft" nowrap align="right" valign="top"><a class="el" href="classmysqlpp_1_1Query.html">Query</a> &amp;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#dbbce16ae80783fd00eef9c2319f1aff">replace</a> (const T &amp;v)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Insert new row unless there is an existing row that matches on a unique index, in which case we replace it.  <a href="#dbbce16ae80783fd00eef9c2319f1aff"></a><br></td></tr>
+<tr><td class="memTemplParams" nowrap colspan="2">template&lt;class Iter&gt; </td></tr>
+<tr><td class="memTemplItemLeft" nowrap align="right" valign="top"><a class="el" href="classmysqlpp_1_1Query.html">Query</a> &amp;&nbsp;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#dce9dfa9f42dabd9c209258955824641">replace</a> (Iter first, Iter last)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Insert multiple new rows, or replace existing ones if there are existing rows that match on key fields.  <a href="#dce9dfa9f42dabd9c209258955824641"></a><br></td></tr>
 <tr><td colspan="2"><br><h2>Public Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="classmysqlpp_1_1SQLQueryParms.html">SQLQueryParms</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Query.html#622a5b10c49ab798f7f5481ff38a55d1">template_defaults</a></td></tr>
 
@@ -414,7 +426,9 @@ Return a SQL-escaped version of the given character buffer.
     <tr><td valign="top"></td><td valign="top"><em>number</em>&nbsp;</td><td>of characters placed in escaped</td></tr>
   </table>
 </dl>
-This is part of <a class="el" href="classmysqlpp_1_1Query.html">Query</a> because proper SQL escaping takes the database's current character set into account, which requires access to the <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> object the query will go out on. Also, this function is very important to MySQL++'s <a class="el" href="classmysqlpp_1_1Query.html">Query</a> stream manipulator mechanism, so it's more convenient for this method to live in <a class="el" href="classmysqlpp_1_1Query.html">Query</a> rather than <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a>. 
+<a class="el" href="classmysqlpp_1_1DBDriver.html">DBDriver</a> provides two versions of this method and <a class="el" href="classmysqlpp_1_1Query.html#dc7d259cbf78f1e418b7ad12751c5342">Query::escape_string()</a> calls the appropriate one based on whether or not a database connection is available. If the connection is available, it can call the <a class="el" href="classmysqlpp_1_1DBDriver.html#69881b0fab7f7d10c1d1adc7aacbbd6a">DBDriver::escape_string()</a> method. If there is no database connection available (normally only in testing), then <a class="el" href="classmysqlpp_1_1DBDriver.html">DBDriver</a> provides a static version of the function that doesn't use a database connection.<p>
+<dl compact><dt><b>See also:</b></dt><dd>comments for <a class="el" href="classmysqlpp_1_1DBDriver.html#69881b0fab7f7d10c1d1adc7aacbbd6a">DBDriver::escape_string(char*, const char*, size_t)</a>, <a class="el" href="classmysqlpp_1_1DBDriver.html#2a404051fc2cc55b9e1f41cfe47190f3">DBDriver::escape_string_no_conn(char*, const char*, size_t)</a> for further details. </dd></dl>
+
 </div>
 </div><p>
 <a class="anchor" name="dc7d259cbf78f1e418b7ad12751c5342"></a><!-- doxytag: member="mysqlpp::Query::escape_string" ref="dc7d259cbf78f1e418b7ad12751c5342" args="(std::string *ps, const char *original=0, size_t length=0) const " -->
@@ -463,14 +477,7 @@ Return a SQL-escaped version of a character buffer.
     <tr><td valign="top"></td><td valign="top"><em>number</em>&nbsp;</td><td>of characters placed in *ps</td></tr>
   </table>
 </dl>
-This method has three basic operation modes:<p>
-<ul>
-<li>Pass just a pointer to a C++ string containing the original data to escape, plus act as receptacle for escaped version</li><li>Pass a pointer to a C++ string to receive escaped string plus a pointer to a C string to be escaped</li><li>Pass nonzero for all parameters, taking original to be a pointer to an array of char with given length; does not treat null characters as special</li></ul>
-<p>
-There's a degenerate fourth mode, where ps is zero: simply returns 0, because there is nowhere to store the result.<p>
-Note that if original is 0, we always ignore the length parameter even if it is nonzero. Length always comes from ps-&gt;length() in this case.<p>
-ps is a pointer because if it were a reference, the other overload would be impossible to call: the compiler would complain that the two overloads are ambiguous because std::string has a char* conversion ctor. A nice bonus is that pointer syntax makes it clearer that the first parameter is an "out" parameter.<p>
-<dl compact><dt><b>See also:</b></dt><dd>comments for escape_string(char*, const char*, size_t) for further details. </dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd>comments for escape_string(char*, const char*, size_t) and <a class="el" href="classmysqlpp_1_1DBDriver.html#64b30d25d02719ffc22f9b3ba92cdd89">DBDriver::escape_string(std::string*, const char *, size_t)</a> for further details. </dd></dl>
 
 </div>
 </div><p>
@@ -624,7 +631,7 @@ This method should only be used by code that doesn't know, at compile time, how 
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td width="100%"><code> [inline]</code></td>
+          <td width="100%"></td>
         </tr>
       </table>
 </div>
@@ -790,7 +797,7 @@ Builds an INSERT SQL query using items from a range within an STL container. Ins
     <tr><td valign="top"></td><td valign="top"><em>last</em>&nbsp;</td><td>iterator pointing to one past the last element to insert</td></tr>
   </table>
 </dl>
-<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classmysqlpp_1_1Query.html#dbbce16ae80783fd00eef9c2319f1aff">replace()</a>, <a class="el" href="classmysqlpp_1_1Query.html#ad1349639bec2a1b5bb7d3bf34da3a37">update()</a> </dd></dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classmysqlpp_1_1Query.html#6ddedfe4fd7f0a0007b0f0d85ae032d4">insertfrom()</a>, <a class="el" href="classmysqlpp_1_1Query.html#dbbce16ae80783fd00eef9c2319f1aff">replace()</a>, <a class="el" href="classmysqlpp_1_1Query.html#ad1349639bec2a1b5bb7d3bf34da3a37">update()</a> </dd></dl>
 
 </div>
 </div><p>
@@ -851,6 +858,53 @@ Get ID generated for an AUTO_INCREMENT column in the previous INSERT query.
 
 </div>
 </div><p>
+<a class="anchor" name="6ddedfe4fd7f0a0007b0f0d85ae032d4"></a><!-- doxytag: member="mysqlpp::Query::insertfrom" ref="6ddedfe4fd7f0a0007b0f0d85ae032d4" args="(Iter first, Iter last, InsertPolicy &amp;policy)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Iter, class InsertPolicy&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmysqlpp_1_1Query.html">Query</a>&amp; mysqlpp::Query::insertfrom           </td>
+          <td>(</td>
+          <td class="paramtype">Iter&nbsp;</td>
+          <td class="paramname"> <em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iter&nbsp;</td>
+          <td class="paramname"> <em>last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InsertPolicy &amp;&nbsp;</td>
+          <td class="paramname"> <em>policy</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Insert multiple new rows using an insert policy to control how the INSERT statements are created using items from an STL container. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>first</em>&nbsp;</td><td>iterator pointing to first element in range to insert </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>last</em>&nbsp;</td><td>iterator pointing to one past the last element to insert </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>policy</em>&nbsp;</td><td>insert policy object, see <a class="el" href="insertpolicy_8h.html">insertpolicy.h</a> for details</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classmysqlpp_1_1Query.html#d38e23f66474ced0d153004ae07cea0c">insert()</a> </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="eeaff6b3fb94ff4bcad4046a833ee2ed"></a><!-- doxytag: member="mysqlpp::Query::more_results" ref="eeaff6b3fb94ff4bcad4046a833ee2ed" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -907,6 +961,29 @@ Allows for code constructs like this:<p>
 This method returns false if either the <a class="el" href="classmysqlpp_1_1Query.html">Query</a> object or its associated <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> object has seen an error condition since the last operation. 
 </div>
 </div><p>
+<a class="anchor" name="dc5e3d5604dbe48cda5d8d2e64d896f4"></a><!-- doxytag: member="mysqlpp::Query::operator!" ref="dc5e3d5604dbe48cda5d8d2e64d896f4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mysqlpp::Query::operator!           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Returns true if the query object is not in a bad state. 
+<p>
+This just returns the opposite of <a class="el" href="classmysqlpp_1_1Query.html#9c2ff95a7cd013758cb1ad9984a7b74e">operator void*()</a>, and is required only because basic_ios defines it, so we have to override it to get Query-specific behavior in code like this:<p>
+<div class="fragment"><pre class="fragment"> <span class="keywordflow">if</span> (!query) ... 
+</pre></div> 
+</div>
+</div><p>
 <a class="anchor" name="75982ff4f3b5fe603ee6041ed64172ce"></a><!-- doxytag: member="mysqlpp::Query::operator=" ref="75982ff4f3b5fe603ee6041ed64172ce" args="(const Query &amp;rhs)" -->
 <div class="memitem">
 <div class="memproto">
@@ -948,6 +1025,47 @@ The same caveats apply to this operator as apply to the copy ctor.
 Treat the contents of the query string as a template query. 
 <p>
 This method sets up the internal structures used by all of the other members that accept template query parameters. See the "Template Queries" chapter in the user manual for more information. 
+</div>
+</div><p>
+<a class="anchor" name="dce9dfa9f42dabd9c209258955824641"></a><!-- doxytag: member="mysqlpp::Query::replace" ref="dce9dfa9f42dabd9c209258955824641" args="(Iter first, Iter last)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Iter&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmysqlpp_1_1Query.html">Query</a>&amp; mysqlpp::Query::replace           </td>
+          <td>(</td>
+          <td class="paramtype">Iter&nbsp;</td>
+          <td class="paramname"> <em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Iter&nbsp;</td>
+          <td class="paramname"> <em>last</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Insert multiple new rows, or replace existing ones if there are existing rows that match on key fields. 
+<p>
+Builds a REPLACE SQL query using items from a range within an STL container. Insert the entire contents of the container by using the begin() and end() iterators of the container as parameters to this function.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>first</em>&nbsp;</td><td>iterator pointing to first element in range to insert/replace </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>last</em>&nbsp;</td><td>iterator pointing to one past the last element to insert/replace</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classmysqlpp_1_1Query.html#6ddedfe4fd7f0a0007b0f0d85ae032d4">insertfrom()</a>, <a class="el" href="classmysqlpp_1_1Query.html#dbbce16ae80783fd00eef9c2319f1aff">replace()</a>, <a class="el" href="classmysqlpp_1_1Query.html#ad1349639bec2a1b5bb7d3bf34da3a37">update()</a> </dd></dl>
+
 </div>
 </div><p>
 <a class="anchor" name="dbbce16ae80783fd00eef9c2319f1aff"></a><!-- doxytag: member="mysqlpp::Query::replace" ref="dbbce16ae80783fd00eef9c2319f1aff" args="(const T &amp;v)" -->
@@ -1098,7 +1216,7 @@ This method should only be used by code that doesn't know, at compile time, how 
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td width="100%"><code> [inline]</code></td>
+          <td width="100%"></td>
         </tr>
       </table>
 </div>
@@ -1748,7 +1866,7 @@ This method should only be used by code that doesn't know, at compile time, how 
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td width="100%"><code> [inline]</code></td>
+          <td width="100%"></td>
         </tr>
       </table>
 </div>
@@ -1786,7 +1904,7 @@ Used for filling in parameterized queries.
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="query_8h-source.html">query.h</a><li>query.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:43:31 2009 for MySQL++ by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

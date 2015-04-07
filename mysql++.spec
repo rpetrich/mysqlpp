@@ -1,6 +1,6 @@
 Summary:    C++ wrapper for the MySQL C API
 Name:       mysql++
-Version:    3.0.9
+Version:    3.1.0
 Release:    1%{?dist}
 License:    LGPL
 Group:      Development/Libraries

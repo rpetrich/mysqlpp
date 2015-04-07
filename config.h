@@ -10,6 +10,9 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 /* #undef HAVE_INTTYPES_H */
 
+/* Define if getopt() is available in libiberty.h */
+/* #undef HAVE_LIBIBERTY_GETOPT */
+
 /* Define to 1 if you have the `intl' library (-lintl). */
 /* #undef HAVE_LIBINTL */
 
@@ -23,7 +26,10 @@
 /* #undef HAVE_MEMORY_H */
 
 /* Define if your MySQL library has SSL functions */
-#define HAVE_MYSQL_SSL_SET 
+/* #undef HAVE_MYSQL_SSL_SET */
+
+/* Define if getopt() is available in unistd.h */
+#define HAVE_POSIX_GETOPT 
 
 /* Define if you have POSIX threads libraries and header files. */
 /* #undef HAVE_PTHREAD */
@@ -65,13 +71,13 @@
 #define PACKAGE_NAME "mysql++"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "mysql++ 3.0.9"
+#define PACKAGE_STRING "mysql++ 3.1.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "mysql++"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "3.0.9"
+#define PACKAGE_VERSION "3.1.0"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */

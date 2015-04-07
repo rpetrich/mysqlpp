@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li id="current"><a href="annotated.html"><span>Classes</span></a></li>
     <li><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -27,7 +28,8 @@
 <p>
 <code>#include &lt;<a class="el" href="dbdriver_8h-source.html">dbdriver.h</a>&gt;</code>
 <p>
-<a href="classmysqlpp_1_1DBDriver-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
+Collaboration diagram for mysqlpp::DBDriver:<p><center><img src="classmysqlpp_1_1DBDriver__coll__graph.png" border="0" usemap="#mysqlpp_1_1DBDriver__coll__map" alt="Collaboration graph"></center>
+<center><font size="2">[<a href="graph_legend.html">legend</a>]</font></center><a href="classmysqlpp_1_1DBDriver-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Types</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#0275cada4dbb299404e02bffc113adda17d7be6c71fbd797813ef09ae89eb421">nr_more_results</a></td></tr>
@@ -102,7 +104,10 @@ virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return last MySQL error number associated with this connection.  <a href="#a840c50ecd1c823a8ff7f33545ea6ddb"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">size_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#69881b0fab7f7d10c1d1adc7aacbbd6a">escape_string</a> (char *to, const char *from, size_t length)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SQL-escapes the given string, taking into account the default character set of the database server we're connected to.  <a href="#69881b0fab7f7d10c1d1adc7aacbbd6a"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return a SQL-escaped version of the given character buffer.  <a href="#69881b0fab7f7d10c1d1adc7aacbbd6a"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">size_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#64b30d25d02719ffc22f9b3ba92cdd89">escape_string</a> (std::string *ps, const char *original, size_t length)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return a SQL-escaped version of a character buffer.  <a href="#64b30d25d02719ffc22f9b3ba92cdd89"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#a5ce8af647f93839757a8398a9e106db">execute</a> (const char *qstr, size_t length)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Executes the given query string.  <a href="#a5ce8af647f93839757a8398a9e106db"></a><br></td></tr>
@@ -168,9 +173,9 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" nowrap align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#2a9a4cb1c28f7f865370673b6eb580b6">server_version</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Get the database server's version number.  <a href="#2a9a4cb1c28f7f865370673b6eb580b6"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#49bd2530ec74f4670e64186da01759f6">set_option</a> (<a class="el" href="classmysqlpp_1_1Option.html">Option</a> *o)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#7e904fea92e008b62dc029a4edc64b14">set_option</a> (<a class="el" href="classmysqlpp_1_1Option.html">Option</a> *o)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets a connection option.  <a href="#49bd2530ec74f4670e64186da01759f6"></a><br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Sets a connection option.  <a href="#7e904fea92e008b62dc029a4edc64b14"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="abf4611f79504ff607855f478cdda42c"></a><!-- doxytag: member="mysqlpp::DBDriver::set_option" ref="abf4611f79504ff607855f478cdda42c" args="(mysql_option moption, const void *arg=0)" -->
 bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#abf4611f79504ff607855f478cdda42c">set_option</a> (mysql_option moption, const void *arg=0)</td></tr>
 
@@ -178,10 +183,10 @@ bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#7d1fc0bbcde9be05152eea9d41ce3cbd">set_option</a> (unsigned int option, bool arg)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="classmysqlpp_1_1Set.html">Set</a> MySQL C API connection option.  <a href="#7d1fc0bbcde9be05152eea9d41ce3cbd"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="d97d0ac26c6f4569a2de97f9395de6af"></a><!-- doxytag: member="mysqlpp::DBDriver::set_option_default" ref="d97d0ac26c6f4569a2de97f9395de6af" args="(Option *o)" -->
-std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#d97d0ac26c6f4569a2de97f9395de6af">set_option_default</a> (<a class="el" href="classmysqlpp_1_1Option.html">Option</a> *o)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="afe09837335dc46b7865c88074a1b614"></a><!-- doxytag: member="mysqlpp::DBDriver::set_option_default" ref="afe09837335dc46b7865c88074a1b614" args="(Option *o)" -->
+bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#afe09837335dc46b7865c88074a1b614">set_option_default</a> (<a class="el" href="classmysqlpp_1_1Option.html">Option</a> *o)</td></tr>
 
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Same as <a class="el" href="classmysqlpp_1_1DBDriver.html#49bd2530ec74f4670e64186da01759f6">set_option()</a>, except that it won't override a previously-set option. <br></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Same as <a class="el" href="classmysqlpp_1_1DBDriver.html#7e904fea92e008b62dc029a4edc64b14">set_option()</a>, except that it won't override a previously-set option. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#dead80da9db0351a439f175ecfc79513">shutdown</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Ask database server to shut down.  <a href="#dead80da9db0351a439f175ecfc79513"></a><br></td></tr>
@@ -201,6 +206,9 @@ std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static size_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#2a404051fc2cc55b9e1f41cfe47190f3">escape_string_no_conn</a> (char *to, const char *from, size_t length)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SQL-escapes the given string without reference to the character set of a database server.  <a href="#2a404051fc2cc55b9e1f41cfe47190f3"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">static size_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#8eff95a3ac80a6719e15036f3bf2273f">escape_string_no_conn</a> (std::string *ps, const char *original=0, size_t length=0)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">SQL-escapes the given string without reference to the character set of a database server.  <a href="#8eff95a3ac80a6719e15036f3bf2273f"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#d186d2b986ab0f1495daf63c3f0a40a0">thread_aware</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if MySQL++ and the underlying MySQL C API library were both compiled with thread awareness.  <a href="#d186d2b986ab0f1495daf63c3f0a40a0"></a><br></td></tr>
@@ -210,6 +218,15 @@ std::string&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 <tr><td class="memItemLeft" nowrap align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#ffae19fda3fc1a8b25e9725e9aa41fe7">thread_start</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Tells the underlying C API library that the current thread will be using the library's services.  <a href="#ffae19fda3fc1a8b25e9725e9aa41fe7"></a><br></td></tr>
+<tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="527ffc220d550bbf59a1496e7dcb745c"></a><!-- doxytag: member="mysqlpp::DBDriver::connect_prepare" ref="527ffc220d550bbf59a1496e7dcb745c" args="()" -->
+bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#527ffc220d550bbf59a1496e7dcb745c">connect_prepare</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Does things common to both <a class="el" href="classmysqlpp_1_1DBDriver.html#dbd9ba43e74fca9c46dbe85ea8657c0f">connect()</a> overloads, before each go and establish the connection in their different ways. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="8b8c5db0d41c25917e23ba58ef153c00"></a><!-- doxytag: member="mysqlpp::DBDriver::set_option_impl" ref="8b8c5db0d41c25917e23ba58ef153c00" args="(Option *o)" -->
+bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1DBDriver.html#8b8c5db0d41c25917e23ba58ef153c00">set_option_impl</a> (<a class="el" href="classmysqlpp_1_1Option.html">Option</a> *o)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Common implementation of <a class="el" href="classmysqlpp_1_1DBDriver.html#7e904fea92e008b62dc029a4edc64b14">set_option(Option*)</a> and the delayed option setting code in <a class="el" href="classmysqlpp_1_1DBDriver.html#527ffc220d550bbf59a1496e7dcb745c">connect_prepare()</a>. <br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Provides a thin abstraction layer over the underlying database client library. 
@@ -525,7 +542,7 @@ Wraps mysql_data_seek() in MySQL C API.
 <p>
 Drop the connection to the database server. 
 <p>
-This method is protected because it should only be used within the library. Unless you use the default constructor, this object should always be connected. 
+This method should only be used by MySQL++ library internals. Unless you use the default constructor, this object should always be connected. 
 </div>
 </div><p>
 <a class="anchor" name="56d819cb69ec32770823e5bbaa56c26c"></a><!-- doxytag: member="mysqlpp::DBDriver::drop_db" ref="56d819cb69ec32770823e5bbaa56c26c" args="(const std::string &amp;db) const " -->
@@ -658,6 +675,64 @@ Return error message for last MySQL error associated with this connection.
 Can return a MySQL++ DBDriver-specific error message if there is one. If not, it simply wraps <code>mysql_error()</code> in the MySQL C API. 
 </div>
 </div><p>
+<a class="anchor" name="64b30d25d02719ffc22f9b3ba92cdd89"></a><!-- doxytag: member="mysqlpp::DBDriver::escape_string" ref="64b30d25d02719ffc22f9b3ba92cdd89" args="(std::string *ps, const char *original, size_t length)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t mysqlpp::DBDriver::escape_string           </td>
+          <td>(</td>
+          <td class="paramtype">std::string *&nbsp;</td>
+          <td class="paramname"> <em>ps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>original</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"> <em>length</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Return a SQL-escaped version of a character buffer. 
+<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>ps</em>&nbsp;</td><td>pointer to C++ string to hold escaped version; if original is 0, also holds the original data to be escaped </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>original</em>&nbsp;</td><td>if given, pointer to the character buffer to escape instead of contents of *ps </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>length</em>&nbsp;</td><td>if both this and original are given, number of characters to escape instead of ps-&gt;length()</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Return values:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>number</em>&nbsp;</td><td>of characters placed in *ps</td></tr>
+  </table>
+</dl>
+This method has three basic operation modes:<p>
+<ul>
+<li>Pass just a pointer to a C++ string containing the original data to escape, plus act as receptacle for escaped version</li><li>Pass a pointer to a C++ string to receive escaped string plus a pointer to a C string to be escaped</li><li>Pass nonzero for all parameters, taking original to be a pointer to an array of char with given length; does not treat null characters as special</li></ul>
+<p>
+There's a degenerate fourth mode, where ps is zero: simply returns 0, because there is nowhere to store the result.<p>
+Note that if original is 0, we always ignore the length parameter even if it is nonzero. Length always comes from ps-&gt;length() in this case.<p>
+ps is a pointer because if it were a reference, the other overload would be impossible to call: the compiler would complain that the two overloads are ambiguous because std::string has a char* conversion ctor. A nice bonus is that pointer syntax makes it clearer that the first parameter is an "out" parameter.<p>
+<dl compact><dt><b>See also:</b></dt><dd>comments for <a class="el" href="classmysqlpp_1_1DBDriver.html#69881b0fab7f7d10c1d1adc7aacbbd6a">escape_string(char*, const char*, size_t)</a> for further details.<p>
+<a class="el" href="classmysqlpp_1_1DBDriver.html#8eff95a3ac80a6719e15036f3bf2273f">escape_string_no_conn(std::string*, const char*, size_t)</a> </dd></dl>
+
+</div>
+</div><p>
 <a class="anchor" name="69881b0fab7f7d10c1d1adc7aacbbd6a"></a><!-- doxytag: member="mysqlpp::DBDriver::escape_string" ref="69881b0fab7f7d10c1d1adc7aacbbd6a" args="(char *to, const char *from, size_t length)" -->
 <div class="memitem">
 <div class="memproto">
@@ -690,9 +765,62 @@ Can return a MySQL++ DBDriver-specific error message if there is one. If not, it
 <div class="memdoc">
 
 <p>
-SQL-escapes the given string, taking into account the default character set of the database server we're connected to. 
+Return a SQL-escaped version of the given character buffer. 
 <p>
-Wraps <code>mysql_real_escape_string()</code> in the MySQL C API. 
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>to</em>&nbsp;</td><td>character buffer to hold escaped version; must point to at least (length * 2 + 1) bytes </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>from</em>&nbsp;</td><td>pointer to the character buffer to escape </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>length</em>&nbsp;</td><td>number of characters to escape</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Return values:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>number</em>&nbsp;</td><td>of characters placed in escaped</td></tr>
+  </table>
+</dl>
+Wraps <code>mysql_real_escape_string()</code> in the MySQL C API.<p>
+Proper SQL escaping takes the database's current character set into account, however if a database connection isn't available <a class="el" href="classmysqlpp_1_1DBDriver.html">DBDriver</a> also provides a static version of this same method.<p>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classmysqlpp_1_1DBDriver.html#2a404051fc2cc55b9e1f41cfe47190f3">escape_string_no_conn(char*, const char*, size_t)</a> </dd></dl>
+
+</div>
+</div><p>
+<a class="anchor" name="8eff95a3ac80a6719e15036f3bf2273f"></a><!-- doxytag: member="mysqlpp::DBDriver::escape_string_no_conn" ref="8eff95a3ac80a6719e15036f3bf2273f" args="(std::string *ps, const char *original=0, size_t length=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t mysqlpp::DBDriver::escape_string_no_conn           </td>
+          <td>(</td>
+          <td class="paramtype">std::string *&nbsp;</td>
+          <td class="paramname"> <em>ps</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>original</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&nbsp;</td>
+          <td class="paramname"> <em>length</em> = <code>0</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td width="100%"><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+SQL-escapes the given string without reference to the character set of a database server. 
+<p>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classmysqlpp_1_1DBDriver.html#64b30d25d02719ffc22f9b3ba92cdd89">escape_string(std::string*, const char*, size_t)</a>, <a class="el" href="classmysqlpp_1_1DBDriver.html#2a404051fc2cc55b9e1f41cfe47190f3">escape_string_no_conn(char*, const char*, size_t)</a> </dd></dl>
+
 </div>
 </div><p>
 <a class="anchor" name="2a404051fc2cc55b9e1f41cfe47190f3"></a><!-- doxytag: member="mysqlpp::DBDriver::escape_string_no_conn" ref="2a404051fc2cc55b9e1f41cfe47190f3" args="(char *to, const char *from, size_t length)" -->
@@ -729,7 +857,9 @@ Wraps <code>mysql_real_escape_string()</code> in the MySQL C API.
 <p>
 SQL-escapes the given string without reference to the character set of a database server. 
 <p>
-Wraps <code>mysql_escape_string()</code> in the MySQL C API. 
+Wraps <code>mysql_escape_string()</code> in the MySQL C API.<p>
+<dl compact><dt><b>See also:</b></dt><dd><a class="el" href="classmysqlpp_1_1DBDriver.html#69881b0fab7f7d10c1d1adc7aacbbd6a">escape_string(char*, const char*, size_t)</a> </dd></dl>
+
 </div>
 </div><p>
 <a class="anchor" name="a5ce8af647f93839757a8398a9e106db"></a><!-- doxytag: member="mysqlpp::DBDriver::execute" ref="a5ce8af647f93839757a8398a9e106db" args="(const char *qstr, size_t length)" -->
@@ -1250,12 +1380,12 @@ Wraps <code>mysql_get_server_info()</code> in the MySQL C API.
 Manipulates the MYSQL.client_flag bit mask. This allows these flags to be treated the same way as any other connection option, even though the C API handles them differently. 
 </div>
 </div><p>
-<a class="anchor" name="49bd2530ec74f4670e64186da01759f6"></a><!-- doxytag: member="mysqlpp::DBDriver::set_option" ref="49bd2530ec74f4670e64186da01759f6" args="(Option *o)" -->
+<a class="anchor" name="7e904fea92e008b62dc029a4edc64b14"></a><!-- doxytag: member="mysqlpp::DBDriver::set_option" ref="7e904fea92e008b62dc029a4edc64b14" args="(Option *o)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string mysqlpp::DBDriver::set_option           </td>
+          <td class="memname">bool mysqlpp::DBDriver::set_option           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classmysqlpp_1_1Option.html">Option</a> *&nbsp;</td>
           <td class="paramname"> <em>o</em>          </td>
@@ -1431,7 +1561,7 @@ Wraps <code>mysql_use_result()</code> in the MySQL C API.
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="dbdriver_8h-source.html">dbdriver.h</a><li>dbdriver.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:43:02 2009 for MySQL++ by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

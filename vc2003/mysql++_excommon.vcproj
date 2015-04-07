@@ -27,7 +27,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\lib;C:\Program Files\MySQL\MySQL Server 5.0\include"
+				AdditionalIncludeDirectories="..\lib;C:\Program Files\MySQL\MySQL Server 5.1\include"
 				PreprocessorDefinitions="_LIB;UNICODE;_UNICODE"
 				ExceptionHandling="TRUE"
 				RuntimeLibrary="2"
@@ -58,7 +58,7 @@
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="UNICODE;_UNICODE"
 				Culture="1033"
-				AdditionalIncludeDirectories="..\lib;C:\Program Files\MySQL\MySQL Server 5.0\include"/>
+				AdditionalIncludeDirectories="..\lib;C:\Program Files\MySQL\MySQL Server 5.1\include"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -81,7 +81,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\lib;C:\Program Files\MySQL\MySQL Server 5.0\include"
+				AdditionalIncludeDirectories="..\lib;C:\Program Files\MySQL\MySQL Server 5.1\include"
 				PreprocessorDefinitions="_LIB;UNICODE;_UNICODE;_DEBUG"
 				MinimalRebuild="TRUE"
 				ExceptionHandling="TRUE"
@@ -114,7 +114,7 @@
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="UNICODE;_UNICODE;_DEBUG"
 				Culture="1033"
-				AdditionalIncludeDirectories="..\lib;C:\Program Files\MySQL\MySQL Server 5.0\include"/>
+				AdditionalIncludeDirectories="..\lib;C:\Program Files\MySQL\MySQL Server 5.1\include"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -135,9 +135,6 @@
 			Name="Source Files"
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
-			<File
-				RelativePath="..\examples\cmdline.cpp">
-			</File>
 			<File
 				RelativePath="..\examples\printdata.cpp">
 			</File>

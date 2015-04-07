@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li id="current"><a href="annotated.html"><span>Classes</span></a></li>
     <li><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -30,7 +31,7 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#b9061afbd8f1c03751b92b8ec6ba0de9">escape_string</a>(char *escaped, const char *original, size_t length) const </td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#23057cc385f9645d7d7ef00aecc2c8ba">exec</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#985acb52d0a988d1800c8fc4f4c5dc06">exec</a>(const std::string &amp;str)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#03ee1b9e393d88de946f5be804ea88cf">execute</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#03ee1b9e393d88de946f5be804ea88cf">execute</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#af36ce2e47a62fae2cc507a7750d1ecd">execute</a>(SQLQueryParms &amp;p)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#f2cc737d916e4e1c9fd0392316e5415c">execute</a>(const SQLTypeAdapter &amp;str)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#1faab5676c797dac619c6c98dc264e3c">execute</a>(const char *str, size_t len)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
@@ -41,19 +42,22 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#d38e23f66474ced0d153004ae07cea0c">insert</a>(const T &amp;v)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#394d3991e65ba58badafeb88cd220e7b">insert</a>(Iter first, Iter last)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#a15198c894157a099154be69201b5baf">insert_id</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#6ddedfe4fd7f0a0007b0f0d85ae032d4">insertfrom</a>(Iter first, Iter last, InsertPolicy &amp;policy)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#eeaff6b3fb94ff4bcad4046a833ee2ed">more_results</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html#c41c56580e33a404b4f43f38f26bea82">NoExceptions</a> class</td><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html">mysqlpp::OptionalExceptions</a></td><td><code> [friend]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#9c2ff95a7cd013758cb1ad9984a7b74e">operator void *</a>() const </td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#dc5e3d5604dbe48cda5d8d2e64d896f4">operator!</a>() const </td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#75982ff4f3b5fe603ee6041ed64172ce">operator=</a>(const Query &amp;rhs)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html#45a3e93f56716abf10704419b5ba4f31">OptionalExceptions</a>(bool e=true)</td><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html">mysqlpp::OptionalExceptions</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#5bfc86346581917cb833ed55ccd4d5b8">parse</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#6c6cbae18ebcb31b6d44e7784d5a3daa">Query</a>(Connection *c, bool te=true, const char *qstr=0)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#936b1062bb31b3428ead059a26590b6b">Query</a>(const Query &amp;q)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#dbbce16ae80783fd00eef9c2319f1aff">replace</a>(const T &amp;v)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#dce9dfa9f42dabd9c209258955824641">replace</a>(Iter first, Iter last)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#f12740e420c1d61b1d9c2995459a3ce0">reset</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html#0273012228b9e6889908a6a93aa47973">set_exceptions</a>(bool e) const </td><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html">mysqlpp::OptionalExceptions</a></td><td><code> [inline, protected]</code></td></tr>
   <tr bgcolor="#f0f0f0"><td><b>SQLQueryParms</b> (defined in <a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a>)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [friend]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#16c800e645429d558f4295065b1aed73">store</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#16c800e645429d558f4295065b1aed73">store</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#2bcd3c940f936f38bd40396449007d80">store</a>(SQLQueryParms &amp;p)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#4531cbffbb15c003ff35c3bbbd3b4397">store</a>(const SQLTypeAdapter &amp;str)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#15f991f68505f9a35aed0a03932a1900">store</a>(const char *str, size_t len)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
@@ -80,12 +84,12 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#622a5b10c49ab798f7f5481ff38a55d1">template_defaults</a></td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html#6231a5e3fd15fd5ecc4c74785b8c4514">throw_exceptions</a>() const </td><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html">mysqlpp::OptionalExceptions</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#ad1349639bec2a1b5bb7d3bf34da3a37">update</a>(const T &amp;o, const T &amp;n)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#8538e92f55a5536bbf7704d27151ed87">use</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#8538e92f55a5536bbf7704d27151ed87">use</a>()</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#66040c8c0071b50b043e8031309f7852">use</a>(SQLQueryParms &amp;p)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#fe90361bc4f17f78c11857d32538dabe">use</a>(const SQLTypeAdapter &amp;str)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1Query.html#b00af2e285dbb32eb51de17e567d8b00">use</a>(const char *str, size_t len)</td><td><a class="el" href="classmysqlpp_1_1Query.html">mysqlpp::Query</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html#e97334b7e5f89c1927c5d277b770db0a">~OptionalExceptions</a>()</td><td><a class="el" href="classmysqlpp_1_1OptionalExceptions.html">mysqlpp::OptionalExceptions</a></td><td><code> [inline, virtual]</code></td></tr>
-</table><hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:43:31 2009 for MySQL++ by&nbsp;
+</table><hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

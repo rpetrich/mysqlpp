@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li id="current"><a href="annotated.html"><span>Classes</span></a></li>
     <li><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -54,10 +55,17 @@ Inheritance diagram for mysqlpp::Option:<p><center><img src="classmysqlpp_1_1Opt
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8cb6ee57a202c62afb4f66912137174973">err_connected</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">can't set the given option while connected  <a href="#f0c0e22b32d2ee489bc77d360ce74c8cb6ee57a202c62afb4f66912137174973"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c">Error</a> { <a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c428c375eef3714cefac2c2c10396c14c">err_NONE</a>, 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c6d200a37429e238707384de5826cd270">err_disconnected</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">can only set the given option while connected  <a href="#f0c0e22b32d2ee489bc77d360ce74c8c6d200a37429e238707384de5826cd270"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">enum &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c">Error</a> { <br>
+&nbsp;&nbsp;<a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c428c375eef3714cefac2c2c10396c14c">err_NONE</a>, 
 <a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c8006fc8212a2393a084f26d7980b8707">err_api_limit</a>, 
 <a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c3b6c862bd1548d5f4c28b62df8e600c6">err_api_reject</a>, 
-<a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8cb6ee57a202c62afb4f66912137174973">err_connected</a>
+<a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8cb6ee57a202c62afb4f66912137174973">err_connected</a>, 
+<br>
+&nbsp;&nbsp;<a class="el" href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c6d200a37429e238707384de5826cd270">err_disconnected</a>
+<br>
  }</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Types of option setting errors we can diagnose.  <a href="classmysqlpp_1_1Option.html#f0c0e22b32d2ee489bc77d360ce74c8c">More...</a><br></td></tr>
@@ -101,6 +109,8 @@ option not supported by underlying C API </td></tr>
 underlying C API returned error when setting option </td></tr>
 <tr><td valign="top"><em><a class="anchor" name="f0c0e22b32d2ee489bc77d360ce74c8cb6ee57a202c62afb4f66912137174973"></a><!-- doxytag: member="err_connected" ref="f0c0e22b32d2ee489bc77d360ce74c8cb6ee57a202c62afb4f66912137174973" args="" -->err_connected</em>&nbsp;</td><td>
 can't set the given option while connected </td></tr>
+<tr><td valign="top"><em><a class="anchor" name="f0c0e22b32d2ee489bc77d360ce74c8c6d200a37429e238707384de5826cd270"></a><!-- doxytag: member="err_disconnected" ref="f0c0e22b32d2ee489bc77d360ce74c8c6d200a37429e238707384de5826cd270" args="" -->err_disconnected</em>&nbsp;</td><td>
+can only set the given option while connected </td></tr>
 </table>
 </dl>
 
@@ -108,7 +118,7 @@ can't set the given option while connected </td></tr>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="options_8h-source.html">options.h</a></ul>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:43:12 2009 for MySQL++ by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

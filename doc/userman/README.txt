@@ -1,6 +1,6 @@
-The user manual is written in XML DocBook format, version 4.3.
+The user manual is written in XML DocBook format, version 4.2.
 It uses the official DocBook XSL stylesheets, and will build with
-versions as old as 1.65.1.  (Why these versions?  They're what comes
+versions as old as 1.61.2.  (Why these versions?  They're what comes
 with CentOS 3, the oldest system I still use.)
 
 To make the HTML version of the user manual, just type 'make' in this
@@ -62,32 +62,43 @@ There are many alternatives for the tools in the square brackets:
 
     Failing all that, fo2pdf falls back to the only free-as-in-speech
     XSL-FO formmatter, Apache FOP (http://xmlgraphics.apache.org/fop/).
-    You might be wondering why this isn't the default.  It's just that
-    it's a good bet that if there's a commercial processor on the
-    system, it was put there quite purposefully by someone who paid (or
-    caused money to be paid) for it, and so wants it to be used.  The
-    commercial vendors can still get money for their products because
-    FOP hasn't caught up with them in several important areas.  That
-    said, don't feel that you need to go and buy an XSL-FO processor
-    just to build the manuals.  We try to always keep the manual in a
-    state where FOP can generate adequate output.
+    FOP isn't yet available through most Unixy package download
+    systems, so you'll have to download it directly from the source.
+    The Debian repositories do have it, so on any Debian based distro
+    (e.g. Ubuntu) you can just say "sudo apt-get install fop".
+
+    You might be wondering why fo2pdf looks for FOP last, given that
+    MySQL++ is itself free software and relies on a lot of other
+    free software.  It's just that it's a good bet that if there's
+    a commercial processor on the system, it was put there quite
+    purposefully by someone who paid (or caused money to be paid) for
+    it, and so wants it to be used.  The commercial vendors can still
+    get money for their products because FOP hasn't caught up with
+    them in several important areas.  That said, don't feel that you
+    need to go and buy an XSL-FO processor just to build the manuals.
+    We try to always keep the manual in a state where FOP can generate
+    adequate output.
+
 
 The third replaceable piece above is the DocBook XSL stylesheet set.
 The stylesheets are the XSLT processor's rules, controlling how
 the input XML gets transformed to the output format.  The standard
-DocBook stylesheet set (link below) includes stylesheets for HTML
-and XSL-FO output.  If you don't have them on your system, the XSLT
-processor will try to download them using your Internet connection
-during processing.  This slows processing quite a bit even if you
-have a fast Internet connection, and it obviously doesn't work when
-your net connection is down.
+DocBook stylesheet set (link below) includes stylesheets for HTML and
+XSL-FO output.  By default, xsltproc looks for these first on your
+local system, and failing to find them, tries to download them on
+the fly from the Internet.  Because this slows processing quite a bit
+even if you have a fast Internet connection, and it obviously doesn't
+work when your net connection is down, we've disabled this option.
+Therefore, you must have the DocBook XSL stylesheets installed to
+build the user manual.
 
-A better option is to have a copy of the stylesheets on your system.
-It's likely that there is a pre-built package for your system:
+Most Unixy type systems have pre-built DocBook XSL stylesheet packages
+available:
 
     Red Hat/Fedora: docbook-style-xsl RPM package
     Mac OS X:       docbook-xsl Fink package (http://fink.sf.net)
     Cygwin:         docbook-xml?? package (?? = DocBook version)
+    Ubuntu/Debian:  docbook-xsl, from the standard APT repository
 
 (Please send the name of the package for your system to the mailing
 list if it isn't listed above, and I'll add it to the list.)

@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li id="current"><a href="annotated.html"><span>Classes</span></a></li>
     <li><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -32,6 +33,7 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#3b84f7127248789149b9fb25e1aec59e">compare</a>(size_type pos, size_type num, const char *other) const </td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#00875a645caa82f8014d85b5f906665f">data</a>() const </td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#dc5ac2559652511b5bca548ab98b8afb">escape_q</a>() const </td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#106ea9aae43d9221ccfb10364d72b678">is_null</a>() const </td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#e88c209dc5137e34aebfe3158448e14b">is_processed</a>() const </td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td><code> [inline]</code></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#fed8e311f6481ee92f51d9cb0fe689f5">length</a>() const </td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#a915a73ce42e865922e79982b5a72011">operator const char *</a>() const </td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td><code> [inline]</code></td></tr>
@@ -48,8 +50,8 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#b07682f02f5075785ea448a395732689">SQLTypeAdapter</a>(const char *str, bool processed=false)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#e0c49d150e21f615cfbbc7edd756900e">SQLTypeAdapter</a>(const char *str, int len, bool processed=false)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#cdb7e3614d5c7af0f3e1ee7f597ff94e">SQLTypeAdapter</a>(char c)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#ebf5e352efb787b4bf82299018c202af">SQLTypeAdapter</a>(sql_tinyint i)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#2998e5257eea9f4edf4f583b50486d00">SQLTypeAdapter</a>(sql_tinyint_unsigned i)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#ff5116aaa18b17b0e44f33f7cd716869">SQLTypeAdapter</a>(tiny_int&lt; signed char &gt; i)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#162ad4a4740b1de8dadbdadaccf6a918">SQLTypeAdapter</a>(tiny_int&lt; unsigned char &gt; i)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#090ef8382b8f634dc2f4431cb5f06a82">SQLTypeAdapter</a>(short i)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#4a30a1e650133ec73539e0b41b19c6eb">SQLTypeAdapter</a>(unsigned short i)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#4fd2e3fb7cae9affa10ffa8c3b8a18d1">SQLTypeAdapter</a>(int i)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
@@ -65,7 +67,7 @@
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#74a3ef39d98fffce5320de180b987d69">SQLTypeAdapter</a>(const Time &amp;t)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#5df707a6b5f40119cb2111c6c1fa2e3e">SQLTypeAdapter</a>(const null_type &amp;i)</td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#a0cc00e820072525689884c9cb277739">type_id</a>() const </td><td><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html">mysqlpp::SQLTypeAdapter</a></td><td></td></tr>
-</table><hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:43:34 2009 for MySQL++ by&nbsp;
+</table><hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

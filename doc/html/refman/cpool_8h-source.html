@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li><a href="annotated.html"><span>Classes</span></a></li>
     <li id="current"><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -73,64 +74,71 @@
 <a name="l00079"></a>00079 
 <a name="l00081"></a><a class="code" href="classmysqlpp_1_1ConnectionPool.html#264ea3fc4311c8bfd18e7d7b6103d124">00081</a>         <span class="keywordtype">bool</span> empty()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pool_.empty(); }
 <a name="l00082"></a>00082 
-<a name="l00095"></a>00095         <span class="keyword">virtual</span> Connection* grab();
-<a name="l00096"></a>00096 
-<a name="l00109"></a>00109         <span class="keyword">virtual</span> <span class="keywordtype">void</span> release(<span class="keyword">const</span> Connection* pc);
-<a name="l00110"></a>00110 
-<a name="l00112"></a><a class="code" href="classmysqlpp_1_1ConnectionPool.html#c410ed5cb3032aed048fb3a275629654">00112</a>         <span class="keywordtype">void</span> shrink() { clear(<span class="keyword">false</span>); }
-<a name="l00113"></a>00113 
-<a name="l00114"></a>00114 <span class="keyword">protected</span>:
-<a name="l00123"></a>00123         <span class="keywordtype">void</span> clear(<span class="keywordtype">bool</span> all = <span class="keyword">true</span>);
-<a name="l00124"></a>00124 
-<a name="l00135"></a>00135         <span class="keyword">virtual</span> Connection* create() = 0;
-<a name="l00136"></a>00136 
-<a name="l00144"></a>00144         <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroy(Connection*) = 0;
-<a name="l00145"></a>00145 
-<a name="l00154"></a>00154         <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_idle_time() = 0;
-<a name="l00155"></a>00155 
-<a name="l00157"></a><a class="code" href="classmysqlpp_1_1ConnectionPool.html#3a42387a44afad4c3d3895ba89ded21d">00157</a>         size_t size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pool_.size(); }
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159 <span class="keyword">private</span>:
-<a name="l00161"></a>00161         <span class="keyword">struct </span>ConnectionInfo {
-<a name="l00162"></a>00162                 Connection* conn;
-<a name="l00163"></a>00163                 time_t last_used;
-<a name="l00164"></a>00164                 <span class="keywordtype">bool</span> in_use;
-<a name="l00165"></a>00165 
-<a name="l00166"></a>00166                 ConnectionInfo(Connection* c) :
-<a name="l00167"></a>00167                 conn(c),
-<a name="l00168"></a>00168                 last_used(time(0)),
-<a name="l00169"></a>00169                 in_use(true)
-<a name="l00170"></a>00170                 {
-<a name="l00171"></a>00171                 }
-<a name="l00172"></a>00172 
-<a name="l00173"></a>00173                 <span class="comment">// Strict weak ordering for ConnectionInfo objects.</span>
-<a name="l00174"></a>00174                 <span class="comment">// </span>
-<a name="l00175"></a>00175                 <span class="comment">// This ordering defines all in-use connections to be "less</span>
-<a name="l00176"></a>00176                 <span class="comment">// than" those not in use.  Within each group, connections</span>
-<a name="l00177"></a>00177                 <span class="comment">// less recently touched are less than those more recent.</span>
-<a name="l00178"></a>00178                 <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> ConnectionInfo&amp; rhs)<span class="keyword"> const</span>
-<a name="l00179"></a>00179 <span class="keyword">                </span>{
-<a name="l00180"></a>00180                         <span class="keyword">const</span> ConnectionInfo&amp; lhs = *<span class="keyword">this</span>;
-<a name="l00181"></a>00181                         <span class="keywordflow">return</span> lhs.in_use == rhs.in_use ?
-<a name="l00182"></a>00182                                         lhs.last_used &lt; rhs.last_used :
-<a name="l00183"></a>00183                                         lhs.in_use;
-<a name="l00184"></a>00184                 }
-<a name="l00185"></a>00185         };
-<a name="l00186"></a>00186         <span class="keyword">typedef</span> std::list&lt;ConnectionInfo&gt; PoolT;
-<a name="l00187"></a>00187         <span class="keyword">typedef</span> PoolT::iterator PoolIt;
-<a name="l00188"></a>00188 
-<a name="l00190"></a>00190         Connection* find_mru();
-<a name="l00191"></a>00191         <span class="keywordtype">void</span> remove_old_connections();
-<a name="l00192"></a>00192 
-<a name="l00194"></a>00194         PoolT pool_;
-<a name="l00195"></a>00195         BeecryptMutex mutex_;
-<a name="l00196"></a>00196 };
-<a name="l00197"></a>00197 
-<a name="l00198"></a>00198 } <span class="comment">// end namespace mysqlpp</span>
-<a name="l00199"></a>00199 
-<a name="l00200"></a>00200 <span class="preprocessor">#endif // !defined(MYSQLPP_CPOOL_H)</span>
-<a name="l00201"></a>00201 <span class="preprocessor"></span>
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:42:56 2009 for MySQL++ by&nbsp;
+<a name="l00106"></a>00106         <span class="keyword">virtual</span> Connection* exchange(<span class="keyword">const</span> Connection* pc);
+<a name="l00107"></a>00107 
+<a name="l00120"></a>00120         <span class="keyword">virtual</span> Connection* grab();
+<a name="l00121"></a>00121 
+<a name="l00137"></a>00137         <span class="keyword">virtual</span> <span class="keywordtype">void</span> release(<span class="keyword">const</span> Connection* pc);
+<a name="l00138"></a>00138 
+<a name="l00150"></a>00150         <span class="keywordtype">void</span> remove(<span class="keyword">const</span> Connection* pc);
+<a name="l00151"></a>00151 
+<a name="l00162"></a>00162         <span class="keyword">virtual</span> Connection* safe_grab();
+<a name="l00163"></a>00163 
+<a name="l00165"></a><a class="code" href="classmysqlpp_1_1ConnectionPool.html#c410ed5cb3032aed048fb3a275629654">00165</a>         <span class="keywordtype">void</span> shrink() { clear(<span class="keyword">false</span>); }
+<a name="l00166"></a>00166 
+<a name="l00167"></a>00167 <span class="keyword">protected</span>:
+<a name="l00176"></a>00176         <span class="keywordtype">void</span> clear(<span class="keywordtype">bool</span> all = <span class="keyword">true</span>);
+<a name="l00177"></a>00177 
+<a name="l00188"></a>00188         <span class="keyword">virtual</span> Connection* create() = 0;
+<a name="l00189"></a>00189 
+<a name="l00197"></a>00197         <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroy(Connection*) = 0;
+<a name="l00198"></a>00198 
+<a name="l00207"></a>00207         <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_idle_time() = 0;
+<a name="l00208"></a>00208 
+<a name="l00210"></a><a class="code" href="classmysqlpp_1_1ConnectionPool.html#3a42387a44afad4c3d3895ba89ded21d">00210</a>         size_t size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> pool_.size(); }
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212 <span class="keyword">private</span>:
+<a name="l00214"></a>00214         <span class="keyword">struct </span>ConnectionInfo {
+<a name="l00215"></a>00215                 Connection* conn;
+<a name="l00216"></a>00216                 time_t last_used;
+<a name="l00217"></a>00217                 <span class="keywordtype">bool</span> in_use;
+<a name="l00218"></a>00218 
+<a name="l00219"></a>00219                 ConnectionInfo(Connection* c) :
+<a name="l00220"></a>00220                 conn(c),
+<a name="l00221"></a>00221                 last_used(time(0)),
+<a name="l00222"></a>00222                 in_use(true)
+<a name="l00223"></a>00223                 {
+<a name="l00224"></a>00224                 }
+<a name="l00225"></a>00225 
+<a name="l00226"></a>00226                 <span class="comment">// Strict weak ordering for ConnectionInfo objects.</span>
+<a name="l00227"></a>00227                 <span class="comment">// </span>
+<a name="l00228"></a>00228                 <span class="comment">// This ordering defines all in-use connections to be "less</span>
+<a name="l00229"></a>00229                 <span class="comment">// than" those not in use.  Within each group, connections</span>
+<a name="l00230"></a>00230                 <span class="comment">// less recently touched are less than those more recent.</span>
+<a name="l00231"></a>00231                 <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> ConnectionInfo&amp; rhs)<span class="keyword"> const</span>
+<a name="l00232"></a>00232 <span class="keyword">                </span>{
+<a name="l00233"></a>00233                         <span class="keyword">const</span> ConnectionInfo&amp; lhs = *<span class="keyword">this</span>;
+<a name="l00234"></a>00234                         <span class="keywordflow">return</span> lhs.in_use == rhs.in_use ?
+<a name="l00235"></a>00235                                         lhs.last_used &lt; rhs.last_used :
+<a name="l00236"></a>00236                                         lhs.in_use;
+<a name="l00237"></a>00237                 }
+<a name="l00238"></a>00238         };
+<a name="l00239"></a>00239         <span class="keyword">typedef</span> std::list&lt;ConnectionInfo&gt; PoolT;
+<a name="l00240"></a>00240         <span class="keyword">typedef</span> PoolT::iterator PoolIt;
+<a name="l00241"></a>00241 
+<a name="l00243"></a>00243         Connection* find_mru();
+<a name="l00244"></a>00244         <span class="keywordtype">void</span> remove(<span class="keyword">const</span> PoolIt&amp; it);
+<a name="l00245"></a>00245         <span class="keywordtype">void</span> remove_old_connections();
+<a name="l00246"></a>00246 
+<a name="l00248"></a>00248         PoolT pool_;
+<a name="l00249"></a>00249         BeecryptMutex mutex_;
+<a name="l00250"></a>00250 };
+<a name="l00251"></a>00251 
+<a name="l00252"></a>00252 } <span class="comment">// end namespace mysqlpp</span>
+<a name="l00253"></a>00253 
+<a name="l00254"></a>00254 <span class="preprocessor">#endif // !defined(MYSQLPP_CPOOL_H)</span>
+<a name="l00255"></a>00255 <span class="preprocessor"></span>
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

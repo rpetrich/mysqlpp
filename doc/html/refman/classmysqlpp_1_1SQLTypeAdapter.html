@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li id="current"><a href="annotated.html"><span>Classes</span></a></li>
     <li><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -64,12 +65,12 @@ typedef size_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#cdb7e3614d5c7af0f3e1ee7f597ff94e">SQLTypeAdapter</a> (char c)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a single-character string.  <a href="#cdb7e3614d5c7af0f3e1ee7f597ff94e"></a><br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ebf5e352efb787b4bf82299018c202af"></a><!-- doxytag: member="mysqlpp::SQLTypeAdapter::SQLTypeAdapter" ref="ebf5e352efb787b4bf82299018c202af" args="(sql_tinyint i)" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#ebf5e352efb787b4bf82299018c202af">SQLTypeAdapter</a> (sql_tinyint i)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="ff5116aaa18b17b0e44f33f7cd716869"></a><!-- doxytag: member="mysqlpp::SQLTypeAdapter::SQLTypeAdapter" ref="ff5116aaa18b17b0e44f33f7cd716869" args="(tiny_int&lt; signed char &gt; i)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#ff5116aaa18b17b0e44f33f7cd716869">SQLTypeAdapter</a> (<a class="el" href="classmysqlpp_1_1tiny__int.html">tiny_int</a>&lt; signed char &gt; i)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a string representation of SQL <code>TINYINT</code>. <br></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="2998e5257eea9f4edf4f583b50486d00"></a><!-- doxytag: member="mysqlpp::SQLTypeAdapter::SQLTypeAdapter" ref="2998e5257eea9f4edf4f583b50486d00" args="(sql_tinyint_unsigned i)" -->
-&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#2998e5257eea9f4edf4f583b50486d00">SQLTypeAdapter</a> (sql_tinyint_unsigned i)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="162ad4a4740b1de8dadbdadaccf6a918"></a><!-- doxytag: member="mysqlpp::SQLTypeAdapter::SQLTypeAdapter" ref="162ad4a4740b1de8dadbdadaccf6a918" args="(tiny_int&lt; unsigned char &gt; i)" -->
+&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#162ad4a4740b1de8dadbdadaccf6a918">SQLTypeAdapter</a> (<a class="el" href="classmysqlpp_1_1tiny__int.html">tiny_int</a>&lt; unsigned char &gt; i)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Create a string representation of SQL <code>TINYINT</code> <code>UNSIGNED</code>. <br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="090ef8382b8f634dc2f4431cb5f06a82"></a><!-- doxytag: member="mysqlpp::SQLTypeAdapter::SQLTypeAdapter" ref="090ef8382b8f634dc2f4431cb5f06a82" args="(short i)" -->
@@ -173,6 +174,9 @@ const char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#dc5ac2559652511b5bca548ab98b8afb">escape_q</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if we were initialized with a data type that must be escaped when used in a SQL query. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#106ea9aae43d9221ccfb10364d72b678">is_null</a> () const </td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return true if buffer's contents represent a SQL null.  <a href="#106ea9aae43d9221ccfb10364d72b678"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1SQLTypeAdapter.html#e88c209dc5137e34aebfe3158448e14b">is_processed</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if the internal 'processed' flag is set.  <a href="#e88c209dc5137e34aebfe3158448e14b"></a><br></td></tr>
@@ -557,6 +561,27 @@ Compare the internal buffer to the given string.
 Works just like string::compare(const std::string&amp;). 
 </div>
 </div><p>
+<a class="anchor" name="106ea9aae43d9221ccfb10364d72b678"></a><!-- doxytag: member="mysqlpp::SQLTypeAdapter::is_null" ref="106ea9aae43d9221ccfb10364d72b678" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mysqlpp::SQLTypeAdapter::is_null           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Return true if buffer's contents represent a SQL null. 
+<p>
+The buffer's actual content will probably be "NULL" or something like it, but in the SQL data type system, a SQL null is distinct from a plain string with value "NULL". 
+</div>
+</div><p>
 <a class="anchor" name="e88c209dc5137e34aebfe3158448e14b"></a><!-- doxytag: member="mysqlpp::SQLTypeAdapter::is_processed" ref="e88c209dc5137e34aebfe3158448e14b" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -668,7 +693,7 @@ Values from <a class="el" href="type__info_8h.html">type_info.h</a>. At the mome
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="stadapter_8h-source.html">stadapter.h</a><li>stadapter.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:43:34 2009 for MySQL++ by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li><a href="annotated.html"><span>Classes</span></a></li>
     <li id="current"><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -227,21 +228,51 @@
 <a name="l00258"></a>00258                 <span class="keywordflow">return</span> value_ &gt;&gt; i.<a class="code" href="classmysqlpp_1_1tiny__int.html#e490528dbb3de1cf9c90368f368918b4">value_</a>;
 <a name="l00259"></a>00259         }
 <a name="l00260"></a>00260 
-<a name="l00261"></a>00261 <span class="keyword">private</span>:
-<a name="l00262"></a>00262         <a class="code" href="classmysqlpp_1_1tiny__int.html#41bd9d701b334239937583fcd822982d">value_type</a> value_;
-<a name="l00263"></a>00263 };
-<a name="l00264"></a>00264 
-<a name="l00266"></a>00266 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VT&gt;
-<a name="l00267"></a>00267 std::ostream&amp; operator &lt;&lt;(std::ostream&amp; os, tiny_int&lt;VT&gt; i)
-<a name="l00268"></a>00268 {
-<a name="l00269"></a>00269         os &lt;&lt; static_cast&lt;int&gt;(i);
-<a name="l00270"></a>00270         <span class="keywordflow">return</span> os;
-<a name="l00271"></a>00271 }
+<a name="l00262"></a><a class="code" href="classmysqlpp_1_1tiny__int.html#3a885b9b499197a8546a39e4009597f5">00262</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1tiny__int.html#3a885b9b499197a8546a39e4009597f5">operator ==</a>(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1tiny__int.html">this_type</a>&amp; i)<span class="keyword"> const</span>
+<a name="l00263"></a>00263 <span class="keyword">        </span>{
+<a name="l00264"></a>00264                 <span class="keywordflow">return</span> value_ == i.<a class="code" href="classmysqlpp_1_1tiny__int.html#e490528dbb3de1cf9c90368f368918b4">value_</a>;
+<a name="l00265"></a>00265         }
+<a name="l00266"></a>00266 
+<a name="l00268"></a><a class="code" href="classmysqlpp_1_1tiny__int.html#5286e0096e8d9d1047a28ca2ade8e61d">00268</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1tiny__int.html#5286e0096e8d9d1047a28ca2ade8e61d">operator !=</a>(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1tiny__int.html">this_type</a>&amp; i)<span class="keyword"> const</span>
+<a name="l00269"></a>00269 <span class="keyword">        </span>{
+<a name="l00270"></a>00270                 <span class="keywordflow">return</span> value_ != i.<a class="code" href="classmysqlpp_1_1tiny__int.html#e490528dbb3de1cf9c90368f368918b4">value_</a>;
+<a name="l00271"></a>00271         }
 <a name="l00272"></a>00272 
-<a name="l00273"></a>00273 } <span class="comment">// end namespace mysqlpp</span>
-<a name="l00274"></a>00274 
-<a name="l00275"></a>00275 <span class="preprocessor">#endif</span>
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:42:56 2009 for MySQL++ by&nbsp;
+<a name="l00274"></a><a class="code" href="classmysqlpp_1_1tiny__int.html#affd24248114ed6454da15c576c5f89e">00274</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1tiny__int.html#affd24248114ed6454da15c576c5f89e">operator &lt;</a>(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1tiny__int.html">this_type</a>&amp; i)<span class="keyword"> const</span>
+<a name="l00275"></a>00275 <span class="keyword">        </span>{
+<a name="l00276"></a>00276                 <span class="keywordflow">return</span> value_ &lt; i.<a class="code" href="classmysqlpp_1_1tiny__int.html#e490528dbb3de1cf9c90368f368918b4">value_</a>;
+<a name="l00277"></a>00277         }
+<a name="l00278"></a>00278 
+<a name="l00280"></a><a class="code" href="classmysqlpp_1_1tiny__int.html#4915e11744f7e53d45e54b4916b3ca8a">00280</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1tiny__int.html#4915e11744f7e53d45e54b4916b3ca8a">operator &gt;</a>(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1tiny__int.html">this_type</a>&amp; i)<span class="keyword"> const</span>
+<a name="l00281"></a>00281 <span class="keyword">        </span>{
+<a name="l00282"></a>00282                 <span class="keywordflow">return</span> value_ &gt; i.<a class="code" href="classmysqlpp_1_1tiny__int.html#e490528dbb3de1cf9c90368f368918b4">value_</a>;
+<a name="l00283"></a>00283         }
+<a name="l00284"></a>00284 
+<a name="l00286"></a><a class="code" href="classmysqlpp_1_1tiny__int.html#2f704bfedb0f261ef1cbb9919173b93d">00286</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1tiny__int.html#2f704bfedb0f261ef1cbb9919173b93d">operator &lt;=</a>(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1tiny__int.html">this_type</a>&amp; i)<span class="keyword"> const</span>
+<a name="l00287"></a>00287 <span class="keyword">        </span>{
+<a name="l00288"></a>00288                 <span class="keywordflow">return</span> value_ &lt;= i.<a class="code" href="classmysqlpp_1_1tiny__int.html#e490528dbb3de1cf9c90368f368918b4">value_</a>;
+<a name="l00289"></a>00289         }
+<a name="l00290"></a>00290 
+<a name="l00292"></a><a class="code" href="classmysqlpp_1_1tiny__int.html#772ec61f9adeb6085c1a5d841e305068">00292</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1tiny__int.html#772ec61f9adeb6085c1a5d841e305068">operator &gt;=</a>(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1tiny__int.html">this_type</a>&amp; i)<span class="keyword"> const</span>
+<a name="l00293"></a>00293 <span class="keyword">        </span>{
+<a name="l00294"></a>00294                 <span class="keywordflow">return</span> value_ &gt;= i.<a class="code" href="classmysqlpp_1_1tiny__int.html#e490528dbb3de1cf9c90368f368918b4">value_</a>;
+<a name="l00295"></a>00295         }
+<a name="l00296"></a>00296 
+<a name="l00297"></a>00297 <span class="keyword">private</span>:
+<a name="l00298"></a>00298         <a class="code" href="classmysqlpp_1_1tiny__int.html#41bd9d701b334239937583fcd822982d">value_type</a> value_;
+<a name="l00299"></a>00299 };
+<a name="l00300"></a>00300 
+<a name="l00302"></a>00302 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> VT&gt;
+<a name="l00303"></a>00303 std::ostream&amp; operator &lt;&lt;(std::ostream&amp; os, tiny_int&lt;VT&gt; i)
+<a name="l00304"></a>00304 {
+<a name="l00305"></a>00305         os &lt;&lt; static_cast&lt;int&gt;(i);
+<a name="l00306"></a>00306         <span class="keywordflow">return</span> os;
+<a name="l00307"></a>00307 }
+<a name="l00308"></a>00308 
+<a name="l00309"></a>00309 } <span class="comment">// end namespace mysqlpp</span>
+<a name="l00310"></a>00310 
+<a name="l00311"></a>00311 <span class="preprocessor">#endif</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

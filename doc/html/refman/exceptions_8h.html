@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li><a href="annotated.html"><span>Classes</span></a></li>
     <li id="current"><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -25,6 +26,7 @@
 <code>#include &lt;exception&gt;</code><br>
 <code>#include &lt;string&gt;</code><br>
 <code>#include &lt;sstream&gt;</code><br>
+<code>#include &lt;typeinfo&gt;</code><br>
 
 <p>
 <a href="exceptions_8h-source.html">Go to the source code of this file.</a><table border="0" cellpadding="0" cellspacing="0">
@@ -75,11 +77,14 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1TypeLookupFailed.html">mysqlpp::TypeLookupFailed</a></td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Thrown from the C++ to SQL data type conversion routine when it can't figure out how to map the type.  <a href="classmysqlpp_1_1TypeLookupFailed.html#_details">More...</a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1BadInsertPolicy.html">mysqlpp::BadInsertPolicy</a></td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight"><a class="el" href="classmysqlpp_1_1Exception.html">Exception</a> thrown when an insert policy is too strict to create a valid INSERT statement.  <a href="classmysqlpp_1_1BadInsertPolicy.html#_details">More...</a><br></td></tr>
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 Declares the MySQL++-specific exception classes. 
 <p>
-When exceptions are enabled for a given <a class="el" href="classmysqlpp_1_1OptionalExceptions.html">mysqlpp::OptionalExceptions</a> derivative, any of these exceptions can be thrown on error. <hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:42:56 2009 for MySQL++ by&nbsp;
+When exceptions are enabled for a given <a class="el" href="classmysqlpp_1_1OptionalExceptions.html">mysqlpp::OptionalExceptions</a> derivative, any of these exceptions can be thrown on error. <hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

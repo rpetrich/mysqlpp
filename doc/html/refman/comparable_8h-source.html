@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li><a href="annotated.html"><span>Classes</span></a></li>
     <li id="current"><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -49,48 +50,52 @@
 <a name="l00028"></a>00028 <span class="preprocessor">#if !defined(MYSQLPP_COMPARABLE_H)</span>
 <a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#define MYSQLPP_COMPARABLE_H</span>
 <a name="l00030"></a>00030 <span class="preprocessor"></span>
-<a name="l00037"></a>00037 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00038"></a><a class="code" href="classComparable.html">00038</a> <span class="keyword">class </span><a class="code" href="classComparable.html">Comparable</a>
-<a name="l00039"></a>00039 {
-<a name="l00040"></a>00040 <span class="keyword">public</span>:
-<a name="l00042"></a><a class="code" href="classComparable.html#d059b1abac62eb3779ceb2357f390a80">00042</a>         <span class="keywordtype">bool</span> <a class="code" href="classComparable.html#d059b1abac62eb3779ceb2357f390a80">operator ==</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
-<a name="l00043"></a>00043 <span class="keyword">        </span>{
-<a name="l00044"></a>00044                 <span class="keywordflow">return</span> !<a class="code" href="classComparable.html#1edd25e58fdc64bf9f61f391bc36085a">compare</a>(other);
-<a name="l00045"></a>00045         }
-<a name="l00046"></a>00046 
-<a name="l00048"></a><a class="code" href="classComparable.html#81566a47c1b7598b8c13ed990ff9691a">00048</a>         <span class="keywordtype">bool</span> <a class="code" href="classComparable.html#81566a47c1b7598b8c13ed990ff9691a">operator !=</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
-<a name="l00049"></a>00049 <span class="keyword">        </span>{
-<a name="l00050"></a>00050                 <span class="keywordflow">return</span> <a class="code" href="classComparable.html#1edd25e58fdc64bf9f61f391bc36085a">compare</a>(other);
-<a name="l00051"></a>00051         }
-<a name="l00052"></a>00052 
-<a name="l00054"></a><a class="code" href="classComparable.html#aab1d756e90dd4b81cc38305d203554d">00054</a>         <span class="keywordtype">bool</span> <a class="code" href="classComparable.html#aab1d756e90dd4b81cc38305d203554d">operator &lt;</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
-<a name="l00055"></a>00055 <span class="keyword">        </span>{
-<a name="l00056"></a>00056                 <span class="keywordflow">return</span> <a class="code" href="classComparable.html#1edd25e58fdc64bf9f61f391bc36085a">compare</a>(other) &lt; 0;
-<a name="l00057"></a>00057         }
-<a name="l00058"></a>00058 
-<a name="l00060"></a><a class="code" href="classComparable.html#e4664a53daa13672d054fae947be45a1">00060</a>         <span class="keywordtype">bool</span> <a class="code" href="classComparable.html#e4664a53daa13672d054fae947be45a1">operator &lt;=</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
-<a name="l00061"></a>00061 <span class="keyword">        </span>{
-<a name="l00062"></a>00062                 <span class="keywordflow">return</span> <a class="code" href="classComparable.html#1edd25e58fdc64bf9f61f391bc36085a">compare</a>(other) &lt;= 0;
-<a name="l00063"></a>00063         }
-<a name="l00064"></a>00064 
-<a name="l00066"></a><a class="code" href="classComparable.html#3c9b258e15757cae23dfe19c1f4d0b5c">00066</a>         <span class="keywordtype">bool</span> <a class="code" href="classComparable.html#3c9b258e15757cae23dfe19c1f4d0b5c">operator &gt;</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
-<a name="l00067"></a>00067 <span class="keyword">        </span>{
-<a name="l00068"></a>00068                 <span class="keywordflow">return</span> <a class="code" href="classComparable.html#1edd25e58fdc64bf9f61f391bc36085a">compare</a>(other) &gt; 0;
-<a name="l00069"></a>00069         }
-<a name="l00070"></a>00070 
-<a name="l00072"></a><a class="code" href="classComparable.html#17e311cecdd6b187758816fb9eef5325">00072</a>         <span class="keywordtype">bool</span> <a class="code" href="classComparable.html#17e311cecdd6b187758816fb9eef5325">operator &gt;=</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
-<a name="l00073"></a>00073 <span class="keyword">        </span>{
-<a name="l00074"></a>00074                 <span class="keywordflow">return</span> <a class="code" href="classComparable.html#1edd25e58fdc64bf9f61f391bc36085a">compare</a>(other) &gt;= 0;
-<a name="l00075"></a>00075         }
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 <span class="keyword">protected</span>:
-<a name="l00085"></a><a class="code" href="classComparable.html#f69a5ad966d481b12c63c6e207b98d67">00085</a>         <span class="keyword">virtual</span> <a class="code" href="classComparable.html#f69a5ad966d481b12c63c6e207b98d67">~Comparable</a>() { }
-<a name="l00086"></a>00086 
-<a name="l00091"></a>00091         <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classComparable.html#1edd25e58fdc64bf9f61f391bc36085a">compare</a>(<span class="keyword">const</span> T&amp; other) <span class="keyword">const </span>= 0;
-<a name="l00092"></a>00092 };
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094 <span class="preprocessor">#endif // !defined(MYSQLPP_COMPARABLE_H)</span>
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:42:56 2009 for MySQL++ by&nbsp;
+<a name="l00031"></a>00031 <span class="keyword">namespace </span>mysqlpp {
+<a name="l00032"></a>00032 
+<a name="l00039"></a>00039 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00040"></a><a class="code" href="classmysqlpp_1_1Comparable.html">00040</a> <span class="keyword">class </span><a class="code" href="classmysqlpp_1_1Comparable.html">Comparable</a>
+<a name="l00041"></a>00041 {
+<a name="l00042"></a>00042 <span class="keyword">public</span>:
+<a name="l00044"></a><a class="code" href="classmysqlpp_1_1Comparable.html#88062e6c972104353b675e69d798ff11">00044</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1Comparable.html#88062e6c972104353b675e69d798ff11">operator ==</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
+<a name="l00045"></a>00045 <span class="keyword">        </span>{
+<a name="l00046"></a>00046                 <span class="keywordflow">return</span> !<a class="code" href="classmysqlpp_1_1Comparable.html#189507426ed585f7da84f63dc426c651">compare</a>(other);
+<a name="l00047"></a>00047         }
+<a name="l00048"></a>00048 
+<a name="l00050"></a><a class="code" href="classmysqlpp_1_1Comparable.html#6062c13d77297d6ea038afc32bd1825a">00050</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1Comparable.html#6062c13d77297d6ea038afc32bd1825a">operator !=</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
+<a name="l00051"></a>00051 <span class="keyword">        </span>{
+<a name="l00052"></a>00052                 <span class="keywordflow">return</span> <a class="code" href="classmysqlpp_1_1Comparable.html#189507426ed585f7da84f63dc426c651">compare</a>(other);
+<a name="l00053"></a>00053         }
+<a name="l00054"></a>00054 
+<a name="l00056"></a><a class="code" href="classmysqlpp_1_1Comparable.html#990a2cc29467a347406162fff86cc514">00056</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1Comparable.html#990a2cc29467a347406162fff86cc514">operator &lt;</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
+<a name="l00057"></a>00057 <span class="keyword">        </span>{
+<a name="l00058"></a>00058                 <span class="keywordflow">return</span> <a class="code" href="classmysqlpp_1_1Comparable.html#189507426ed585f7da84f63dc426c651">compare</a>(other) &lt; 0;
+<a name="l00059"></a>00059         }
+<a name="l00060"></a>00060 
+<a name="l00062"></a><a class="code" href="classmysqlpp_1_1Comparable.html#03cde1e3a6da4f73d918ed6e472e4fc8">00062</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1Comparable.html#03cde1e3a6da4f73d918ed6e472e4fc8">operator &lt;=</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
+<a name="l00063"></a>00063 <span class="keyword">        </span>{
+<a name="l00064"></a>00064                 <span class="keywordflow">return</span> <a class="code" href="classmysqlpp_1_1Comparable.html#189507426ed585f7da84f63dc426c651">compare</a>(other) &lt;= 0;
+<a name="l00065"></a>00065         }
+<a name="l00066"></a>00066 
+<a name="l00068"></a><a class="code" href="classmysqlpp_1_1Comparable.html#617880cb42950b9df07f2dbf193eb955">00068</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1Comparable.html#617880cb42950b9df07f2dbf193eb955">operator &gt;</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
+<a name="l00069"></a>00069 <span class="keyword">        </span>{
+<a name="l00070"></a>00070                 <span class="keywordflow">return</span> <a class="code" href="classmysqlpp_1_1Comparable.html#189507426ed585f7da84f63dc426c651">compare</a>(other) &gt; 0;
+<a name="l00071"></a>00071         }
+<a name="l00072"></a>00072 
+<a name="l00074"></a><a class="code" href="classmysqlpp_1_1Comparable.html#745bf92e13e9e600fe3b34cb35b4aa86">00074</a>         <span class="keywordtype">bool</span> <a class="code" href="classmysqlpp_1_1Comparable.html#745bf92e13e9e600fe3b34cb35b4aa86">operator &gt;=</a>(<span class="keyword">const</span> T&amp; other)<span class="keyword"> const</span>
+<a name="l00075"></a>00075 <span class="keyword">        </span>{
+<a name="l00076"></a>00076                 <span class="keywordflow">return</span> <a class="code" href="classmysqlpp_1_1Comparable.html#189507426ed585f7da84f63dc426c651">compare</a>(other) &gt;= 0;
+<a name="l00077"></a>00077         }
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="keyword">protected</span>:
+<a name="l00087"></a><a class="code" href="classmysqlpp_1_1Comparable.html#04f46aa0ee2ba5e0dcb6e3bd77a22f0f">00087</a>         <span class="keyword">virtual</span> <a class="code" href="classmysqlpp_1_1Comparable.html#04f46aa0ee2ba5e0dcb6e3bd77a22f0f">~Comparable</a>() { }
+<a name="l00088"></a>00088 
+<a name="l00093"></a>00093         <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classmysqlpp_1_1Comparable.html#189507426ed585f7da84f63dc426c651">compare</a>(<span class="keyword">const</span> T&amp; other) <span class="keyword">const </span>= 0;
+<a name="l00094"></a>00094 };
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 }
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 <span class="preprocessor">#endif // !defined(MYSQLPP_COMPARABLE_H)</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

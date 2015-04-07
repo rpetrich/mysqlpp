@@ -10,7 +10,7 @@
 
 /***********************************************************************
  Copyright (c) 1998 by Kevin Atkinson, (c) 1999-2001 by MySQL AB, and
- (c) 2004-2008 by Educational Technology Resources, Inc.  Others may
+ (c) 2004-2010 by Educational Technology Resources, Inc.  Others may
  also hold copyrights on code in this file.  See the CREDITS.txt file
  in the top directory of the distribution for details.
 
@@ -49,13 +49,14 @@
 /// mysqlpp_lib_version() returns in order to ensure that your program
 /// is using header files from the same version of MySQL++ as the
 /// actual library you're linking to.
-#define MYSQLPP_HEADER_VERSION MYSQLPP_VERSION(3, 0, 9)
+#define MYSQLPP_HEADER_VERSION MYSQLPP_VERSION(3, 1, 0)
 
 // This #include order gives the fewest redundancies in the #include
 // dependency chain.
 #include "connection.h"
 #include "cpool.h"
 #include "query.h"
+#include "scopedconnection.h"
 #include "sql_types.h"
 #include "transaction.h"
 

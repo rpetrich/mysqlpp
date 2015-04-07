@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li id="current"><a href="annotated.html"><span>Classes</span></a></li>
     <li><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -45,12 +46,21 @@ Collaboration diagram for mysqlpp::ConnectionPool:<p><center><img src="classmysq
 bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1ConnectionPool.html#264ea3fc4311c8bfd18e7d7b6103d124">empty</a> () const </td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns true if pool is empty. <br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1ConnectionPool.html#4f9844f2c57c9f51f1b5a2b8a996ee15">exchange</a> (const <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> *pc)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return a defective connection to the pool and get a new one back.  <a href="#4f9844f2c57c9f51f1b5a2b8a996ee15"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1ConnectionPool.html#cbf56ee86ef66b3ebdf02adde5908776">grab</a> ()</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Grab a free connection from the pool.  <a href="#cbf56ee86ef66b3ebdf02adde5908776"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1ConnectionPool.html#c51a7a63ce4d8825c3f7b05f4b8bfe68">release</a> (const <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> *pc)</td></tr>
 
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Return a connection to the pool.  <a href="#c51a7a63ce4d8825c3f7b05f4b8bfe68"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1ConnectionPool.html#ae75febe979da2d4a3335c46438f3d33">remove</a> (const <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> *pc)</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Removes the given connection from the pool.  <a href="#ae75febe979da2d4a3335c46438f3d33"></a><br></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1ConnectionPool.html#ac4d50bb5c603efec4b8d7e0a3e8a164">safe_grab</a> ()</td></tr>
+
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Grab a free connection from the pool, testing that it's connected before returning it.  <a href="#ac4d50bb5c603efec4b8d7e0a3e8a164"></a><br></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="anchor" name="c410ed5cb3032aed048fb3a275629654"></a><!-- doxytag: member="mysqlpp::ConnectionPool::shrink" ref="c410ed5cb3032aed048fb3a275629654" args="()" -->
 void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmysqlpp_1_1ConnectionPool.html#c410ed5cb3032aed048fb3a275629654">shrink</a> ()</td></tr>
 
@@ -184,6 +194,40 @@ Subclasses must override this.<p>
 This is for destroying the objects returned by <a class="el" href="classmysqlpp_1_1ConnectionPool.html#f755c7e11b92bbab0e88ab3e9c88f0fd">create()</a>. Because we can't know what the derived class did to create the connection we can't reliably know how to destroy it. 
 </div>
 </div><p>
+<a class="anchor" name="4f9844f2c57c9f51f1b5a2b8a996ee15"></a><!-- doxytag: member="mysqlpp::ConnectionPool::exchange" ref="4f9844f2c57c9f51f1b5a2b8a996ee15" args="(const Connection *pc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> * mysqlpp::ConnectionPool::exchange           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> *&nbsp;</td>
+          <td class="paramname"> <em>pc</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Return a defective connection to the pool and get a new one back. 
+<p>
+Call this on receiving a <a class="el" href="classmysqlpp_1_1BadQuery.html">BadQuery</a> exception, with errnum() equal to CR_SERVER_GONE_ERROR. It means the server was restarted or otherwise dropped your connection to it, so the <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> object is no longer usable. You can avoid the need to use this by setting the <a class="el" href="classmysqlpp_1_1ReconnectOption.html">ReconnectOption</a> in your <a class="el" href="classmysqlpp_1_1ConnectionPool.html#cbf56ee86ef66b3ebdf02adde5908776">grab()</a> override, but perhaps there are other reasons to need to exchange a bad connection for a good one.<p>
+This function wraps <a class="el" href="classmysqlpp_1_1ConnectionPool.html#cbf56ee86ef66b3ebdf02adde5908776">grab()</a>, not <a class="el" href="classmysqlpp_1_1ConnectionPool.html#ac4d50bb5c603efec4b8d7e0a3e8a164">safe_grab()</a>, even though that could return another dead connection. The assumption is that if your code is smart enough to detect one bad connection, it should be smart enough to detect a whole string of them. Worst case, the whole pool is bad -- remote server went away -- and we have to empty the pool and start re-filling it.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pc</em>&nbsp;</td><td>pointer to a <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> object to be returned to the pool and marked as unused.</td></tr>
+  </table>
+</dl>
+<dl compact><dt><b>Return values:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>a</em>&nbsp;</td><td>pointer to a different <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> object; not guaranteed to still be connected! </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
 <a class="anchor" name="cbf56ee86ef66b3ebdf02adde5908776"></a><!-- doxytag: member="mysqlpp::ConnectionPool::grab" ref="cbf56ee86ef66b3ebdf02adde5908776" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -259,12 +303,73 @@ Subclasses must override this as it encodes a policy issue, something that MySQL
 Return a connection to the pool. 
 <p>
 Marks the connection as no longer in use.<p>
-The pool updates the last-used time of a connection only on release, on the assumption that it was used just prior. There's nothing forcing you to do it this way: your code is free to delay releasing idle connections as long as it likes. You want to avoid this because it will make the pool perform poorly; if it doesn't know approximately how long a connection has really been idle, it can't make good judgements about when to remove it from the pool. 
+The pool updates the last-used time of a connection only on release, on the assumption that it was used just prior. There's nothing forcing you to do it this way: your code is free to delay releasing idle connections as long as it likes. You want to avoid this because it will make the pool perform poorly; if it doesn't know approximately how long a connection has really been idle, it can't make good judgements about when to remove it from the pool.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pc</em>&nbsp;</td><td>pointer to a <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> object to be returned to the pool and marked as unused. </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="ae75febe979da2d4a3335c46438f3d33"></a><!-- doxytag: member="mysqlpp::ConnectionPool::remove" ref="ae75febe979da2d4a3335c46438f3d33" args="(const Connection *pc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void mysqlpp::ConnectionPool::remove           </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> *&nbsp;</td>
+          <td class="paramname"> <em>pc</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Removes the given connection from the pool. 
+<p>
+If you mean to simply return a connection to the pool after you're finished using it, call <a class="el" href="classmysqlpp_1_1ConnectionPool.html#c51a7a63ce4d8825c3f7b05f4b8bfe68">release()</a> instead. This method is primarily for error handling: you somehow have figured out that the connection is defective, so want it destroyed and removed from the pool. If you also want a different connection to retry your operation on, call <a class="el" href="classmysqlpp_1_1ConnectionPool.html#4f9844f2c57c9f51f1b5a2b8a996ee15">exchange()</a> instead.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>pc</em>&nbsp;</td><td>pointer to a <a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> object to be removed from the pool and destroyed </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="ac4d50bb5c603efec4b8d7e0a3e8a164"></a><!-- doxytag: member="mysqlpp::ConnectionPool::safe_grab" ref="ac4d50bb5c603efec4b8d7e0a3e8a164" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmysqlpp_1_1Connection.html">Connection</a> * mysqlpp::ConnectionPool::safe_grab           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td width="100%"><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Grab a free connection from the pool, testing that it's connected before returning it. 
+<p>
+This is just a wrapper around <a class="el" href="classmysqlpp_1_1ConnectionPool.html#cbf56ee86ef66b3ebdf02adde5908776">grab()</a>, <a class="el" href="classmysqlpp_1_1Connection.html#c1dbc411f7ab1debbabe241561fe4091">Connection::ping()</a> and <a class="el" href="classmysqlpp_1_1ConnectionPool.html#c51a7a63ce4d8825c3f7b05f4b8bfe68">release()</a>, and is thus less efficient than <a class="el" href="classmysqlpp_1_1ConnectionPool.html#cbf56ee86ef66b3ebdf02adde5908776">grab()</a>. Use it only when it's possible for MySQL server connections to go away unexpectedly, such as when the DB server can be restarted out from under your application.<p>
+<dl compact><dt><b>Return values:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>a</em>&nbsp;</td><td>pointer to the connection </td></tr>
+  </table>
+</dl>
+
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="cpool_8h-source.html">cpool.h</a><li>cpool.cpp</ul>
-<hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:43:01 2009 for MySQL++ by&nbsp;
+<hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>

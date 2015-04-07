@@ -11,6 +11,7 @@
 <div class="tabs">
   <ul>
     <li><a href="index.html"><span>Main&nbsp;Page</span></a></li>
+    <li><a href="namespaces.html"><span>Namespaces</span></a></li>
     <li><a href="annotated.html"><span>Classes</span></a></li>
     <li id="current"><a href="files.html"><span>Files</span></a></li>
   </ul></div>
@@ -24,7 +25,7 @@
 <a name="l00003"></a>00003 
 <a name="l00004"></a>00004 <span class="comment">/***********************************************************************</span>
 <a name="l00005"></a>00005 <span class="comment"> Copyright (c) 1998 by Kevin Atkinson, (c) 1999-2001 by MySQL AB, and</span>
-<a name="l00006"></a>00006 <span class="comment"> (c) 2004-2008 by Educational Technology Resources, Inc.  Others may</span>
+<a name="l00006"></a>00006 <span class="comment"> (c) 2004-2009 by Educational Technology Resources, Inc.  Others may</span>
 <a name="l00007"></a>00007 <span class="comment"> also hold copyrights on code in this file.  See the CREDITS.txt file</span>
 <a name="l00008"></a>00008 <span class="comment"> in the top directory of the distribution for details.</span>
 <a name="l00009"></a>00009 <span class="comment"></span>
@@ -54,7 +55,7 @@
 <a name="l00033"></a>00033 <span class="preprocessor">#include "<a class="code" href="datetime_8h.html">datetime.h</a>"</span>
 <a name="l00034"></a>00034 <span class="preprocessor">#include "<a class="code" href="null_8h.html">null.h</a>"</span>
 <a name="l00035"></a>00035 <span class="preprocessor">#include "<a class="code" href="sql__buffer_8h.html">sql_buffer.h</a>"</span>
-<a name="l00036"></a>00036 <span class="preprocessor">#include "<a class="code" href="sql__types_8h.html">sql_types.h</a>"</span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include "<a class="code" href="tiny__int_8h.html">tiny_int.h</a>"</span>
 <a name="l00037"></a>00037 
 <a name="l00038"></a>00038 <span class="preprocessor">#include &lt;stdexcept&gt;</span>
 <a name="l00039"></a>00039 <span class="preprocessor">#include &lt;string&gt;</span>
@@ -85,9 +86,9 @@
 <a name="l00106"></a>00106 
 <a name="l00113"></a>00113         SQLTypeAdapter(<span class="keywordtype">char</span> c);
 <a name="l00114"></a>00114 
-<a name="l00116"></a>00116         SQLTypeAdapter(sql_tinyint i);
+<a name="l00116"></a>00116         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1tiny__int.html">tiny_int&lt;signed char&gt;</a> i);
 <a name="l00117"></a>00117 
-<a name="l00120"></a>00120         SQLTypeAdapter(sql_tinyint_unsigned i);
+<a name="l00120"></a>00120         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1tiny__int.html">tiny_int&lt;unsigned char&gt;</a> i);
 <a name="l00121"></a>00121 
 <a name="l00123"></a>00123         SQLTypeAdapter(<span class="keywordtype">short</span> i);
 <a name="l00124"></a>00124 
@@ -145,51 +146,53 @@
 <a name="l00255"></a>00255 
 <a name="l00258"></a>00258         <span class="keywordtype">bool</span> escape_q() <span class="keyword">const</span>;
 <a name="l00259"></a>00259 
-<a name="l00264"></a><a class="code" href="classmysqlpp_1_1SQLTypeAdapter.html#e88c209dc5137e34aebfe3158448e14b">00264</a>         <span class="keywordtype">bool</span> is_processed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> is_processed_; }
-<a name="l00265"></a>00265 
-<a name="l00267"></a>00267         size_type length() <span class="keyword">const</span>;
-<a name="l00268"></a><a class="code" href="classmysqlpp_1_1SQLTypeAdapter.html#9f7a9a67f51498524a82b12198accdff">00268</a>         size_type size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> length(); } 
-<a name="l00269"></a>00269 
-<a name="l00272"></a>00272         <span class="keywordtype">bool</span> quote_q() <span class="keyword">const</span>;
+<a name="l00266"></a><a class="code" href="classmysqlpp_1_1SQLTypeAdapter.html#106ea9aae43d9221ccfb10364d72b678">00266</a>         <span class="keywordtype">bool</span> is_null()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> buffer_-&gt;is_null(); }
+<a name="l00267"></a>00267 
+<a name="l00272"></a><a class="code" href="classmysqlpp_1_1SQLTypeAdapter.html#e88c209dc5137e34aebfe3158448e14b">00272</a>         <span class="keywordtype">bool</span> is_processed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> is_processed_; }
 <a name="l00273"></a>00273 
-<a name="l00279"></a>00279         <span class="keywordtype">int</span> type_id() <span class="keyword">const</span>;
-<a name="l00280"></a>00280 
-<a name="l00285"></a><a class="code" href="classmysqlpp_1_1SQLTypeAdapter.html#2a48fae9511a363de243feaf7892ff53">00285</a>         <span class="keywordtype">void</span> set_processed() { is_processed_ = <span class="keyword">true</span>; }
-<a name="l00286"></a>00286 
-<a name="l00287"></a>00287 <span class="preprocessor">#if !defined(DOXYGEN_IGNORE)</span>
-<a name="l00288"></a>00288 <span class="preprocessor"></span>        <span class="comment">// Parallel interface for Null&lt;&gt;-wrapped versions of types we</span>
-<a name="l00289"></a>00289         <span class="comment">// support above.  No need for parallel documentation.</span>
-<a name="l00290"></a>00290         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;std::string&gt;</a>&amp; str, <span class="keywordtype">bool</span> processed = <span class="keyword">false</span>);
-<a name="l00291"></a>00291         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;String&gt;</a>&amp; str, <span class="keywordtype">bool</span> processed = <span class="keyword">false</span>);
-<a name="l00292"></a>00292         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;char&gt;</a> c);
-<a name="l00293"></a>00293         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;sql_tinyint&gt;</a> i);
-<a name="l00294"></a>00294         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;sql_tinyint_unsigned&gt;</a> i);
-<a name="l00295"></a>00295         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;short&gt;</a> i);
-<a name="l00296"></a>00296         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;unsigned short&gt;</a> i);
-<a name="l00297"></a>00297         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;int&gt;</a> i);
-<a name="l00298"></a>00298         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;unsigned&gt;</a> i);
-<a name="l00299"></a>00299         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;long&gt;</a> i);
-<a name="l00300"></a>00300         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;unsigned long&gt;</a> i);
-<a name="l00301"></a>00301         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;longlong&gt;</a> i);
-<a name="l00302"></a>00302         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;ulonglong&gt;</a> i);
-<a name="l00303"></a>00303         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;float&gt;</a> i);
-<a name="l00304"></a>00304         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;double&gt;</a> i);
-<a name="l00305"></a>00305         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;Date&gt;</a>&amp; d);
-<a name="l00306"></a>00306         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;DateTime&gt;</a>&amp; dt);
-<a name="l00307"></a>00307         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;Time&gt;</a>&amp; t);
-<a name="l00308"></a>00308         SQLTypeAdapter&amp; operator =(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;std::string&gt;</a>&amp; str);
-<a name="l00309"></a>00309 <span class="preprocessor">#endif // !defined(DOXYGEN_IGNORE)</span>
-<a name="l00310"></a>00310 <span class="preprocessor"></span>
-<a name="l00311"></a>00311 <span class="keyword">private</span>:
-<a name="l00313"></a>00313         <a class="code" href="classmysqlpp_1_1RefCountedPointer.html">RefCountedBuffer</a> buffer_;
-<a name="l00314"></a>00314 
-<a name="l00325"></a>00325         <span class="keywordtype">bool</span> is_processed_;
-<a name="l00326"></a>00326 };
-<a name="l00327"></a>00327 
-<a name="l00328"></a>00328 } <span class="comment">// end namespace mysqlpp</span>
-<a name="l00329"></a>00329 
-<a name="l00330"></a>00330 <span class="preprocessor">#endif // !defined(MYSQLPP_SQL_TYPE_ADAPTER_H)</span>
-</pre></div><hr size="1"><address style="align: right;"><small>Generated on Wed Feb 4 14:42:56 2009 for MySQL++ by&nbsp;
+<a name="l00275"></a>00275         size_type length() <span class="keyword">const</span>;
+<a name="l00276"></a><a class="code" href="classmysqlpp_1_1SQLTypeAdapter.html#9f7a9a67f51498524a82b12198accdff">00276</a>         size_type size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> length(); } 
+<a name="l00277"></a>00277 
+<a name="l00280"></a>00280         <span class="keywordtype">bool</span> quote_q() <span class="keyword">const</span>;
+<a name="l00281"></a>00281 
+<a name="l00287"></a>00287         <span class="keywordtype">int</span> type_id() <span class="keyword">const</span>;
+<a name="l00288"></a>00288 
+<a name="l00293"></a><a class="code" href="classmysqlpp_1_1SQLTypeAdapter.html#2a48fae9511a363de243feaf7892ff53">00293</a>         <span class="keywordtype">void</span> set_processed() { is_processed_ = <span class="keyword">true</span>; }
+<a name="l00294"></a>00294 
+<a name="l00295"></a>00295 <span class="preprocessor">#if !defined(DOXYGEN_IGNORE)</span>
+<a name="l00296"></a>00296 <span class="preprocessor"></span>        <span class="comment">// Parallel interface for Null&lt;&gt;-wrapped versions of types we</span>
+<a name="l00297"></a>00297         <span class="comment">// support above.  No need for parallel documentation.</span>
+<a name="l00298"></a>00298         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;std::string&gt;</a>&amp; str, <span class="keywordtype">bool</span> processed = <span class="keyword">false</span>);
+<a name="l00299"></a>00299         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;String&gt;</a>&amp; str, <span class="keywordtype">bool</span> processed = <span class="keyword">false</span>);
+<a name="l00300"></a>00300         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;char&gt;</a> c);
+<a name="l00301"></a>00301         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null</a>&lt; <a class="code" href="classmysqlpp_1_1tiny__int.html">tiny_int&lt;signed char&gt;</a> &gt; i);
+<a name="l00302"></a>00302         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null</a>&lt; <a class="code" href="classmysqlpp_1_1tiny__int.html">tiny_int&lt;unsigned char&gt;</a> &gt; i);
+<a name="l00303"></a>00303         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;short&gt;</a> i);
+<a name="l00304"></a>00304         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;unsigned short&gt;</a> i);
+<a name="l00305"></a>00305         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;int&gt;</a> i);
+<a name="l00306"></a>00306         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;unsigned&gt;</a> i);
+<a name="l00307"></a>00307         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;long&gt;</a> i);
+<a name="l00308"></a>00308         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;unsigned long&gt;</a> i);
+<a name="l00309"></a>00309         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;longlong&gt;</a> i);
+<a name="l00310"></a>00310         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;ulonglong&gt;</a> i);
+<a name="l00311"></a>00311         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;float&gt;</a> i);
+<a name="l00312"></a>00312         SQLTypeAdapter(<a class="code" href="classmysqlpp_1_1Null.html">Null&lt;double&gt;</a> i);
+<a name="l00313"></a>00313         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;Date&gt;</a>&amp; d);
+<a name="l00314"></a>00314         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;DateTime&gt;</a>&amp; dt);
+<a name="l00315"></a>00315         SQLTypeAdapter(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;Time&gt;</a>&amp; t);
+<a name="l00316"></a>00316         SQLTypeAdapter&amp; operator =(<span class="keyword">const</span> <a class="code" href="classmysqlpp_1_1Null.html">Null&lt;std::string&gt;</a>&amp; str);
+<a name="l00317"></a>00317 <span class="preprocessor">#endif // !defined(DOXYGEN_IGNORE)</span>
+<a name="l00318"></a>00318 <span class="preprocessor"></span>
+<a name="l00319"></a>00319 <span class="keyword">private</span>:
+<a name="l00321"></a>00321         <a class="code" href="classmysqlpp_1_1RefCountedPointer.html">RefCountedBuffer</a> buffer_;
+<a name="l00322"></a>00322 
+<a name="l00333"></a>00333         <span class="keywordtype">bool</span> is_processed_;
+<a name="l00334"></a>00334 };
+<a name="l00335"></a>00335 
+<a name="l00336"></a>00336 } <span class="comment">// end namespace mysqlpp</span>
+<a name="l00337"></a>00337 
+<a name="l00338"></a>00338 <span class="preprocessor">#endif // !defined(MYSQLPP_SQL_TYPE_ADAPTER_H)</span>
+</pre></div><hr size="1"><address style="align: right;"><small>Generated on Thu Jun 3 11:59:12 2010 for MySQL++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.4.7 </small></address>
 </body>
