@@ -51,7 +51,7 @@
 				LinkIncremental="2"
 				ImportLibrary="$(SolutionDir)$(ConfigurationName)\mysqlpp_d.lib"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="C:\Program Files\MySQL\MySQL Connector C 6.1\lib\opt"
+				AdditionalLibraryDirectories="C:\Program Files\MySQL\MySQL Connector C 6.1\lib"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile="$(SolutionDir)$(ConfigurationName)\mysqlpp_d.pdb"
 				TargetMachine="1"/>
@@ -113,7 +113,7 @@
 				LinkIncremental="1"
 				ImportLibrary="$(SolutionDir)$(ConfigurationName)\mysqlpp.lib"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="C:\Program Files\MySQL\MySQL Connector C 6.1\lib\opt"
+				AdditionalLibraryDirectories="C:\Program Files\MySQL\MySQL Connector C 6.1\lib"
 				ProgramDatabaseFile="$(SolutionDir)$(ConfigurationName)\mysqlpp.pdb"
 				TargetMachine="1"/>
 			<Tool

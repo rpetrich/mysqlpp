@@ -219,9 +219,9 @@ TRANSACTION_OBJECTS =  \
 @COND_USE_SOVERSION_0@__mysqlpp___targetsuf2 = .$(SO_SUFFIX)
 @COND_PLATFORM_MACOSX_0_USE_SOVERCYGWIN_0_USE_SOVERSION_1@__mysqlpp___targetsuf3 \
 @COND_PLATFORM_MACOSX_0_USE_SOVERCYGWIN_0_USE_SOVERSION_1@	= \
-@COND_PLATFORM_MACOSX_0_USE_SOVERCYGWIN_0_USE_SOVERSION_1@	.$(SO_SUFFIX).3.2.0
+@COND_PLATFORM_MACOSX_0_USE_SOVERCYGWIN_0_USE_SOVERSION_1@	.$(SO_SUFFIX).3.2.1
 @COND_PLATFORM_MACOSX_1_USE_SOVERSION_1@__mysqlpp___targetsuf3 \
-@COND_PLATFORM_MACOSX_1_USE_SOVERSION_1@	= .3.2.0.$(SO_SUFFIX)
+@COND_PLATFORM_MACOSX_1_USE_SOVERSION_1@	= .3.2.1.$(SO_SUFFIX)
 @COND_USE_SOVERSION_1_USE_SOVERSOLARIS_1@__mysqlpp___targetsuf3 \
 @COND_USE_SOVERSION_1_USE_SOVERSOLARIS_1@	= .$(SO_SUFFIX).3
 @COND_USE_SOVERCYGWIN_1_USE_SOVERSION_1@__mysqlpp___targetsuf3 \
@@ -735,7 +735,7 @@ doc: doc/html/refman/index.html doc/html/refman/ssx/index.html doc/html/userman/
 	done
 	cp config/*.m4 @PACKAGE_NAME@-@PACKAGE_VERSION@/config
 	cp doc/userman/userman.dbx.in @PACKAGE_NAME@-@PACKAGE_VERSION@/doc/userman
-	cp examples/*.cpp examples/*.h examples/*.jpg @PACKAGE_NAME@-@PACKAGE_VERSION@/examples
+	cp examples/*.{cpp,h,jpg,txt} @PACKAGE_NAME@-@PACKAGE_VERSION@/examples
 	for d in mfc wforms ; \
 	do \
 	mkdir -p @PACKAGE_NAME@-@PACKAGE_VERSION@/examples/vstudio/$$d ; \

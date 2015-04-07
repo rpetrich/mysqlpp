@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5. Specialized SQL Structures</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.0 User Manual"><link rel="prev" href="tquery.html" title="4. Template Queries"><link rel="next" href="unicode.html" title="6. Using Unicode with MySQL++"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5. Specialized SQL Structures</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ssqls"></a>5. Specialized SQL Structures</h2></div></div></div><p>The Specialized SQL Structure (SSQLS) feature lets you easily
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>5. Specialized SQL Structures</title><link rel="stylesheet" href="tangentsoft.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.69.1"><link rel="start" href="index.html" title="MySQL++ v3.2.1 User Manual"><link rel="up" href="index.html" title="MySQL++ v3.2.1 User Manual"><link rel="prev" href="tquery.html" title="4. Template Queries"><link rel="next" href="unicode.html" title="6. Using Unicode with MySQL++"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">5. Specialized SQL Structures</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr></table><hr></div><div class="sect1" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ssqls"></a>5. Specialized SQL Structures</h2></div></div></div><p>The Specialized SQL Structure (SSQLS) feature lets you easily
   define C++ structures that match the form of your SQL tables. At the
   most superficial level, an SSQLS has a member variable corresponding
   to each field in the SQL table. But, an SSQLS also has several
@@ -206,7 +206,7 @@ sql_create_1(stock_subset,
 vector&lt;stock_subset&gt; res;
 query.storein(res);
 // ...etc...</pre><p>MySQL++ is flexible about populating
-    SSQLSes.<sup>[<a name="idp5472800" href="#ftn.idp5472800">13</a>]</sup> It works much like the Web, a design
+    SSQLSes.<sup>[<a name="idp8419104" href="#ftn.idp8419104">13</a>]</sup> It works much like the Web, a design
     that&#8217;s enabled the development of the largest distributed
     system in the world. Just as a browser ignores tags and attributes
     it doesn&#8217;t understand, you can populate an SSQLS from a query
@@ -939,7 +939,7 @@ sql_create_complete_5(stock, 1, 5,
     <code class="classname">stock.sDate</code> to exercise this feature.</p></div><div class="sect2" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="ssqls-pretty"></a>5.11. Expanding SSQLS Macros</h3></div></div></div><p>If you ever need to see the code that a given
     SSQLS declaration expands out to, use the utility
     <code class="filename">doc/ssqls-pretty</code>, like so:</p><pre class="programlisting">
-doc/ssqls-pretty &lt; myprog.cpp |less</pre><p>This Perl script locates the first SSQLS declaration in that
+doc/ssqls-pretty &lt; myprog.cpp | less</pre><p>This Perl script locates the first SSQLS declaration in that
     file, then uses the C++ preprocessor to expand that macro. (The
     script assumes that your system&#8217;s preprocessor is called
     <code class="filename">cpp</code>, and that its command line interface
@@ -1044,13 +1044,13 @@ sql_create_2(
 class Derived : public Base
 {
 public:
-  // default constructor<sup>[<a name="idp9914848" href="#ftn.idp9914848">14</a>]</sup>
+  // default constructor<sup>[<a name="idp10667424" href="#ftn.idp10667424">14</a>]</sup>
   Derived() :
   Base()
   {
   }
 
-  // for-comparison constructor<sup>[<a name="idp9916016" href="#ftn.idp9916016">15</a>]</sup>
+  // for-comparison constructor<sup>[<a name="idp10668512" href="#ftn.idp10668512">15</a>]</sup>
   Derived(const mysqlpp::sql_varchar&amp; _a) :
   Base(_a)
   {
@@ -1062,7 +1062,7 @@ public:
   {
   }
 
-  // population constructor<sup>[<a name="idp9919168" href="#ftn.idp9919168">16</a>]</sup>
+  // population constructor<sup>[<a name="idp10671360" href="#ftn.idp10671360">16</a>]</sup>
   Derived(const mysqlpp::Row&amp; row) :
   Base(row)
   {
@@ -1224,9 +1224,9 @@ main(int argc, char* argv[])
       code that Visual C++ 2003 doesn&#8217;t support. This may happen
       without you doing anything, but if there&#8217;s someone on
       the team who cares about this, that will naturally increase
-      the chances that it does happen.</p></li></ol></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.idp5472800" href="#idp5472800">13</a>] </sup>Programs built against versions of MySQL++
+      the chances that it does happen.</p></li></ol></div></div><div class="footnotes"><br><hr width="100" align="left"><div class="footnote"><p><sup>[<a name="ftn.idp8419104" href="#idp8419104">13</a>] </sup>Programs built against versions of MySQL++
     prior to 3.0 would crash at almost any mismatch between the database
     schema and the SSQLS definition. It&#8217;s no longer necessary to
     keep the data design in lock-step between the client and database
     server. A mismatch can result in data loss, but not a
-    crash.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp9914848" href="#idp9914848">14</a>] </sup>needed by mechanisms like <code class="methodname">Query::storein()</code>; anything using an STL container, which usually require default ctors for contained data structures</p></div><div class="footnote"><p><sup>[<a name="ftn.idp9916016" href="#idp9916016">15</a>] </sup>takes the <em class="parameter"><code>COMPCOUNT</code></em> subset of the SSQLS&#8217;s data members, used for making comparison exemplars, used with <code class="methodname">Query::update()</code> and similar mechanisms; see <a href="ssqls.html#sql_create" title="5.1. sql_create">Section 5.1, &#8220;sql_create&#8221;</a> for more on <em class="parameter"><code>COMPCOUNT</code></em></p></div><div class="footnote"><p><sup>[<a name="ftn.idp9919168" href="#idp9919168">16</a>] </sup>used in taking raw row data from a SQL result set and converting it to SSQLS form</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4. Template Queries </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 6. Using Unicode with MySQL++</td></tr></table></div></body></html>
+    crash.</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10667424" href="#idp10667424">14</a>] </sup>needed by mechanisms like <code class="methodname">Query::storein()</code>; anything using an STL container, which usually require default ctors for contained data structures</p></div><div class="footnote"><p><sup>[<a name="ftn.idp10668512" href="#idp10668512">15</a>] </sup>takes the <em class="parameter"><code>COMPCOUNT</code></em> subset of the SSQLS&#8217;s data members, used for making comparison exemplars, used with <code class="methodname">Query::update()</code> and similar mechanisms; see <a href="ssqls.html#sql_create" title="5.1. sql_create">Section 5.1, &#8220;sql_create&#8221;</a> for more on <em class="parameter"><code>COMPCOUNT</code></em></p></div><div class="footnote"><p><sup>[<a name="ftn.idp10671360" href="#idp10671360">16</a>] </sup>used in taking raw row data from a SQL result set and converting it to SSQLS form</p></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tquery.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="unicode.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">4. Template Queries </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 6. Using Unicode with MySQL++</td></tr></table></div></body></html>
