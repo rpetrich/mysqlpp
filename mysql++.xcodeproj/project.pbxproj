@@ -1,0 +1,4472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00000000000000000000000e = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000000d;
+		};
+		000000000000000000000010 = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000000f;
+		};
+		000000000000000000000012 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000011;
+		};
+		000000000000000000000014 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000013;
+		};
+		000000000000000000000016 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000015;
+		};
+		000000000000000000000018 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000017;
+		};
+		00000000000000000000001a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000019;
+		};
+		00000000000000000000001c = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000001b;
+		};
+		00000000000000000000001e = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000001d;
+		};
+		000000000000000000000020 = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000001f;
+		};
+		000000000000000000000022 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000021;
+		};
+		000000000000000000000024 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000023;
+		};
+		000000000000000000000026 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000025;
+		};
+		000000000000000000000028 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000027;
+		};
+		00000000000000000000002a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000029;
+		};
+		00000000000000000000002c = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000002b;
+		};
+		00000000000000000000002e = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000002d;
+		};
+		000000000000000000000030 = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000002f;
+		};
+		000000000000000000000032 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000031;
+		};
+		000000000000000000000034 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000033;
+		};
+		000000000000000000000036 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000035;
+		};
+		000000000000000000000038 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000037;
+		};
+		00000000000000000000003a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000039;
+		};
+		00000000000000000000003c = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000003b;
+		};
+		00000000000000000000003e = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000003d;
+		};
+		000000000000000000000049 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000048;
+		};
+		000000000000000000000055 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000054;
+		};
+		000000000000000000000061 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000060;
+		};
+		00000000000000000000006d = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000006c;
+		};
+		000000000000000000000079 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000078;
+		};
+		000000000000000000000085 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000084;
+		};
+		000000000000000000000091 = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000090;
+		};
+		00000000000000000000009d = {
+			isa = PBXBuildFile;
+			fileRef = 00000000000000000000009c;
+		};
+		0000000000000000000000a9 = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000000a8;
+		};
+		0000000000000000000000b5 = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000000b4;
+		};
+		0000000000000000000000c1 = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000000c0;
+		};
+		0000000000000000000000cd = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000000cc;
+		};
+		0000000000000000000000da = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000000d9;
+		};
+		0000000000000000000000dc = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000000db;
+		};
+		0000000000000000000000ea = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000000e9;
+		};
+		0000000000000000000000fa = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000000f9;
+		};
+		00000000000000000000010a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000109;
+		};
+		00000000000000000000011a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000119;
+		};
+		00000000000000000000012a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000129;
+		};
+		00000000000000000000013a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000139;
+		};
+		00000000000000000000014a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000149;
+		};
+		00000000000000000000015a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000159;
+		};
+		00000000000000000000016a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000169;
+		};
+		00000000000000000000017a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000179;
+		};
+		00000000000000000000018a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000189;
+		};
+		00000000000000000000019a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000199;
+		};
+		0000000000000000000001aa = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000001a9;
+		};
+		0000000000000000000001ba = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000001b9;
+		};
+		0000000000000000000001ca = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000001c9;
+		};
+		0000000000000000000001da = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000001d9;
+		};
+		0000000000000000000001ea = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000001e9;
+		};
+		0000000000000000000001fa = {
+			isa = PBXBuildFile;
+			fileRef = 0000000000000000000001f9;
+		};
+		00000000000000000000020a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000209;
+		};
+		00000000000000000000021a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000219;
+		};
+		00000000000000000000022a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000229;
+		};
+		00000000000000000000023a = {
+			isa = PBXBuildFile;
+			fileRef = 000000000000000000000239;
+		};
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00000000000000000000003f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000004a = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000004c = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000056 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000058 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000062 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000064 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000006e = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000070 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000007a = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000007c = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000086 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000088 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000092 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		000000000000000000000094 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000009e = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000a0 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000aa = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000ac = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000b6 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000b8 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000c2 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000c4 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000ce = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000d0 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000dd = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000df = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000000e1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000eb = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000000ed = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000ef = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000000f1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000fb = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000000fd = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000000ff = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000101 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000010b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000010d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000010f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000111 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000011b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000011d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000011f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000121 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000012b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000012d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000012f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000131 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000013b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000013d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000013f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000141 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000014b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000014d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000014f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000151 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000015b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000015d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000015f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000161 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000016b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000016d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000016f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000171 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000017b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000017d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000017f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000181 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000018b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000018d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000018f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000191 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000019b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000019d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000019f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001a1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001ab = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001ad = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001af = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001b1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001bb = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001bd = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001bf = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001c1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001cb = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001cd = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001cf = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001d1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001db = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001dd = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001df = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001e1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001eb = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001ed = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001ef = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001f1 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001fb = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		0000000000000000000001fd = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		0000000000000000000001ff = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000201 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000020b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000020d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000020f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000211 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000021b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000021d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000021f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000221 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000022b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000022d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000022f = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		000000000000000000000231 = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+		00000000000000000000023b = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 0000000000000000000000d2;
+			remoteInfo = excommon;
+		};
+		00000000000000000000023d = {
+			isa = PBXContainerItemProxy;
+			containerPortal = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+			proxyType = 1;
+			remoteGlobalIDString = 000000000000000000000006;
+			remoteInfo = mysqlpp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00000000000000000000000a = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.dylib";
+			path = mysqlpp;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		00000000000000000000000d = {
+			isa = PBXFileReference;
+			path = beemutex.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000000f = {
+			isa = PBXFileReference;
+			path = connection.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000011 = {
+			isa = PBXFileReference;
+			path = cpool.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000013 = {
+			isa = PBXFileReference;
+			path = datetime.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000015 = {
+			isa = PBXFileReference;
+			path = dbdriver.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000017 = {
+			isa = PBXFileReference;
+			path = field_names.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000019 = {
+			isa = PBXFileReference;
+			path = field_types.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000001b = {
+			isa = PBXFileReference;
+			path = manip.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000001d = {
+			isa = PBXFileReference;
+			path = myset.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000001f = {
+			isa = PBXFileReference;
+			path = "mysql++.cpp";
+			sourceTree = "<group>";
+		};
+		000000000000000000000021 = {
+			isa = PBXFileReference;
+			path = mystring.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000023 = {
+			isa = PBXFileReference;
+			path = null.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000025 = {
+			isa = PBXFileReference;
+			path = options.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000027 = {
+			isa = PBXFileReference;
+			path = qparms.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000029 = {
+			isa = PBXFileReference;
+			path = query.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000002b = {
+			isa = PBXFileReference;
+			path = result.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000002d = {
+			isa = PBXFileReference;
+			path = row.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000002f = {
+			isa = PBXFileReference;
+			path = sql_buffer.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000031 = {
+			isa = PBXFileReference;
+			path = stadapter.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000033 = {
+			isa = PBXFileReference;
+			path = tcp_connection.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000035 = {
+			isa = PBXFileReference;
+			path = transaction.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000037 = {
+			isa = PBXFileReference;
+			path = type_info.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000039 = {
+			isa = PBXFileReference;
+			path = uds_connection.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000003b = {
+			isa = PBXFileReference;
+			path = vallist.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000003d = {
+			isa = PBXFileReference;
+			path = wnp_connection.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000045 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_array_index;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000048 = {
+			isa = PBXFileReference;
+			path = array_index.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000052 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_cpool;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000054 = {
+			isa = PBXFileReference;
+			path = cpool.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000005e = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_datetime;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000060 = {
+			isa = PBXFileReference;
+			path = datetime.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000006a = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_inttypes;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		00000000000000000000006c = {
+			isa = PBXFileReference;
+			path = inttypes.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000076 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_manip;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000078 = {
+			isa = PBXFileReference;
+			path = manip.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000082 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_null_comparison;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000084 = {
+			isa = PBXFileReference;
+			path = null_comparison.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000008e = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_qssqls;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000090 = {
+			isa = PBXFileReference;
+			path = qssqls.cpp;
+			sourceTree = "<group>";
+		};
+		00000000000000000000009a = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_qstream;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		00000000000000000000009c = {
+			isa = PBXFileReference;
+			path = qstream.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000a6 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_string;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000000a8 = {
+			isa = PBXFileReference;
+			path = string.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000b2 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_tcp;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000000b4 = {
+			isa = PBXFileReference;
+			path = tcp.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000be = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_uds;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000000c0 = {
+			isa = PBXFileReference;
+			path = uds.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000ca = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = test_wnp;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000000cc = {
+			isa = PBXFileReference;
+			path = wnp.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000d6 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = archive.ar;
+			path = excommon;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000000d9 = {
+			isa = PBXFileReference;
+			path = cmdline.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000db = {
+			isa = PBXFileReference;
+			path = printdata.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000e7 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = cgi_jpeg;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000000e9 = {
+			isa = PBXFileReference;
+			path = cgi_jpeg.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000f7 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = cpool;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000000f9 = {
+			isa = PBXFileReference;
+			path = cpool.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000107 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = dbinfo;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000109 = {
+			isa = PBXFileReference;
+			path = dbinfo.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000117 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = deadlock;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000119 = {
+			isa = PBXFileReference;
+			path = deadlock.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000127 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = fieldinf;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000129 = {
+			isa = PBXFileReference;
+			path = fieldinf.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000137 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = for_each;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000139 = {
+			isa = PBXFileReference;
+			path = for_each.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000147 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = load_jpeg;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000149 = {
+			isa = PBXFileReference;
+			path = load_jpeg.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000157 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = multiquery;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000159 = {
+			isa = PBXFileReference;
+			path = multiquery.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000167 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = resetdb;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000169 = {
+			isa = PBXFileReference;
+			path = resetdb.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000177 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = simple1;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000179 = {
+			isa = PBXFileReference;
+			path = simple1.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000187 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = simple2;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000189 = {
+			isa = PBXFileReference;
+			path = simple2.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000197 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = simple3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000199 = {
+			isa = PBXFileReference;
+			path = simple3.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000001a7 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = ssqls1;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000001a9 = {
+			isa = PBXFileReference;
+			path = ssqls1.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000001b7 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = ssqls2;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000001b9 = {
+			isa = PBXFileReference;
+			path = ssqls2.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000001c7 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = ssqls3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000001c9 = {
+			isa = PBXFileReference;
+			path = ssqls3.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000001d7 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = ssqls4;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000001d9 = {
+			isa = PBXFileReference;
+			path = ssqls4.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000001e7 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = ssqls5;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000001e9 = {
+			isa = PBXFileReference;
+			path = ssqls5.cpp;
+			sourceTree = "<group>";
+		};
+		0000000000000000000001f7 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = store_if;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0000000000000000000001f9 = {
+			isa = PBXFileReference;
+			path = store_if.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000207 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = tquery1;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000209 = {
+			isa = PBXFileReference;
+			path = tquery1.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000217 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = tquery2;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000219 = {
+			isa = PBXFileReference;
+			path = tquery2.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000227 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = tquery3;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000229 = {
+			isa = PBXFileReference;
+			path = tquery3.cpp;
+			sourceTree = "<group>";
+		};
+		000000000000000000000237 = {
+			isa = PBXFileReference;
+			includeInIndex = 0;
+			lastKnownFileType = "compiled.mach-o.executable";
+			path = transaction;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		000000000000000000000239 = {
+			isa = PBXFileReference;
+			path = transaction.cpp;
+			sourceTree = "<group>";
+		};
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		000000000000000000000004 = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000005,
+				00000000000000000000000c,
+				000000000000000000000047,
+				0000000000000000000000d8,
+			);
+			name = "mysql++";
+			sourceTree = "<group>";
+		};
+		000000000000000000000005 = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000000a,
+				000000000000000000000045,
+				000000000000000000000052,
+				00000000000000000000005e,
+				00000000000000000000006a,
+				000000000000000000000076,
+				000000000000000000000082,
+				00000000000000000000008e,
+				00000000000000000000009a,
+				0000000000000000000000a6,
+				0000000000000000000000b2,
+				0000000000000000000000be,
+				0000000000000000000000ca,
+				0000000000000000000000d6,
+				0000000000000000000000e7,
+				0000000000000000000000f7,
+				000000000000000000000107,
+				000000000000000000000117,
+				000000000000000000000127,
+				000000000000000000000137,
+				000000000000000000000147,
+				000000000000000000000157,
+				000000000000000000000167,
+				000000000000000000000177,
+				000000000000000000000187,
+				000000000000000000000197,
+				0000000000000000000001a7,
+				0000000000000000000001b7,
+				0000000000000000000001c7,
+				0000000000000000000001d7,
+				0000000000000000000001e7,
+				0000000000000000000001f7,
+				000000000000000000000207,
+				000000000000000000000217,
+				000000000000000000000227,
+				000000000000000000000237,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00000000000000000000000c = {
+			isa = PBXGroup;
+			children = (
+				00000000000000000000000d,
+				00000000000000000000000f,
+				000000000000000000000011,
+				000000000000000000000013,
+				000000000000000000000015,
+				000000000000000000000017,
+				000000000000000000000019,
+				00000000000000000000001b,
+				00000000000000000000001d,
+				00000000000000000000001f,
+				000000000000000000000021,
+				000000000000000000000023,
+				000000000000000000000025,
+				000000000000000000000027,
+				000000000000000000000029,
+				00000000000000000000002b,
+				00000000000000000000002d,
+				00000000000000000000002f,
+				000000000000000000000031,
+				000000000000000000000033,
+				000000000000000000000035,
+				000000000000000000000037,
+				000000000000000000000039,
+				00000000000000000000003b,
+				00000000000000000000003d,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		000000000000000000000047 = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000048,
+				000000000000000000000054,
+				000000000000000000000060,
+				00000000000000000000006c,
+				000000000000000000000078,
+				000000000000000000000084,
+				000000000000000000000090,
+				00000000000000000000009c,
+				0000000000000000000000a8,
+				0000000000000000000000b4,
+				0000000000000000000000c0,
+				0000000000000000000000cc,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		0000000000000000000000d8 = {
+			isa = PBXGroup;
+			children = (
+				0000000000000000000000d9,
+				0000000000000000000000db,
+				0000000000000000000000e9,
+				0000000000000000000000f9,
+				000000000000000000000109,
+				000000000000000000000119,
+				000000000000000000000129,
+				000000000000000000000139,
+				000000000000000000000149,
+				000000000000000000000159,
+				000000000000000000000169,
+				000000000000000000000179,
+				000000000000000000000189,
+				000000000000000000000199,
+				0000000000000000000001a9,
+				0000000000000000000001b9,
+				0000000000000000000001c9,
+				0000000000000000000001d9,
+				0000000000000000000001e9,
+				0000000000000000000001f9,
+				000000000000000000000209,
+				000000000000000000000219,
+				000000000000000000000229,
+				000000000000000000000239,
+			);
+			path = examples;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		000000000000000000000006 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000009;
+			buildPhases = (
+				00000000000000000000000b,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mysqlpp;
+			productReference = 00000000000000000000000a;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		000000000000000000000041 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000044;
+			buildPhases = (
+				000000000000000000000046,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000040,
+			);
+			name = test_array_index;
+			productReference = 000000000000000000000045;
+			productType = "com.apple.product-type.tool";
+		};
+		00000000000000000000004e = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000051;
+			buildPhases = (
+				000000000000000000000053,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00000000000000000000004d,
+			);
+			name = test_cpool;
+			productReference = 000000000000000000000052;
+			productType = "com.apple.product-type.tool";
+		};
+		00000000000000000000005a = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00000000000000000000005d;
+			buildPhases = (
+				00000000000000000000005f,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000059,
+			);
+			name = test_datetime;
+			productReference = 00000000000000000000005e;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000066 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000069;
+			buildPhases = (
+				00000000000000000000006b,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000065,
+			);
+			name = test_inttypes;
+			productReference = 00000000000000000000006a;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000072 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000075;
+			buildPhases = (
+				000000000000000000000077,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000071,
+			);
+			name = test_manip;
+			productReference = 000000000000000000000076;
+			productType = "com.apple.product-type.tool";
+		};
+		00000000000000000000007e = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000081;
+			buildPhases = (
+				000000000000000000000083,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00000000000000000000007d,
+			);
+			name = test_null_comparison;
+			productReference = 000000000000000000000082;
+			productType = "com.apple.product-type.tool";
+		};
+		00000000000000000000008a = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00000000000000000000008d;
+			buildPhases = (
+				00000000000000000000008f,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000089,
+			);
+			name = test_qssqls;
+			productReference = 00000000000000000000008e;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000096 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000099;
+			buildPhases = (
+				00000000000000000000009b,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000095,
+			);
+			name = test_qstream;
+			productReference = 00000000000000000000009a;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000000a2 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000000a5;
+			buildPhases = (
+				0000000000000000000000a7,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000000a1,
+			);
+			name = test_string;
+			productReference = 0000000000000000000000a6;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000000ae = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000000b1;
+			buildPhases = (
+				0000000000000000000000b3,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000000ad,
+			);
+			name = test_tcp;
+			productReference = 0000000000000000000000b2;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000000ba = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000000bd;
+			buildPhases = (
+				0000000000000000000000bf,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000000b9,
+			);
+			name = test_uds;
+			productReference = 0000000000000000000000be;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000000c6 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000000c9;
+			buildPhases = (
+				0000000000000000000000cb,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000000c5,
+			);
+			name = test_wnp;
+			productReference = 0000000000000000000000ca;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000000d2 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000000d5;
+			buildPhases = (
+				0000000000000000000000d7,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000000d1,
+			);
+			name = excommon;
+			productReference = 0000000000000000000000d6;
+			productType = "com.apple.product-type.library.static";
+		};
+		0000000000000000000000e3 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000000e6;
+			buildPhases = (
+				0000000000000000000000e8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000000e0,
+				0000000000000000000000e2,
+			);
+			name = cgi_jpeg;
+			productReference = 0000000000000000000000e7;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000000f3 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000000f6;
+			buildPhases = (
+				0000000000000000000000f8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000000f0,
+				0000000000000000000000f2,
+			);
+			name = cpool;
+			productReference = 0000000000000000000000f7;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000103 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000106;
+			buildPhases = (
+				000000000000000000000108,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000100,
+				000000000000000000000102,
+			);
+			name = dbinfo;
+			productReference = 000000000000000000000107;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000113 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000116;
+			buildPhases = (
+				000000000000000000000118,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000110,
+				000000000000000000000112,
+			);
+			name = deadlock;
+			productReference = 000000000000000000000117;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000123 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000126;
+			buildPhases = (
+				000000000000000000000128,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000120,
+				000000000000000000000122,
+			);
+			name = fieldinf;
+			productReference = 000000000000000000000127;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000133 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000136;
+			buildPhases = (
+				000000000000000000000138,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000130,
+				000000000000000000000132,
+			);
+			name = for_each;
+			productReference = 000000000000000000000137;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000143 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000146;
+			buildPhases = (
+				000000000000000000000148,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000140,
+				000000000000000000000142,
+			);
+			name = load_jpeg;
+			productReference = 000000000000000000000147;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000153 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000156;
+			buildPhases = (
+				000000000000000000000158,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000150,
+				000000000000000000000152,
+			);
+			name = multiquery;
+			productReference = 000000000000000000000157;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000163 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000166;
+			buildPhases = (
+				000000000000000000000168,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000160,
+				000000000000000000000162,
+			);
+			name = resetdb;
+			productReference = 000000000000000000000167;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000173 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000176;
+			buildPhases = (
+				000000000000000000000178,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000170,
+				000000000000000000000172,
+			);
+			name = simple1;
+			productReference = 000000000000000000000177;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000183 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000186;
+			buildPhases = (
+				000000000000000000000188,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000180,
+				000000000000000000000182,
+			);
+			name = simple2;
+			productReference = 000000000000000000000187;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000193 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000196;
+			buildPhases = (
+				000000000000000000000198,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000190,
+				000000000000000000000192,
+			);
+			name = simple3;
+			productReference = 000000000000000000000197;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000001a3 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000001a6;
+			buildPhases = (
+				0000000000000000000001a8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000001a0,
+				0000000000000000000001a2,
+			);
+			name = ssqls1;
+			productReference = 0000000000000000000001a7;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000001b3 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000001b6;
+			buildPhases = (
+				0000000000000000000001b8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000001b0,
+				0000000000000000000001b2,
+			);
+			name = ssqls2;
+			productReference = 0000000000000000000001b7;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000001c3 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000001c6;
+			buildPhases = (
+				0000000000000000000001c8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000001c0,
+				0000000000000000000001c2,
+			);
+			name = ssqls3;
+			productReference = 0000000000000000000001c7;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000001d3 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000001d6;
+			buildPhases = (
+				0000000000000000000001d8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000001d0,
+				0000000000000000000001d2,
+			);
+			name = ssqls4;
+			productReference = 0000000000000000000001d7;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000001e3 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000001e6;
+			buildPhases = (
+				0000000000000000000001e8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000001e0,
+				0000000000000000000001e2,
+			);
+			name = ssqls5;
+			productReference = 0000000000000000000001e7;
+			productType = "com.apple.product-type.tool";
+		};
+		0000000000000000000001f3 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0000000000000000000001f6;
+			buildPhases = (
+				0000000000000000000001f8,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0000000000000000000001f0,
+				0000000000000000000001f2,
+			);
+			name = store_if;
+			productReference = 0000000000000000000001f7;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000203 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000206;
+			buildPhases = (
+				000000000000000000000208,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000200,
+				000000000000000000000202,
+			);
+			name = tquery1;
+			productReference = 000000000000000000000207;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000213 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000216;
+			buildPhases = (
+				000000000000000000000218,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000210,
+				000000000000000000000212,
+			);
+			name = tquery2;
+			productReference = 000000000000000000000217;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000223 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000226;
+			buildPhases = (
+				000000000000000000000228,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000220,
+				000000000000000000000222,
+			);
+			name = tquery3;
+			productReference = 000000000000000000000227;
+			productType = "com.apple.product-type.tool";
+		};
+		000000000000000000000233 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000236;
+			buildPhases = (
+				000000000000000000000238,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				000000000000000000000230,
+				000000000000000000000232,
+			);
+			name = transaction;
+			productReference = 000000000000000000000237;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		"EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9" = {
+			isa = PBXProject;
+			buildConfigurationList = 000000000000000000000003;
+			hasScannedForEncodings = 1;
+			mainGroup = 000000000000000000000004;
+			productRefGroup = 000000000000000000000005;
+			projectDirPath = "";
+			targets = (
+				000000000000000000000006,
+				000000000000000000000041,
+				00000000000000000000004e,
+				00000000000000000000005a,
+				000000000000000000000066,
+				000000000000000000000072,
+				00000000000000000000007e,
+				00000000000000000000008a,
+				000000000000000000000096,
+				0000000000000000000000a2,
+				0000000000000000000000ae,
+				0000000000000000000000ba,
+				0000000000000000000000c6,
+				0000000000000000000000d2,
+				0000000000000000000000e3,
+				0000000000000000000000f3,
+				000000000000000000000103,
+				000000000000000000000113,
+				000000000000000000000123,
+				000000000000000000000133,
+				000000000000000000000143,
+				000000000000000000000153,
+				000000000000000000000163,
+				000000000000000000000173,
+				000000000000000000000183,
+				000000000000000000000193,
+				0000000000000000000001a3,
+				0000000000000000000001b3,
+				0000000000000000000001c3,
+				0000000000000000000001d3,
+				0000000000000000000001e3,
+				0000000000000000000001f3,
+				000000000000000000000203,
+				000000000000000000000213,
+				000000000000000000000223,
+				000000000000000000000233,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00000000000000000000000b = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000000e,
+				000000000000000000000010,
+				000000000000000000000012,
+				000000000000000000000014,
+				000000000000000000000016,
+				000000000000000000000018,
+				00000000000000000000001a,
+				00000000000000000000001c,
+				00000000000000000000001e,
+				000000000000000000000020,
+				000000000000000000000022,
+				000000000000000000000024,
+				000000000000000000000026,
+				000000000000000000000028,
+				00000000000000000000002a,
+				00000000000000000000002c,
+				00000000000000000000002e,
+				000000000000000000000030,
+				000000000000000000000032,
+				000000000000000000000034,
+				000000000000000000000036,
+				000000000000000000000038,
+				00000000000000000000003a,
+				00000000000000000000003c,
+				00000000000000000000003e,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000046 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000049,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000053 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000055,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00000000000000000000005f = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000061,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00000000000000000000006b = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000006d,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000077 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000079,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000083 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000085,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00000000000000000000008f = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000091,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00000000000000000000009b = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000009d,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000000a7 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000a9,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000000b3 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000b5,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000000bf = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000c1,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000000cb = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000cd,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000000d7 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000da,
+				0000000000000000000000dc,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000000e8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000ea,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000000f8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000fa,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000108 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000010a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000118 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000011a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000128 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000012a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000138 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000013a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000148 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000014a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000158 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000015a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000168 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000016a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000178 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000017a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000188 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000018a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000198 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000019a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000001a8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000001aa,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000001b8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000001ba,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000001c8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000001ca,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000001d8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000001da,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000001e8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000001ea,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0000000000000000000001f8 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000001fa,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000208 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000020a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000218 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000021a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000228 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000022a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000238 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00000000000000000000023a,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		000000000000000000000040 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000003f;
+		};
+		00000000000000000000004b = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000004a;
+		};
+		00000000000000000000004d = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000004c;
+		};
+		000000000000000000000057 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000056;
+		};
+		000000000000000000000059 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000058;
+		};
+		000000000000000000000063 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000062;
+		};
+		000000000000000000000065 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000064;
+		};
+		00000000000000000000006f = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000006e;
+		};
+		000000000000000000000071 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000070;
+		};
+		00000000000000000000007b = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000007a;
+		};
+		00000000000000000000007d = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000007c;
+		};
+		000000000000000000000087 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000086;
+		};
+		000000000000000000000089 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000088;
+		};
+		000000000000000000000093 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000092;
+		};
+		000000000000000000000095 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000094;
+		};
+		00000000000000000000009f = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000009e;
+		};
+		0000000000000000000000a1 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000a0;
+		};
+		0000000000000000000000ab = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000aa;
+		};
+		0000000000000000000000ad = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000ac;
+		};
+		0000000000000000000000b7 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000b6;
+		};
+		0000000000000000000000b9 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000b8;
+		};
+		0000000000000000000000c3 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000c2;
+		};
+		0000000000000000000000c5 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000c4;
+		};
+		0000000000000000000000cf = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000ce;
+		};
+		0000000000000000000000d1 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000d0;
+		};
+		0000000000000000000000de = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000dd;
+		};
+		0000000000000000000000e0 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000000df;
+		};
+		0000000000000000000000e2 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000e1;
+		};
+		0000000000000000000000ec = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000000eb;
+		};
+		0000000000000000000000ee = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000ed;
+		};
+		0000000000000000000000f0 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000000ef;
+		};
+		0000000000000000000000f2 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000f1;
+		};
+		0000000000000000000000fc = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000000fb;
+		};
+		0000000000000000000000fe = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000000fd;
+		};
+		000000000000000000000100 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000000ff;
+		};
+		000000000000000000000102 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000101;
+		};
+		00000000000000000000010c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000010b;
+		};
+		00000000000000000000010e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000010d;
+		};
+		000000000000000000000110 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000010f;
+		};
+		000000000000000000000112 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000111;
+		};
+		00000000000000000000011c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000011b;
+		};
+		00000000000000000000011e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000011d;
+		};
+		000000000000000000000120 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000011f;
+		};
+		000000000000000000000122 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000121;
+		};
+		00000000000000000000012c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000012b;
+		};
+		00000000000000000000012e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000012d;
+		};
+		000000000000000000000130 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000012f;
+		};
+		000000000000000000000132 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000131;
+		};
+		00000000000000000000013c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000013b;
+		};
+		00000000000000000000013e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000013d;
+		};
+		000000000000000000000140 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000013f;
+		};
+		000000000000000000000142 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000141;
+		};
+		00000000000000000000014c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000014b;
+		};
+		00000000000000000000014e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000014d;
+		};
+		000000000000000000000150 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000014f;
+		};
+		000000000000000000000152 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000151;
+		};
+		00000000000000000000015c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000015b;
+		};
+		00000000000000000000015e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000015d;
+		};
+		000000000000000000000160 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000015f;
+		};
+		000000000000000000000162 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000161;
+		};
+		00000000000000000000016c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000016b;
+		};
+		00000000000000000000016e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000016d;
+		};
+		000000000000000000000170 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000016f;
+		};
+		000000000000000000000172 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000171;
+		};
+		00000000000000000000017c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000017b;
+		};
+		00000000000000000000017e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000017d;
+		};
+		000000000000000000000180 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000017f;
+		};
+		000000000000000000000182 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000181;
+		};
+		00000000000000000000018c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000018b;
+		};
+		00000000000000000000018e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000018d;
+		};
+		000000000000000000000190 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000018f;
+		};
+		000000000000000000000192 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000191;
+		};
+		00000000000000000000019c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000019b;
+		};
+		00000000000000000000019e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000019d;
+		};
+		0000000000000000000001a0 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000019f;
+		};
+		0000000000000000000001a2 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001a1;
+		};
+		0000000000000000000001ac = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001ab;
+		};
+		0000000000000000000001ae = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001ad;
+		};
+		0000000000000000000001b0 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001af;
+		};
+		0000000000000000000001b2 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001b1;
+		};
+		0000000000000000000001bc = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001bb;
+		};
+		0000000000000000000001be = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001bd;
+		};
+		0000000000000000000001c0 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001bf;
+		};
+		0000000000000000000001c2 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001c1;
+		};
+		0000000000000000000001cc = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001cb;
+		};
+		0000000000000000000001ce = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001cd;
+		};
+		0000000000000000000001d0 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001cf;
+		};
+		0000000000000000000001d2 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001d1;
+		};
+		0000000000000000000001dc = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001db;
+		};
+		0000000000000000000001de = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001dd;
+		};
+		0000000000000000000001e0 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001df;
+		};
+		0000000000000000000001e2 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001e1;
+		};
+		0000000000000000000001ec = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001eb;
+		};
+		0000000000000000000001ee = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001ed;
+		};
+		0000000000000000000001f0 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001ef;
+		};
+		0000000000000000000001f2 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001f1;
+		};
+		0000000000000000000001fc = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001fb;
+		};
+		0000000000000000000001fe = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 0000000000000000000001fd;
+		};
+		000000000000000000000200 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 0000000000000000000001ff;
+		};
+		000000000000000000000202 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000201;
+		};
+		00000000000000000000020c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000020b;
+		};
+		00000000000000000000020e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000020d;
+		};
+		000000000000000000000210 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000020f;
+		};
+		000000000000000000000212 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000211;
+		};
+		00000000000000000000021c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000021b;
+		};
+		00000000000000000000021e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000021d;
+		};
+		000000000000000000000220 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000021f;
+		};
+		000000000000000000000222 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000221;
+		};
+		00000000000000000000022c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000022b;
+		};
+		00000000000000000000022e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000022d;
+		};
+		000000000000000000000230 = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000022f;
+		};
+		000000000000000000000232 = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 000000000000000000000231;
+		};
+		00000000000000000000023c = {
+			isa = PBXTargetDependency;
+			target = 0000000000000000000000d2;
+			targetProxy = 00000000000000000000023b;
+		};
+		00000000000000000000023e = {
+			isa = PBXTargetDependency;
+			target = 000000000000000000000006;
+			targetProxy = 00000000000000000000023d;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		000000000000000000000001 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		000000000000000000000002 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		000000000000000000000007 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libmysqlpp_d;
+			};
+			name = Debug;
+		};
+		000000000000000000000008 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = libmysqlpp;
+			};
+			name = Release;
+		};
+		000000000000000000000042 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_array_index;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000043 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_array_index;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		00000000000000000000004f = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_cpool;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000050 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_cpool;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		00000000000000000000005b = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_datetime;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		00000000000000000000005c = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_datetime;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000067 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_inttypes;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000068 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_inttypes;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000073 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_manip;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000074 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_manip;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		00000000000000000000007f = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_null_comparison;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000080 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_null_comparison;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		00000000000000000000008b = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_qssqls;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		00000000000000000000008c = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_qssqls;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000097 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_qstream;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000098 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_qstream;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000000a3 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_string;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000000a4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_string;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000000af = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_tcp;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000000b0 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_tcp;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000000bb = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_uds;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000000bc = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_uds;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000000c7 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = test_wnp;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000000c8 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = test_wnp;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000000d3 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = mysqlpp_excommon;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000000d4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = mysqlpp_excommon;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000000e4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = cgi_jpeg;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000000e5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = cgi_jpeg;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000000f4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = cpool;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000000f5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = cpool;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000104 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = dbinfo;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000105 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = dbinfo;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000114 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = deadlock;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000115 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = deadlock;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000124 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = fieldinf;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000125 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = fieldinf;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000134 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = for_each;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000135 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = for_each;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000144 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = load_jpeg;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000145 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = load_jpeg;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000154 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = multiquery;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000155 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = multiquery;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000164 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = resetdb;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000165 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = resetdb;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000174 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = simple1;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000175 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = simple1;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000184 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = simple2;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000185 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = simple2;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000194 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = simple3;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000195 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = simple3;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000001a4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = ssqls1;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000001a5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = ssqls1;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000001b4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = ssqls2;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000001b5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = ssqls2;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000001c4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = ssqls3;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000001c5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = ssqls3;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000001d4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = ssqls4;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000001d5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = ssqls4;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000001e4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = ssqls5;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000001e5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = ssqls5;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		0000000000000000000001f4 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = store_if;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		0000000000000000000001f5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = store_if;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000204 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = tquery1;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000205 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = tquery1;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000214 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = tquery2;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000215 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = tquery2;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000224 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = tquery3;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000225 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = tquery3;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+		000000000000000000000234 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp_d";
+				PRODUCT_NAME = transaction;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Debug;
+		};
+		000000000000000000000235 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				LIBRARY_SEARCH_PATHS = .;
+				OTHER_LDFLAGS = " -lmysqlpp_excommon -lmysqlclient -lmysqlpp";
+				PRODUCT_NAME = transaction;
+				USER_HEADER_SEARCH_PATHS = "lib /usr/local/mysql/include";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		000000000000000000000003 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000001,
+				000000000000000000000002,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000009 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000007,
+				000000000000000000000008,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000044 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000042,
+				000000000000000000000043,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000051 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00000000000000000000004f,
+				000000000000000000000050,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00000000000000000000005d = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00000000000000000000005b,
+				00000000000000000000005c,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000069 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000067,
+				000000000000000000000068,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000075 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000073,
+				000000000000000000000074,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000081 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00000000000000000000007f,
+				000000000000000000000080,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00000000000000000000008d = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00000000000000000000008b,
+				00000000000000000000008c,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000099 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000097,
+				000000000000000000000098,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000000a5 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000000a3,
+				0000000000000000000000a4,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000000b1 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000000af,
+				0000000000000000000000b0,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000000bd = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000000bb,
+				0000000000000000000000bc,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000000c9 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000000c7,
+				0000000000000000000000c8,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000000d5 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000000d3,
+				0000000000000000000000d4,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000000e6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000000e4,
+				0000000000000000000000e5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000000f6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000000f4,
+				0000000000000000000000f5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000106 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000104,
+				000000000000000000000105,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000116 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000114,
+				000000000000000000000115,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000126 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000124,
+				000000000000000000000125,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000136 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000134,
+				000000000000000000000135,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000146 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000144,
+				000000000000000000000145,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000156 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000154,
+				000000000000000000000155,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000166 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000164,
+				000000000000000000000165,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000176 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000174,
+				000000000000000000000175,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000186 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000184,
+				000000000000000000000185,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000196 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000194,
+				000000000000000000000195,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000001a6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000001a4,
+				0000000000000000000001a5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000001b6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000001b4,
+				0000000000000000000001b5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000001c6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000001c4,
+				0000000000000000000001c5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000001d6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000001d4,
+				0000000000000000000001d5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000001e6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000001e4,
+				0000000000000000000001e5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0000000000000000000001f6 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0000000000000000000001f4,
+				0000000000000000000001f5,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000206 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000204,
+				000000000000000000000205,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000216 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000214,
+				000000000000000000000215,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000226 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000224,
+				000000000000000000000225,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000236 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000234,
+				000000000000000000000235,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+	}
+/* End XCConfigurationList section */
+
+;
+	rootObject = "EE5B4FAE-1182-5E68-B8AB-0C713C7D3AA9";
+}
