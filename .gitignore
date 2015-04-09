@@ -1,0 +1,9 @@
+*.o
+*.so
+*.so*
+Makefile
+.deps
+config.log
+config.status
+config.h
+libtool
