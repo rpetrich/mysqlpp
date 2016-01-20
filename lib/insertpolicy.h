@@ -140,7 +140,7 @@ public:
 	/// \retval true if the object is allowed to be added to the
 	/// INSERT statement
 	template <class RowT>
-	bool can_add(int size, const RowT& object) const
+	bool can_add(int size, const RowT&) const
 	{
 		return (size < size_);
 	}
